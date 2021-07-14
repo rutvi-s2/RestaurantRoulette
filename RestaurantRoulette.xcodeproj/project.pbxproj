@@ -3,20 +3,25 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		3DF183C047E7595B3243D52B /* Pods_RestaurantRouletteTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 086EA65FC97C6F572CB974C9 /* Pods_RestaurantRouletteTests.framework */; };
 		4950BF25269CA355004FA5CA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4950BF24269CA355004FA5CA /* AppDelegate.m */; };
 		4950BF28269CA355004FA5CA /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4950BF27269CA355004FA5CA /* SceneDelegate.m */; };
-		4950BF2B269CA355004FA5CA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4950BF2A269CA355004FA5CA /* ViewController.m */; };
 		4950BF2E269CA355004FA5CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4950BF2C269CA355004FA5CA /* Main.storyboard */; };
 		4950BF30269CA356004FA5CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4950BF2F269CA356004FA5CA /* Assets.xcassets */; };
 		4950BF33269CA356004FA5CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4950BF31269CA356004FA5CA /* LaunchScreen.storyboard */; };
 		4950BF36269CA356004FA5CA /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4950BF35269CA356004FA5CA /* main.m */; };
 		4950BF40269CA356004FA5CA /* RestaurantRouletteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4950BF3F269CA356004FA5CA /* RestaurantRouletteTests.m */; };
 		4950BF4B269CA356004FA5CA /* RestaurantRouletteUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4950BF4A269CA356004FA5CA /* RestaurantRouletteUITests.m */; };
+		4950BF5C269CBE05004FA5CA /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4950BF5B269CBE05004FA5CA /* LoginViewController.m */; };
+		4950BF5F269CBE2B004FA5CA /* SignupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4950BF5E269CBE2B004FA5CA /* SignupViewController.m */; };
+		4950BF62269DF9A8004FA5CA /* SelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4950BF61269DF9A8004FA5CA /* SelectViewController.m */; };
+		4950BF65269DFA7A004FA5CA /* PreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4950BF64269DFA7A004FA5CA /* PreferencesViewController.m */; };
+		4950BF68269E1557004FA5CA /* RestaurantsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4950BF67269E1557004FA5CA /* RestaurantsViewController.m */; };
+		4950BF6C269E86D1004FA5CA /* RestaurantCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4950BF6B269E86D1004FA5CA /* RestaurantCell.m */; };
 		85FA26B000B045D7D43A2262 /* Pods_RestaurantRoulette.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4EF7BD6007BE349F17C765D /* Pods_RestaurantRoulette.framework */; };
 		FC2CB2D18EE1220F1BD12E1B /* Pods_RestaurantRoulette_RestaurantRouletteUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0214CFAD7EF3BE1DE8A7B98E /* Pods_RestaurantRoulette_RestaurantRouletteUITests.framework */; };
 /* End PBXBuildFile section */
@@ -47,8 +52,6 @@
 		4950BF24269CA355004FA5CA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		4950BF26269CA355004FA5CA /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		4950BF27269CA355004FA5CA /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		4950BF29269CA355004FA5CA /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		4950BF2A269CA355004FA5CA /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		4950BF2D269CA355004FA5CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4950BF2F269CA356004FA5CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4950BF32269CA356004FA5CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -60,6 +63,18 @@
 		4950BF46269CA356004FA5CA /* RestaurantRouletteUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RestaurantRouletteUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4950BF4A269CA356004FA5CA /* RestaurantRouletteUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RestaurantRouletteUITests.m; sourceTree = "<group>"; };
 		4950BF4C269CA356004FA5CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4950BF5A269CBE05004FA5CA /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		4950BF5B269CBE05004FA5CA /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		4950BF5D269CBE2B004FA5CA /* SignupViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SignupViewController.h; sourceTree = "<group>"; };
+		4950BF5E269CBE2B004FA5CA /* SignupViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SignupViewController.m; sourceTree = "<group>"; };
+		4950BF60269DF9A8004FA5CA /* SelectViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SelectViewController.h; sourceTree = "<group>"; };
+		4950BF61269DF9A8004FA5CA /* SelectViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SelectViewController.m; sourceTree = "<group>"; };
+		4950BF63269DFA7A004FA5CA /* PreferencesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PreferencesViewController.h; sourceTree = "<group>"; };
+		4950BF64269DFA7A004FA5CA /* PreferencesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PreferencesViewController.m; sourceTree = "<group>"; };
+		4950BF66269E1557004FA5CA /* RestaurantsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RestaurantsViewController.h; sourceTree = "<group>"; };
+		4950BF67269E1557004FA5CA /* RestaurantsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RestaurantsViewController.m; sourceTree = "<group>"; };
+		4950BF6A269E86D1004FA5CA /* RestaurantCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RestaurantCell.h; sourceTree = "<group>"; };
+		4950BF6B269E86D1004FA5CA /* RestaurantCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RestaurantCell.m; sourceTree = "<group>"; };
 		60E3426D90C0ED2956779B7F /* Pods-RestaurantRoulette-RestaurantRouletteUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestaurantRoulette-RestaurantRouletteUITests.debug.xcconfig"; path = "Target Support Files/Pods-RestaurantRoulette-RestaurantRouletteUITests/Pods-RestaurantRoulette-RestaurantRouletteUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8EF3CCC66174D19EB01DCF41 /* Pods-RestaurantRoulette.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestaurantRoulette.debug.xcconfig"; path = "Target Support Files/Pods-RestaurantRoulette/Pods-RestaurantRoulette.debug.xcconfig"; sourceTree = "<group>"; };
 		A4EF7BD6007BE349F17C765D /* Pods_RestaurantRoulette.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RestaurantRoulette.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,12 +136,12 @@
 		4950BF22269CA355004FA5CA /* RestaurantRoulette */ = {
 			isa = PBXGroup;
 			children = (
+				4950BF69269E8623004FA5CA /* Views */,
+				4950BF59269CBDED004FA5CA /* View Controllers */,
 				4950BF23269CA355004FA5CA /* AppDelegate.h */,
 				4950BF24269CA355004FA5CA /* AppDelegate.m */,
 				4950BF26269CA355004FA5CA /* SceneDelegate.h */,
 				4950BF27269CA355004FA5CA /* SceneDelegate.m */,
-				4950BF29269CA355004FA5CA /* ViewController.h */,
-				4950BF2A269CA355004FA5CA /* ViewController.m */,
 				4950BF2C269CA355004FA5CA /* Main.storyboard */,
 				4950BF2F269CA356004FA5CA /* Assets.xcassets */,
 				4950BF31269CA356004FA5CA /* LaunchScreen.storyboard */,
@@ -154,6 +169,32 @@
 			path = RestaurantRouletteUITests;
 			sourceTree = "<group>";
 		};
+		4950BF59269CBDED004FA5CA /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				4950BF5A269CBE05004FA5CA /* LoginViewController.h */,
+				4950BF5B269CBE05004FA5CA /* LoginViewController.m */,
+				4950BF5D269CBE2B004FA5CA /* SignupViewController.h */,
+				4950BF5E269CBE2B004FA5CA /* SignupViewController.m */,
+				4950BF60269DF9A8004FA5CA /* SelectViewController.h */,
+				4950BF61269DF9A8004FA5CA /* SelectViewController.m */,
+				4950BF63269DFA7A004FA5CA /* PreferencesViewController.h */,
+				4950BF64269DFA7A004FA5CA /* PreferencesViewController.m */,
+				4950BF66269E1557004FA5CA /* RestaurantsViewController.h */,
+				4950BF67269E1557004FA5CA /* RestaurantsViewController.m */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		4950BF69269E8623004FA5CA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4950BF6A269E86D1004FA5CA /* RestaurantCell.h */,
+				4950BF6B269E86D1004FA5CA /* RestaurantCell.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		653DB2C0BAC57AEC86ACE4F5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,7 +215,6 @@
 				33369BAACC2943A321D8601B /* Pods-RestaurantRouletteTests.debug.xcconfig */,
 				D484AC8EC1A3E4B5B6657F1B /* Pods-RestaurantRouletteTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -189,6 +229,7 @@
 				4950BF1C269CA355004FA5CA /* Sources */,
 				4950BF1D269CA355004FA5CA /* Frameworks */,
 				4950BF1E269CA355004FA5CA /* Resources */,
+				8A9F170C3031EBFFE893EEFE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -226,6 +267,7 @@
 				4950BF42269CA356004FA5CA /* Sources */,
 				4950BF43269CA356004FA5CA /* Frameworks */,
 				4950BF44269CA356004FA5CA /* Resources */,
+				32B81E5AEF8F60824E68AA4D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -306,6 +348,40 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		32B81E5AEF8F60824E68AA4D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RestaurantRoulette-RestaurantRouletteUITests/Pods-RestaurantRoulette-RestaurantRouletteUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RestaurantRoulette-RestaurantRouletteUITests/Pods-RestaurantRoulette-RestaurantRouletteUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RestaurantRoulette-RestaurantRouletteUITests/Pods-RestaurantRoulette-RestaurantRouletteUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8A9F170C3031EBFFE893EEFE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RestaurantRoulette/Pods-RestaurantRoulette-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RestaurantRoulette/Pods-RestaurantRoulette-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RestaurantRoulette/Pods-RestaurantRoulette-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		BF1571C2F9922A529162AAAA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -379,10 +455,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4950BF2B269CA355004FA5CA /* ViewController.m in Sources */,
+				4950BF62269DF9A8004FA5CA /* SelectViewController.m in Sources */,
+				4950BF68269E1557004FA5CA /* RestaurantsViewController.m in Sources */,
+				4950BF6C269E86D1004FA5CA /* RestaurantCell.m in Sources */,
+				4950BF5C269CBE05004FA5CA /* LoginViewController.m in Sources */,
 				4950BF25269CA355004FA5CA /* AppDelegate.m in Sources */,
 				4950BF36269CA356004FA5CA /* main.m in Sources */,
 				4950BF28269CA355004FA5CA /* SceneDelegate.m in Sources */,
+				4950BF65269DFA7A004FA5CA /* PreferencesViewController.m in Sources */,
+				4950BF5F269CBE2B004FA5CA /* SignupViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
