@@ -24,7 +24,7 @@
     [super viewDidLoad];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    [[APIManager shared] searchWithLocation:@"New York,NY" term:nil limit:20 offset:0 sort:YLPSortTypeBestMatched price:@"2" radiusFilter:32000.0 completionHandler:^
+    [[APIManager shared] searchWithLocation:self.zipcode term:nil limit:20 offset:0 sort:YLPSortTypeBestMatched price:self.price radiusFilter:(self.radius * 1600) completionHandler:^
      (YLPSearch *search, NSError *error){
         self.search = search;
         dispatch_async(dispatch_get_main_queue(), ^{[self.tableView reloadData];
