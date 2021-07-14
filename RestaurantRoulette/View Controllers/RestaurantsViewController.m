@@ -6,16 +6,46 @@
 //
 
 #import "RestaurantsViewController.h"
+#import "APIManager.h"
+#import "RestaurantCell.h"
+#import <YelpAPI/YLPClient+Search.h>
+#import <YelpAPI/YLPSortType.h>
+#import <YelpAPI/YLPSearch.h>
+#import <YelpAPI/YLPBusiness.h>
 
-@interface RestaurantsViewController ()
 
+@interface RestaurantsViewController () <UITableViewDelegate, UITableViewDataSource>
+@property (strong, nonatomic) YLPSearch *search;
 @end
 
 @implementation RestaurantsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    [[APIManager shared] searchWithLocation:@"New York,NY" term:nil limit:20 offset:0 sort:YLPSortTypeBestMatched price:@"2" radiusFilter:32000.0 completionHandler:^
+     (YLPSearch *search, NSError *error){
+        self.search = search;
+        dispatch_async(dispatch_get_main_queue(), ^{[self.tableView reloadData];
+            
+        });
+    }];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return 20;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    RestaurantCell *cell = [tableView dequeueReusableCellWithIdentifier:@"RestaurantCell" forIndexPath:indexPath];
+    if (indexPath.item > [self.search.businesses count]) {
+        cell.restaurantName.text = @"";
+    }
+    else {
+        cell.restaurantName.text = self.search.businesses[indexPath.item].name;
+    }
+    return cell;
 }
 
 /*

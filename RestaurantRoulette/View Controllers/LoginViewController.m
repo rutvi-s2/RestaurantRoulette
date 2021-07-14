@@ -34,7 +34,6 @@
                 LoginViewController *TabBarController = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
                 [self presentViewController:TabBarController animated:YES completion:^{
                 }];
-                // display view controller that needs to shown after successful login
             }
         }];
     }

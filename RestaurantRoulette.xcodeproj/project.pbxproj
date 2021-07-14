@@ -22,6 +22,7 @@
 		4950BF65269DFA7A004FA5CA /* PreferencesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4950BF64269DFA7A004FA5CA /* PreferencesViewController.m */; };
 		4950BF68269E1557004FA5CA /* RestaurantsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4950BF67269E1557004FA5CA /* RestaurantsViewController.m */; };
 		4950BF6C269E86D1004FA5CA /* RestaurantCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4950BF6B269E86D1004FA5CA /* RestaurantCell.m */; };
+		4950BF6F269E89C7004FA5CA /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4950BF6E269E89C7004FA5CA /* APIManager.m */; };
 		85FA26B000B045D7D43A2262 /* Pods_RestaurantRoulette.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4EF7BD6007BE349F17C765D /* Pods_RestaurantRoulette.framework */; };
 		FC2CB2D18EE1220F1BD12E1B /* Pods_RestaurantRoulette_RestaurantRouletteUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0214CFAD7EF3BE1DE8A7B98E /* Pods_RestaurantRoulette_RestaurantRouletteUITests.framework */; };
 /* End PBXBuildFile section */
@@ -75,6 +76,8 @@
 		4950BF67269E1557004FA5CA /* RestaurantsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RestaurantsViewController.m; sourceTree = "<group>"; };
 		4950BF6A269E86D1004FA5CA /* RestaurantCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RestaurantCell.h; sourceTree = "<group>"; };
 		4950BF6B269E86D1004FA5CA /* RestaurantCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RestaurantCell.m; sourceTree = "<group>"; };
+		4950BF6E269E89C7004FA5CA /* APIManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APIManager.m; sourceTree = "<group>"; };
+		4950BF70269E89E2004FA5CA /* APIManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIManager.h; sourceTree = "<group>"; };
 		60E3426D90C0ED2956779B7F /* Pods-RestaurantRoulette-RestaurantRouletteUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestaurantRoulette-RestaurantRouletteUITests.debug.xcconfig"; path = "Target Support Files/Pods-RestaurantRoulette-RestaurantRouletteUITests/Pods-RestaurantRoulette-RestaurantRouletteUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8EF3CCC66174D19EB01DCF41 /* Pods-RestaurantRoulette.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestaurantRoulette.debug.xcconfig"; path = "Target Support Files/Pods-RestaurantRoulette/Pods-RestaurantRoulette.debug.xcconfig"; sourceTree = "<group>"; };
 		A4EF7BD6007BE349F17C765D /* Pods_RestaurantRoulette.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RestaurantRoulette.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,6 +139,7 @@
 		4950BF22269CA355004FA5CA /* RestaurantRoulette */ = {
 			isa = PBXGroup;
 			children = (
+				4950BF6D269E8980004FA5CA /* YelpAPI */,
 				4950BF69269E8623004FA5CA /* Views */,
 				4950BF59269CBDED004FA5CA /* View Controllers */,
 				4950BF23269CA355004FA5CA /* AppDelegate.h */,
@@ -193,6 +197,15 @@
 				4950BF6B269E86D1004FA5CA /* RestaurantCell.m */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		4950BF6D269E8980004FA5CA /* YelpAPI */ = {
+			isa = PBXGroup;
+			children = (
+				4950BF6E269E89C7004FA5CA /* APIManager.m */,
+				4950BF70269E89E2004FA5CA /* APIManager.h */,
+			);
+			path = YelpAPI;
 			sourceTree = "<group>";
 		};
 		653DB2C0BAC57AEC86ACE4F5 /* Frameworks */ = {
@@ -457,6 +470,7 @@
 			files = (
 				4950BF62269DF9A8004FA5CA /* SelectViewController.m in Sources */,
 				4950BF68269E1557004FA5CA /* RestaurantsViewController.m in Sources */,
+				4950BF6F269E89C7004FA5CA /* APIManager.m in Sources */,
 				4950BF6C269E86D1004FA5CA /* RestaurantCell.m in Sources */,
 				4950BF5C269CBE05004FA5CA /* LoginViewController.m in Sources */,
 				4950BF25269CA355004FA5CA /* AppDelegate.m in Sources */,

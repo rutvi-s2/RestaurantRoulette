@@ -10,7 +10,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface RestaurantsViewController : UIViewController
-
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic) double *radius;
+@property (strong, nonatomic) NSString* zipcode;
 @end
 
 NS_ASSUME_NONNULL_END
