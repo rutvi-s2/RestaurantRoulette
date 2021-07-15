@@ -261,10 +261,6 @@
                                     <segment title="$$$$"/>
                                 </segments>
                             </segmentedControl>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VRC-Kp-Xi0">
-                                <rect key="frame" x="16" y="385" width="356" height="115"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </pickerView>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="ql5-rY-sEF">
                                 <rect key="frame" x="16" y="552" width="356" height="138"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -290,7 +286,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="Preferences" id="10B-Bi-EeE"/>
                     <connections>
-                        <outlet property="cuisinePicker" destination="VRC-Kp-Xi0" id="F2S-zN-xiY"/>
                         <outlet property="distanceSlider" destination="6CM-oG-jbk" id="nGZ-Nk-4KP"/>
                         <outlet property="priceControl" destination="FJM-Nr-VEr" id="kaL-Vv-RZX"/>
                         <outlet property="timePicker" destination="ql5-rY-sEF" id="bZx-JN-BvQ"/>
