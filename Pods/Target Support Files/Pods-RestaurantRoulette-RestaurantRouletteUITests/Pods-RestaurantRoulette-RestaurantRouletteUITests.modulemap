@@ -1,0 +1,6 @@
+framework module Pods_RestaurantRoulette_RestaurantRouletteUITests {
+  umbrella header "Pods-RestaurantRoulette-RestaurantRouletteUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
