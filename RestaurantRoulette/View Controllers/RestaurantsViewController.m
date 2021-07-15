@@ -9,7 +9,6 @@
 #import "APIManager.h"
 #import "RestaurantCell.h"
 #import <YelpAPI/YLPClient+Search.h>
-#import <YelpAPI/YLPClient+Categories.h>
 #import <YelpAPI/YLPSortType.h>
 #import <YelpAPI/YLPSearch.h>
 #import <YelpAPI/YLPBusiness.h>
@@ -25,14 +24,20 @@
     [super viewDidLoad];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    [APIManager shared]
-//    [[APIManager shared] searchWithLocation:self.zipcode term:nil limit:20 offset:0 sort:YLPSortTypeBestMatched price:self.price radiusFilter:(self.radius * 1600) completionHandler:^
-//     (YLPSearch *search, NSError *error){
-//        self.search = search;
-//        dispatch_async(dispatch_get_main_queue(), ^{[self.tableView reloadData];
+//    [[APIManager shared] categories:@"restaurants" completionHandler:^
+//          (YLPSearch *search, NSError *error){
+//             self.search = search;
+//             dispatch_async(dispatch_get_main_queue(), ^{[self.tableView reloadData];
 //
-//        });
-//    }];
+//             });
+//         }];
+    [[APIManager shared] searchWithLocation:self.zipcode term:nil limit:20 offset:0 sort:YLPSortTypeBestMatched price:self.price radiusFilter:(self.radius * 1600) openAt:0 completionHandler:^
+     (YLPSearch *search, NSError *error){
+        self.search = search;
+        dispatch_async(dispatch_get_main_queue(), ^{[self.tableView reloadData];
+
+        });
+    }];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
