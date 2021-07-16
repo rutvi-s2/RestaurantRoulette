@@ -24,24 +24,19 @@
     [super viewDidLoad];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-//    [[APIManager shared] categories:@"restaurants" completionHandler:^
-//          (YLPSearch *search, NSError *error){
-//             self.search = search;
-//             dispatch_async(dispatch_get_main_queue(), ^{[self.tableView reloadData];
-//
-//             });
-//         }];
-    [[APIManager shared] searchWithLocation:self.zipcode term:nil limit:20 offset:0 sort:YLPSortTypeBestMatched price:self.price radiusFilter:(self.radius * 1600) openAt:0 completionHandler:^
+
+    [[APIManager shared] searchWithLocation:self.zipcode term:nil limit:20 offset:0 sort:YLPSortTypeBestMatched price:self.price radiusFilter:(self.radius * 1600) openAt:0 categoryFilter: self.cuisineFilter completionHandler:^
      (YLPSearch *search, NSError *error){
         self.search = search;
         dispatch_async(dispatch_get_main_queue(), ^{[self.tableView reloadData];
+            NSLog(@"got data pt2");
 
         });
     }];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 20;
+    return self.search.businesses.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{

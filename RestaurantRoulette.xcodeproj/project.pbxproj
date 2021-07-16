@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3DF183C047E7595B3243D52B /* Pods_RestaurantRouletteTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 086EA65FC97C6F572CB974C9 /* Pods_RestaurantRouletteTests.framework */; };
+		491B9C1B26A0EF9F00F5AACC /* CategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 491B9C1A26A0EF9F00F5AACC /* CategoryCell.m */; };
 		4950BF25269CA355004FA5CA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4950BF24269CA355004FA5CA /* AppDelegate.m */; };
 		4950BF28269CA355004FA5CA /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4950BF27269CA355004FA5CA /* SceneDelegate.m */; };
 		4950BF2E269CA355004FA5CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4950BF2C269CA355004FA5CA /* Main.storyboard */; };
@@ -48,6 +49,8 @@
 		0214CFAD7EF3BE1DE8A7B98E /* Pods_RestaurantRoulette_RestaurantRouletteUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RestaurantRoulette_RestaurantRouletteUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		086EA65FC97C6F572CB974C9 /* Pods_RestaurantRouletteTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RestaurantRouletteTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		33369BAACC2943A321D8601B /* Pods-RestaurantRouletteTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestaurantRouletteTests.debug.xcconfig"; path = "Target Support Files/Pods-RestaurantRouletteTests/Pods-RestaurantRouletteTests.debug.xcconfig"; sourceTree = "<group>"; };
+		491B9C1926A0EF9F00F5AACC /* CategoryCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryCell.h; sourceTree = "<group>"; };
+		491B9C1A26A0EF9F00F5AACC /* CategoryCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategoryCell.m; sourceTree = "<group>"; };
 		4950BF20269CA355004FA5CA /* RestaurantRoulette.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RestaurantRoulette.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4950BF23269CA355004FA5CA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4950BF24269CA355004FA5CA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -195,6 +198,8 @@
 			children = (
 				4950BF6A269E86D1004FA5CA /* RestaurantCell.h */,
 				4950BF6B269E86D1004FA5CA /* RestaurantCell.m */,
+				491B9C1926A0EF9F00F5AACC /* CategoryCell.h */,
+				491B9C1A26A0EF9F00F5AACC /* CategoryCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -475,6 +480,7 @@
 				4950BF5C269CBE05004FA5CA /* LoginViewController.m in Sources */,
 				4950BF25269CA355004FA5CA /* AppDelegate.m in Sources */,
 				4950BF36269CA356004FA5CA /* main.m in Sources */,
+				491B9C1B26A0EF9F00F5AACC /* CategoryCell.m in Sources */,
 				4950BF28269CA355004FA5CA /* SceneDelegate.m in Sources */,
 				4950BF65269DFA7A004FA5CA /* PreferencesViewController.m in Sources */,
 				4950BF5F269CBE2B004FA5CA /* SignupViewController.m in Sources */,

@@ -46,6 +46,7 @@ NSString *const kYLPErrorDomain = @"com.yelp.YelpAPI.ErrorDomain";
     }
 
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:urlComponents.URL];
+    NSLog(@"%@", request);
     request.HTTPMethod = @"GET";
     NSString *authHeader = [NSString stringWithFormat:@"Bearer %@", self.APIKey];
     [request setValue:authHeader forHTTPHeaderField:@"Authorization"];

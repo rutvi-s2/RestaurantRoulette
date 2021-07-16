@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) NSString* cuisine;
 @property (strong, nonatomic) NSString* time;
 @property (strong, nonatomic) NSString* zipcode;
+@property (strong, nonatomic) NSMutableArray <NSString*> *cuisineFilter;
 @end
 
 NS_ASSUME_NONNULL_END

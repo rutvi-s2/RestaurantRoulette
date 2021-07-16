@@ -16,6 +16,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 typedef void(^YLPSearchCompletionHandler)(YLPSearch *_Nullable search, NSError *_Nullable error);
+typedef void(^YLPCategoryCompletionHandler)(NSMutableArray<NSString *> *_Nullable cuisineCategory, NSMutableArray<NSString *> *_Nullable cuisineAlias, NSError *_Nullable error);
 
 @interface YLPClient (Search)
 
@@ -30,6 +31,7 @@ typedef void(^YLPSearchCompletionHandler)(YLPSearch *_Nullable search, NSError *
                      price:(NSString *)price
               radiusFilter:(double)radiusFilter
                     openAt:(NSUInteger)openAt
+                categoryFilter: (NSMutableArray <NSString *>*) categoryFilter
          completionHandler:(YLPSearchCompletionHandler)completionHandler;
 
 - (void)searchWithLocation:(NSString *)location
@@ -46,7 +48,7 @@ typedef void(^YLPSearchCompletionHandler)(YLPSearch *_Nullable search, NSError *
            completionHandler:(YLPSearchCompletionHandler)completionHandler;
 
 - (NSMutableArray<NSString *> *)categories:(NSString *)categories
-completionHandler:(YLPSearchCompletionHandler)completionHandler;
+completionHandler:(YLPCategoryCompletionHandler)completionHandler;
 
 @property(strong, nonatomic) NSMutableArray<NSString *> *restaurantCategories;
 

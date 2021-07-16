@@ -28,8 +28,9 @@
                     offset:(NSUInteger)offset
                       sort:(YLPSortType)sort
                      price:(NSString *)price
-              radiusFilter: (double)radiusFilter
+              radiusFilter:(double)radiusFilter
                     openAt:(NSUInteger)openAt
+            categoryFilter:(NSMutableArray<NSString *>*)categoryFilter
          completionHandler:(YLPSearchCompletionHandler)completionHandler {
     YLPQuery *query = [[YLPQuery alloc] initWithLocation:location];
     query.term = term;
@@ -39,6 +40,7 @@
     query.price = price;
     query.radiusFilter = radiusFilter;
     query.openAt = openAt;
+    query.categoryFilter = categoryFilter;
 //    query.categoryFilter = [self categories:@"restaurants" completionHandler:^
 //                            (YLPSearch *search, NSError *error){}];
     [self searchWithQuery:query completionHandler:completionHandler];
@@ -88,23 +90,25 @@
     return [self requestWithPath:categoriesSearchPath];
 }
 
-- (NSMutableArray<NSString *> *)categories:(NSString *)categories
-              completionHandler:(YLPSearchCompletionHandler)completionHandler {
+- (void)categories:(NSString *)categories
+              completionHandler:(YLPCategoryCompletionHandler)completionHandler {
     NSURLRequest *req = [self categoriesFilter];
-    NSMutableArray<NSString *> *restaurantCategoriesTwo = [[NSMutableArray alloc] init];
+    NSMutableArray<NSString *> *restaurantCategoriesTitle = [[NSMutableArray alloc] init];
+    NSMutableArray<NSString *> *restaurantCategoriesAlias = [[NSMutableArray alloc] init];
     [self queryWithRequest:req completionHandler:^(NSDictionary *responseDict, NSError *error) {
         if (error) {
-            completionHandler(nil, error);
+            completionHandler(nil, nil, error);
         } else {
             for(NSDictionary *category in responseDict[@"categories"]){
                 NSArray *parent_aliases = category[@"parent_aliases"];
                 if([parent_aliases.firstObject isEqualToString:@"restaurants"]){
-                    [restaurantCategoriesTwo addObject:category[@"title"]];
+                    [restaurantCategoriesTitle addObject:category[@"title"]];
+                    [restaurantCategoriesAlias addObject:category[@"alias"]];
                 }
             }
+            completionHandler(restaurantCategoriesTitle, restaurantCategoriesAlias, nil);
         }
     }];
-    return restaurantCategoriesTwo;
 }
 
 @end
