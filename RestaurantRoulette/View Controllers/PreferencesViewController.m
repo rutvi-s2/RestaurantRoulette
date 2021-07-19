@@ -13,11 +13,14 @@
 #import <YelpAPI/YLPSortType.h>
 #import <YelpAPI/YLPSearch.h>
 #import <YelpAPI/YLPBusiness.h>
+#import <YelpAPI/YLPCategory.h>
 
-@interface PreferencesViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface PreferencesViewController () <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
+
+@property (nonatomic) BOOL filtered;
 @property (nonatomic) BOOL ready;
-@property (strong, nonatomic) NSMutableArray<NSString *> *cuisineCategory;
-@property (strong, nonatomic) NSMutableArray<NSString *> *cuisineAlias;
+@property (strong, nonatomic) NSMutableArray<YLPCategory *> *cuisineCategory;
+@property (strong, nonatomic) NSArray<YLPCategory *> *cuisineCategoryFiltered;
 @property (strong, nonatomic) NSMutableArray<CategoryCell *> *allCuisineCells;
 
 @end
@@ -26,18 +29,19 @@
 
 - (void)viewDidLoad {
     self.ready = false;
+    self.filtered = false;
     [super viewDidLoad];
     self.allCuisineCells = [NSMutableArray new];
     self.cuisineCategory = [NSMutableArray new];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    self.searchBar.delegate = self;
     
-    self.cuisineCategory = [[APIManager shared] categories:@"restaurants" completionHandler:^
-          (NSMutableArray<NSString *> *cuisineCategory, NSMutableArray<NSString *> *cuisineAlias, NSError *error){
+    [[APIManager shared] categories:@"restaurants" completionHandler:^
+          (NSMutableArray<YLPCategory *> *cuisineCategory, NSError *error){
              self.cuisineCategory = cuisineCategory;
-             self.cuisineAlias = cuisineAlias;
+             self.cuisineCategoryFiltered = self.cuisineCategory;
              dispatch_async(dispatch_get_main_queue(), ^{[self.tableView reloadData];
-                 NSLog(@"got data");
                  self.ready = true;
              });
          }];
@@ -50,17 +54,26 @@
     }
     else {
         [cell.checkboxButton setBackgroundImage:[UIImage imageNamed:@"checkbox_empty"] forState:UIControlStateNormal];
-        cell.categoryLabel.text = [self.cuisineCategory objectAtIndex:indexPath.item];
-        cell.categoryAlias = [self.cuisineAlias objectAtIndex:indexPath.item];
+        cell.categoryLabel.text = [self.cuisineCategoryFiltered objectAtIndex:indexPath.item].name;
+        cell.categoryAlias = [self.cuisineCategoryFiltered objectAtIndex:indexPath.item].alias;
         [self.allCuisineCells addObject:cell];
     }
     return cell;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 193;
+    return self.cuisineCategoryFiltered.count;
 }
 
+-(void)searchBar: (UISearchBar *)searchBar textDidChange:(NSString *)searchText{
+    if(searchText.length != 0){
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name CONTAINS %@", searchText];
+        self.cuisineCategoryFiltered = [self.cuisineCategory filteredArrayUsingPredicate:predicate];
+    }else{
+        self.cuisineCategoryFiltered = self.cuisineCategory;
+    }
+    [self.tableView reloadData];
+}
 
 #pragma mark - Navigation
 

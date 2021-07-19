@@ -8,6 +8,7 @@
 
 #import "YLPClient.h"
 #import "YLPSortType.h"
+#import "YLPCategory.h"
 
 @class YLPCoordinate;
 @class YLPQuery;
@@ -16,7 +17,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 typedef void(^YLPSearchCompletionHandler)(YLPSearch *_Nullable search, NSError *_Nullable error);
-typedef void(^YLPCategoryCompletionHandler)(NSMutableArray<NSString *> *_Nullable cuisineCategory, NSMutableArray<NSString *> *_Nullable cuisineAlias, NSError *_Nullable error);
+typedef void(^YLPCategoryCompletionHandler)(NSMutableArray<YLPCategory *> *_Nullable cuisineCategory, NSError *_Nullable error);
 
 @interface YLPClient (Search)
 
@@ -47,7 +48,7 @@ typedef void(^YLPCategoryCompletionHandler)(NSMutableArray<NSString *> *_Nullabl
 - (void)searchWithCoordinate:(YLPCoordinate *)coordinate
            completionHandler:(YLPSearchCompletionHandler)completionHandler;
 
-- (NSMutableArray<NSString *> *)categories:(NSString *)categories
+- (void)categories:(NSString *)categories
 completionHandler:(YLPCategoryCompletionHandler)completionHandler;
 
 @property(strong, nonatomic) NSMutableArray<NSString *> *restaurantCategories;

@@ -27,6 +27,8 @@
         
         _name = businessDict[@"name"];
         _identifier = businessDict[@"id"];
+        _distance = [businessDict[@"distance"] doubleValue];
+        _price = businessDict[@"price"];
         NSString *phone = [businessDict ylp_objectMaybeNullForKey:@"phone"];
         _phone = phone.length > 0 ? phone : nil;
         

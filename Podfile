@@ -8,6 +8,7 @@ target 'RestaurantRoulette' do
   # Pods for RestaurantRoulette
     pod 'Parse'
     pod 'YelpAPI'
+    pod 'AFNetworking'
 
   target 'RestaurantRouletteTests' do
     inherit! :search_paths

@@ -93,23 +93,22 @@
 - (void)categories:(NSString *)categories
               completionHandler:(YLPCategoryCompletionHandler)completionHandler {
     NSURLRequest *req = [self categoriesFilter];
-    NSMutableArray<NSString *> *restaurantCategoriesTitle = [[NSMutableArray alloc] init];
-    NSMutableArray<NSString *> *restaurantCategoriesAlias = [[NSMutableArray alloc] init];
+    NSMutableArray<YLPCategory *> *restaurantCategories = [[NSMutableArray alloc] init];
     [self queryWithRequest:req completionHandler:^(NSDictionary *responseDict, NSError *error) {
         if (error) {
-            completionHandler(nil, nil, error);
+            completionHandler(nil, error);
         } else {
             for(NSDictionary *category in responseDict[@"categories"]){
                 NSArray *parent_aliases = category[@"parent_aliases"];
                 if([parent_aliases.firstObject isEqualToString:@"restaurants"]){
-                    [restaurantCategoriesTitle addObject:category[@"title"]];
-                    [restaurantCategoriesAlias addObject:category[@"alias"]];
+                    [restaurantCategories addObject:[[YLPCategory alloc] initWithDictionary:category]];
                 }
             }
-            completionHandler(restaurantCategoriesTitle, restaurantCategoriesAlias, nil);
+            completionHandler(restaurantCategories, nil);
         }
     }];
 }
+
 
 @end
 

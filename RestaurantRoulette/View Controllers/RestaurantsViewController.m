@@ -11,11 +11,15 @@
 #import <YelpAPI/YLPClient+Search.h>
 #import <YelpAPI/YLPSortType.h>
 #import <YelpAPI/YLPSearch.h>
+#import <YelpAPI/YLPCategory.h>
 #import <YelpAPI/YLPBusiness.h>
+#import "UIImageView+AFNetworking.h"
 
 
 @interface RestaurantsViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) YLPSearch *search;
+@property (strong, nonatomic) NSMutableArray <NSString *> *categoriesNames;
+
 @end
 
 @implementation RestaurantsViewController
@@ -29,8 +33,6 @@
      (YLPSearch *search, NSError *error){
         self.search = search;
         dispatch_async(dispatch_get_main_queue(), ^{[self.tableView reloadData];
-            NSLog(@"got data pt2");
-
         });
     }];
 }
@@ -46,6 +48,16 @@
     }
     else {
         cell.restaurantName.text = self.search.businesses[indexPath.item].name;
+        [cell.restaurantImage setImageWithURL:self.search.businesses[indexPath.item].imageURL];
+        self.categoriesNames = [NSMutableArray new];
+        for(YLPCategory *category in self.search.businesses[indexPath.item].categories){
+            [self.categoriesNames addObject:category.name];
+        }
+        cell.restaurantCategory.text = [self.categoriesNames componentsJoinedByString:@" / "];
+        cell.restaurantDistance.text = [[NSString stringWithFormat:@"%.2f", (self.search.businesses[indexPath.item].distance / 1609.34)] stringByAppendingString:@" miles"];
+        cell.restaurantPrice.text = self.search.businesses[indexPath.item].price;
+        cell.restaurantRating.text = [[NSString stringWithFormat:@"%.1f", self.search.businesses[indexPath.item].rating] stringByAppendingString: @" / 5"];
+        
     }
     return cell;
 }

@@ -1,4 +1,19 @@
 PODS:
+  - AFNetworking (4.0.1):
+    - AFNetworking/NSURLSession (= 4.0.1)
+    - AFNetworking/Reachability (= 4.0.1)
+    - AFNetworking/Security (= 4.0.1)
+    - AFNetworking/Serialization (= 4.0.1)
+    - AFNetworking/UIKit (= 4.0.1)
+  - AFNetworking/NSURLSession (4.0.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (4.0.1)
+  - AFNetworking/Security (4.0.1)
+  - AFNetworking/Serialization (4.0.1)
+  - AFNetworking/UIKit (4.0.1):
+    - AFNetworking/NSURLSession
   - Bolts/Tasks (1.9.1)
   - Parse (1.19.2):
     - Parse/Core (= 1.19.2)
@@ -7,20 +22,23 @@ PODS:
   - YelpAPI (3.0.0)
 
 DEPENDENCIES:
+  - AFNetworking
   - Parse
   - YelpAPI
 
 SPEC REPOS:
   trunk:
+    - AFNetworking
     - Bolts
     - Parse
     - YelpAPI
 
 SPEC CHECKSUMS:
+  AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
   Bolts: 8c1e8aab2f603387b8b9924f57d1d64f43d3ffdc
   Parse: 081fb8755c3000fd11df817eec235def233d0af3
   YelpAPI: 9ae0ee45b998d306c1aff9b2d966dc23121f191e
 
-PODFILE CHECKSUM: f99bd3348aed9d7d06ef28a8d07a8f5c3ac2bf67
+PODFILE CHECKSUM: 2267bc145a37f0bd8072492cb616c13b1be5b19a
 
 COCOAPODS: 1.10.1
