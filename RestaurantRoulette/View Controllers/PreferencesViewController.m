@@ -21,7 +21,6 @@
 @property (nonatomic) BOOL ready;
 @property (strong, nonatomic) NSMutableArray<YLPCategory *> *cuisineCategory;
 @property (strong, nonatomic) NSArray<YLPCategory *> *cuisineCategoryFiltered;
-@property (strong, nonatomic) NSMutableArray<CategoryCell *> *allCuisineCells;
 
 @end
 
@@ -31,7 +30,6 @@
     self.ready = false;
     self.filtered = false;
     [super viewDidLoad];
-    self.allCuisineCells = [NSMutableArray new];
     self.cuisineCategory = [NSMutableArray new];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -53,10 +51,14 @@
         cell.categoryLabel.text = @"";
     }
     else {
-        [cell.checkboxButton setBackgroundImage:[UIImage imageNamed:@"checkbox_empty"] forState:UIControlStateNormal];
+        cell.category = [self.cuisineCategoryFiltered objectAtIndex:indexPath.item];
+        if(![self.cuisineCategoryFiltered objectAtIndex:indexPath.item].visited){
+            [cell.checkboxButton setBackgroundImage:[UIImage imageNamed:@"checkbox_empty"] forState:UIControlStateNormal];
+        }else{
+            [cell.checkboxButton setBackgroundImage:[UIImage imageNamed:@"checkbox_checked"] forState:UIControlStateNormal];
+        }
         cell.categoryLabel.text = [self.cuisineCategoryFiltered objectAtIndex:indexPath.item].name;
         cell.categoryAlias = [self.cuisineCategoryFiltered objectAtIndex:indexPath.item].alias;
-        [self.allCuisineCells addObject:cell];
     }
     return cell;
 }
@@ -88,9 +90,9 @@
     restaurantController.price = prices[self.priceControl.selectedSegmentIndex];
     restaurantController.zipcode = self.zipcode;
     restaurantController.cuisineFilter = [NSMutableArray new];
-    for(CategoryCell *cell in self.allCuisineCells){
-        if ([[cell.checkboxButton currentBackgroundImage] isEqual: [UIImage imageNamed:@"checkbox_checked"]] && ![restaurantController.cuisineFilter containsObject:cell.categoryAlias]){
-            [restaurantController.cuisineFilter addObject: cell.categoryAlias];
+    for(YLPCategory *category in self.cuisineCategory){
+        if (category.visited && ![restaurantController.cuisineFilter containsObject:category.alias]){
+            [restaurantController.cuisineFilter addObject: category.alias];
         }
     }
 }
