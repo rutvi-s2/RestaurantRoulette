@@ -6,6 +6,8 @@
 //
 
 #import "DetailsViewController.h"
+#import "PhotoMapViewController.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface DetailsViewController ()
 
@@ -15,17 +17,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.restaurantName.text = self.business.name;
+    [self.restaurantImage setImageWithURL:self.business.URL];
+    self.restaurantNumber.text = self.business.phone;
+    self.restaurantAddress.text = [NSString stringWithFormat:@"%@, %@ %@, %@",self.business.location.address.firstObject,self.business.location.city, self.business.location.stateCode, self.business.location.postalCode];
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    PhotoMapViewController *mapViewController = [segue destinationViewController];
+    mapViewController.business = self.business;
 }
-*/
+
 
 @end

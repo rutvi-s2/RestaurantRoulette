@@ -26,6 +26,8 @@
 		4950BF6F269E89C7004FA5CA /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4950BF6E269E89C7004FA5CA /* APIManager.m */; };
 		496EBD0526A54265008AFA5E /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 496EBD0426A54265008AFA5E /* DetailsViewController.m */; };
 		496EBD0826A5461B008AFA5E /* SpinnerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 496EBD0726A5461B008AFA5E /* SpinnerViewController.m */; };
+		496EBD0C26A69186008AFA5E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 496EBD0B26A69186008AFA5E /* MapKit.framework */; };
+		496EBD0F26A691AA008AFA5E /* PhotoMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 496EBD0E26A691AA008AFA5E /* PhotoMapViewController.m */; };
 		85FA26B000B045D7D43A2262 /* Pods_RestaurantRoulette.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4EF7BD6007BE349F17C765D /* Pods_RestaurantRoulette.framework */; };
 		FC2CB2D18EE1220F1BD12E1B /* Pods_RestaurantRoulette_RestaurantRouletteUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0214CFAD7EF3BE1DE8A7B98E /* Pods_RestaurantRoulette_RestaurantRouletteUITests.framework */; };
 /* End PBXBuildFile section */
@@ -87,6 +89,9 @@
 		496EBD0426A54265008AFA5E /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		496EBD0626A5461B008AFA5E /* SpinnerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpinnerViewController.h; sourceTree = "<group>"; };
 		496EBD0726A5461B008AFA5E /* SpinnerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpinnerViewController.m; sourceTree = "<group>"; };
+		496EBD0B26A69186008AFA5E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		496EBD0D26A691AA008AFA5E /* PhotoMapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoMapViewController.h; sourceTree = "<group>"; };
+		496EBD0E26A691AA008AFA5E /* PhotoMapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoMapViewController.m; sourceTree = "<group>"; };
 		60E3426D90C0ED2956779B7F /* Pods-RestaurantRoulette-RestaurantRouletteUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestaurantRoulette-RestaurantRouletteUITests.debug.xcconfig"; path = "Target Support Files/Pods-RestaurantRoulette-RestaurantRouletteUITests/Pods-RestaurantRoulette-RestaurantRouletteUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8EF3CCC66174D19EB01DCF41 /* Pods-RestaurantRoulette.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestaurantRoulette.debug.xcconfig"; path = "Target Support Files/Pods-RestaurantRoulette/Pods-RestaurantRoulette.debug.xcconfig"; sourceTree = "<group>"; };
 		A4EF7BD6007BE349F17C765D /* Pods_RestaurantRoulette.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RestaurantRoulette.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				496EBD0C26A69186008AFA5E /* MapKit.framework in Frameworks */,
 				85FA26B000B045D7D43A2262 /* Pods_RestaurantRoulette.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -199,6 +205,8 @@
 				496EBD0426A54265008AFA5E /* DetailsViewController.m */,
 				496EBD0626A5461B008AFA5E /* SpinnerViewController.h */,
 				496EBD0726A5461B008AFA5E /* SpinnerViewController.m */,
+				496EBD0D26A691AA008AFA5E /* PhotoMapViewController.h */,
+				496EBD0E26A691AA008AFA5E /* PhotoMapViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -226,6 +234,7 @@
 		653DB2C0BAC57AEC86ACE4F5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				496EBD0B26A69186008AFA5E /* MapKit.framework */,
 				A4EF7BD6007BE349F17C765D /* Pods_RestaurantRoulette.framework */,
 				0214CFAD7EF3BE1DE8A7B98E /* Pods_RestaurantRoulette_RestaurantRouletteUITests.framework */,
 				086EA65FC97C6F572CB974C9 /* Pods_RestaurantRouletteTests.framework */,
@@ -258,6 +267,7 @@
 				4950BF1D269CA355004FA5CA /* Frameworks */,
 				4950BF1E269CA355004FA5CA /* Resources */,
 				8A9F170C3031EBFFE893EEFE /* [CP] Embed Pods Frameworks */,
+				BFFF577053648B08A37C074E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -296,6 +306,7 @@
 				4950BF43269CA356004FA5CA /* Frameworks */,
 				4950BF44269CA356004FA5CA /* Resources */,
 				32B81E5AEF8F60824E68AA4D /* [CP] Embed Pods Frameworks */,
+				F1B3DC5BF273C1B266AA4B63 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -432,6 +443,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		BFFF577053648B08A37C074E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RestaurantRoulette/Pods-RestaurantRoulette-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RestaurantRoulette/Pods-RestaurantRoulette-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RestaurantRoulette/Pods-RestaurantRoulette-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		D1C068863BB128F7A11F6A0D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -452,6 +480,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F1B3DC5BF273C1B266AA4B63 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RestaurantRoulette-RestaurantRouletteUITests/Pods-RestaurantRoulette-RestaurantRouletteUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RestaurantRoulette-RestaurantRouletteUITests/Pods-RestaurantRoulette-RestaurantRouletteUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RestaurantRoulette-RestaurantRouletteUITests/Pods-RestaurantRoulette-RestaurantRouletteUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FA7D8EE1E3F2B24C025DD379 /* [CP] Check Pods Manifest.lock */ = {
@@ -487,6 +532,7 @@
 				4950BF68269E1557004FA5CA /* RestaurantsViewController.m in Sources */,
 				4950BF6F269E89C7004FA5CA /* APIManager.m in Sources */,
 				496EBD0826A5461B008AFA5E /* SpinnerViewController.m in Sources */,
+				496EBD0F26A691AA008AFA5E /* PhotoMapViewController.m in Sources */,
 				496EBD0526A54265008AFA5E /* DetailsViewController.m in Sources */,
 				4950BF6C269E86D1004FA5CA /* RestaurantCell.m in Sources */,
 				4950BF5C269CBE05004FA5CA /* LoginViewController.m in Sources */,
