@@ -25,6 +25,7 @@
 		4950BF6C269E86D1004FA5CA /* RestaurantCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4950BF6B269E86D1004FA5CA /* RestaurantCell.m */; };
 		4950BF6F269E89C7004FA5CA /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4950BF6E269E89C7004FA5CA /* APIManager.m */; };
 		496EBD0526A54265008AFA5E /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 496EBD0426A54265008AFA5E /* DetailsViewController.m */; };
+		496EBD0826A5461B008AFA5E /* SpinnerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 496EBD0726A5461B008AFA5E /* SpinnerViewController.m */; };
 		85FA26B000B045D7D43A2262 /* Pods_RestaurantRoulette.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4EF7BD6007BE349F17C765D /* Pods_RestaurantRoulette.framework */; };
 		FC2CB2D18EE1220F1BD12E1B /* Pods_RestaurantRoulette_RestaurantRouletteUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0214CFAD7EF3BE1DE8A7B98E /* Pods_RestaurantRoulette_RestaurantRouletteUITests.framework */; };
 /* End PBXBuildFile section */
@@ -84,6 +85,8 @@
 		4950BF70269E89E2004FA5CA /* APIManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIManager.h; sourceTree = "<group>"; };
 		496EBD0326A54265008AFA5E /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
 		496EBD0426A54265008AFA5E /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
+		496EBD0626A5461B008AFA5E /* SpinnerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpinnerViewController.h; sourceTree = "<group>"; };
+		496EBD0726A5461B008AFA5E /* SpinnerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpinnerViewController.m; sourceTree = "<group>"; };
 		60E3426D90C0ED2956779B7F /* Pods-RestaurantRoulette-RestaurantRouletteUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestaurantRoulette-RestaurantRouletteUITests.debug.xcconfig"; path = "Target Support Files/Pods-RestaurantRoulette-RestaurantRouletteUITests/Pods-RestaurantRoulette-RestaurantRouletteUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8EF3CCC66174D19EB01DCF41 /* Pods-RestaurantRoulette.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestaurantRoulette.debug.xcconfig"; path = "Target Support Files/Pods-RestaurantRoulette/Pods-RestaurantRoulette.debug.xcconfig"; sourceTree = "<group>"; };
 		A4EF7BD6007BE349F17C765D /* Pods_RestaurantRoulette.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RestaurantRoulette.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -194,6 +197,8 @@
 				4950BF67269E1557004FA5CA /* RestaurantsViewController.m */,
 				496EBD0326A54265008AFA5E /* DetailsViewController.h */,
 				496EBD0426A54265008AFA5E /* DetailsViewController.m */,
+				496EBD0626A5461B008AFA5E /* SpinnerViewController.h */,
+				496EBD0726A5461B008AFA5E /* SpinnerViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -481,6 +486,7 @@
 				4950BF62269DF9A8004FA5CA /* SelectViewController.m in Sources */,
 				4950BF68269E1557004FA5CA /* RestaurantsViewController.m in Sources */,
 				4950BF6F269E89C7004FA5CA /* APIManager.m in Sources */,
+				496EBD0826A5461B008AFA5E /* SpinnerViewController.m in Sources */,
 				496EBD0526A54265008AFA5E /* DetailsViewController.m in Sources */,
 				4950BF6C269E86D1004FA5CA /* RestaurantCell.m in Sources */,
 				4950BF5C269CBE05004FA5CA /* LoginViewController.m in Sources */,

@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *restaurantCategory;
 @property (weak, nonatomic) IBOutlet UILabel *restaurantDistance;
 @property (weak, nonatomic) IBOutlet UILabel *restaurantRating;
+@property (weak, nonatomic) IBOutlet UIButton *checkboxButton;
 
 @end
 

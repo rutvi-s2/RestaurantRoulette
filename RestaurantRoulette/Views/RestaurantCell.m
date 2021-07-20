@@ -13,6 +13,15 @@
     [super awakeFromNib];
     // Initialization code
 }
+- (IBAction)checkboxButton:(id)sender {
+    if([[self.checkboxButton currentBackgroundImage] isEqual: [UIImage imageNamed:@"checkbox_checked"]]){
+        [self.checkboxButton setBackgroundImage:[UIImage imageNamed:@"checkbox_empty"] forState:UIControlStateNormal];
+//        self.category.visited = false;
+    }else{
+        [self.checkboxButton setBackgroundImage:[UIImage imageNamed:@"checkbox_checked"] forState:UIControlStateNormal];
+//        self.category.visited = true;
+    }
+}
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
