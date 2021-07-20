@@ -18,7 +18,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.restaurantName.text = self.business.name;
-    [self.restaurantImage setImageWithURL:self.business.URL];
+    [self.restaurantImage setImageWithURL:self.business.imageURL];
     self.restaurantNumber.text = self.business.phone;
     self.restaurantAddress.text = [NSString stringWithFormat:@"%@, %@ %@, %@",self.business.location.address.firstObject,self.business.location.city, self.business.location.stateCode, self.business.location.postalCode];
 }
