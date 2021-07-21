@@ -11,20 +11,25 @@
 @interface SpinnerWheel()
 
 - (void) drawWheel;
+- (float) calculateDistanceFromCenter:(CGPoint)point;
+- (void) buildSectorsEven;
+- (void) buildSectorsOdd;
 
 @end
+
+static float deltaAngle;
 
 @implementation SpinnerWheel
 
 //basically create getter and setter for variables
-@synthesize delegate, container, numberOfWedges;
+@synthesize delegate, container, numberOfWedges, startTransform, sectors;
 
 - (id) initWithFrame:(CGRect)frame andDelegate:(nonnull id)del withWedges:(int)wedgesNumber{
     if((self = [super initWithFrame:frame])){
         self.numberOfWedges = wedgesNumber;
         self.delegate = del;
         [self drawWheel];
-        [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(rotate) userInfo:nil repeats:YES];
+//        [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(rotate) userInfo:nil repeats:YES];
     }
     return self;
 }
@@ -51,14 +56,100 @@
     }
     container.userInteractionEnabled = NO;
     [self addSubview:container];
+    sectors = [NSMutableArray arrayWithCapacity:numberOfWedges];
+    if(numberOfWedges % 2 == 1){
+        [self buildSectorsOdd];
+    }else{
+        [self buildSectorsEven];
+    }
     
 }
 
 - (void) rotate{
-    //TODO: update CGFloat value - 2*pi / numberofWedges
-    CGFloat radianToRotate = -0.78;
+    CGFloat radianToRotate = (2 * M_PI) / numberOfWedges;
     CGAffineTransform t = CGAffineTransformRotate(container.transform, radianToRotate);
     container.transform = t;
+}
+
+- (BOOL) beginTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event{
+    //get position of user touch
+    CGPoint touchPosition = [touch locationInView:self];
+    float dist = [self calculateDistanceFromCenter:touchPosition];
+    if(dist < 40 || dist > 100){
+        //ignore tap
+        return NO;
+    }
+    //calculate distance of touch from center
+    float deltaX = touchPosition.x - container.center.x;
+    float deltaY = touchPosition.y - container.center.y;
+    //calculate arctangent - did this in robot lab in fri when needed to calculate how much to turn robot based on the camera's view
+    deltaAngle = atan2(deltaY, deltaX);
+    //save transformation
+    startTransform = container.transform;
+    return YES;
+}
+
+- (BOOL) continueTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event{
+    CGPoint touchPosition = [touch locationInView:self];
+    float dist = [self calculateDistanceFromCenter:touchPosition];
+    if(dist < 40 || dist > 100){
+        //ignore tap
+        return NO;
+    }
+    float deltaX = touchPosition.x - container.center.x;
+    float deltaY = touchPosition.y - container.center.y;
+    float ang = atan2(deltaY, deltaX);
+    float angleDiff = deltaAngle - ang;
+    container.transform = CGAffineTransformRotate(startTransform, -angleDiff);
+    return YES;
+}
+
+- (float) calculateDistanceFromCenter:(CGPoint)point{
+    CGPoint center = CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2);
+    float deltaX = point.x - center.x;
+    float deltaY = point.y - center.y;
+    return sqrt ((deltaX * deltaX) + (deltaY * deltaY));
+}
+
+- (void) buildSectorsOdd{
+    CGFloat fanWidth = 2 * M_PI / numberOfWedges;
+    CGFloat mid = 0;
+    for (int i = 0; i < numberOfWedges; i++){
+        SpinnerSector *sector = [[SpinnerSector alloc] init];
+        sector.midVal = mid;
+        sector.minVal = mid - (fanWidth/2);
+        sector.maxVal = mid + (fanWidth/2);
+        sector.sector = i;
+        mid -= fanWidth;
+        if(sector.minVal < - M_PI){
+            mid = -mid;
+            mid -= fanWidth;
+        }
+        NSLog(@"cl is %@", sector);
+        //add sector to array
+        [sectors addObject:sector];
+    }
+}
+
+- (void) buildSectorsEven{
+    CGFloat fanWidth = 2 * M_PI / numberOfWedges;
+    CGFloat mid = 0;
+    for (int i = 0; i < numberOfWedges; i++){
+        SpinnerSector *sector = [[SpinnerSector alloc] init];
+        sector.midVal = mid;
+        sector.minVal = mid - (fanWidth/2);
+        sector.maxVal = mid + (fanWidth/2);
+        sector.sector = i;
+        if(sector.maxVal - fanWidth < -M_PI){
+            mid = M_PI;
+            sector.midVal = mid;
+            sector.minVal = fabsf(sector.maxVal);
+        }
+        mid -= fanWidth;
+        NSLog(@"cl is %@", sector);
+        //add sector to array
+        [sectors addObject:sector];
+    }
 }
 /*
 // Only override drawRect: if you perform custom drawing.
