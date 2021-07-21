@@ -31,6 +31,7 @@ static float deltaAngle;
         self.delegate = del;
         [self drawWheel];
 //        [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(rotate) userInfo:nil repeats:YES];
+        [self rotate];
     }
     return self;
 }
@@ -68,44 +69,10 @@ static float deltaAngle;
 
 - (void) rotate{
     CGFloat radianToRotate = (2 * M_PI) / numberOfWedges;
-    CGAffineTransform t = CGAffineTransformRotate(container.transform, radianToRotate);
-    container.transform = t;
-}
-
-- (BOOL) beginTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event{
-    //get position of user touch
-    CGPoint touchPosition = [touch locationInView:self];
-    float dist = [self calculateDistanceFromCenter:touchPosition];
-    if(dist < 40 || dist > 100){
-        //ignore tap
-        return NO;
-    }
-    //calculate distance of touch from center
-    float deltaX = touchPosition.x - container.center.x;
-    float deltaY = touchPosition.y - container.center.y;
-    //calculate arctangent - did this in robot lab in fri when needed to calculate how much to turn robot based on the camera's view
-    deltaAngle = atan2(deltaY, deltaX);
-    //save transformation
-    startTransform = container.transform;
-    return YES;
-}
-
-- (BOOL) continueTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event{
-    CGPoint touchPosition = [touch locationInView:self];
-    float dist = [self calculateDistanceFromCenter:touchPosition];
-    if(dist < 40 || dist > 100){
-        //ignore tap
-        return NO;
-    }
-    float deltaX = touchPosition.x - container.center.x;
-    float deltaY = touchPosition.y - container.center.y;
-    float ang = atan2(deltaY, deltaX);
-    float angleDiff = deltaAngle - ang;
-    container.transform = CGAffineTransformRotate(startTransform, -angleDiff);
-    return YES;
-}
-
-- (void) endTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event{
+    [UIView animateWithDuration:5 animations:^{
+        CGAffineTransform t = CGAffineTransformRotate(container.transform, radianToRotate);
+        container.transform = t;
+    }];
     CGFloat rad = atan2f(container.transform.b, container.transform.a);
     CGFloat newValue = 0.0;
     if (numberOfWedges % 2 == 1){
@@ -116,7 +83,7 @@ static float deltaAngle;
                 break;
             }
         }
-        [UIView animateWithDuration:0.2 animations:^{
+        [UIView animateWithDuration:5 animations:^{
             CGAffineTransform t = CGAffineTransformRotate(container.transform, -newValue);
             container.transform = t;
         }];
@@ -139,6 +106,77 @@ static float deltaAngle;
     }
     [self.delegate wheelValueChanged:[NSString stringWithFormat:@"value is %i", currentSector]];
 }
+
+- (BOOL) beginTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event{
+    //get position of user touch
+    CGPoint touchPosition = [touch locationInView:self];
+    float dist = [self calculateDistanceFromCenter:touchPosition];
+    if(dist < 40 || dist > 100){
+        //ignore tap
+        return NO;
+    }
+    //calculate distance of touch from center
+    float deltaX = touchPosition.x - container.center.x;
+    float deltaY = touchPosition.y - container.center.y;
+    //calculate arctangent - did this in robot lab in fri when needed to calculate how much to turn robot based on the camera's view
+    deltaAngle = atan2(deltaY, deltaX);
+    //save transformation
+    startTransform = container.transform;
+    return YES;
+}
+
+//- (BOOL) continueTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event{
+//    CGPoint touchPosition = [touch locationInView:self];
+//    float dist = [self calculateDistanceFromCenter:touchPosition];
+//    if(dist < 40 || dist > 100){
+//        //ignore tap
+//        return NO;
+//    }
+//    float deltaX = touchPosition.x - container.center.x;
+//    float deltaY = touchPosition.y - container.center.y;
+//    float ang = atan2(deltaY, deltaX);
+//    float angleDiff = deltaAngle - ang;
+//    [UIView animateWithDuration:5 animations:^{
+//        container.transform = CGAffineTransformRotate(startTransform, -angleDiff);
+//    }];
+////    container.transform = CGAffineTransformRotate(startTransform, -angleDiff);
+//    return YES;
+//}
+
+//- (void) endTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event{
+//    CGFloat rad = atan2f(container.transform.b, container.transform.a);
+//    CGFloat newValue = 0.0;
+//    if (numberOfWedges % 2 == 1){
+//        for (SpinnerSector *sect in sectors){
+//            if(rad > sect.minVal && rad < sect.maxVal){
+//                newValue = rad - sect.midVal;
+//                currentSector = sect.sector;
+//                break;
+//            }
+//        }
+//        [UIView animateWithDuration:5 animations:^{
+//            CGAffineTransform t = CGAffineTransformRotate(container.transform, -newValue);
+//            container.transform = t;
+//        }];
+//    }else{
+//        for (SpinnerSector *sect in sectors){
+//            if(sect.minVal > 0 && sect.maxVal < 0){
+//                if(sect.maxVal > rad || sect.minVal < rad){
+//                    if(rad > 0){
+//                        newValue = rad - M_PI;
+//                    }else{
+//                        newValue = M_PI + rad;
+//                    }
+//                    currentSector = sect.sector;
+//                }
+//            }else if(rad > sect.minVal && rad < sect.maxVal){
+//                newValue = rad - sect.midVal;
+//                currentSector = sect.sector;
+//            }
+//        }
+//    }
+//    [self.delegate wheelValueChanged:[NSString stringWithFormat:@"value is %i", currentSector]];
+//}
 
 - (float) calculateDistanceFromCenter:(CGPoint)point{
     CGPoint center = CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2);

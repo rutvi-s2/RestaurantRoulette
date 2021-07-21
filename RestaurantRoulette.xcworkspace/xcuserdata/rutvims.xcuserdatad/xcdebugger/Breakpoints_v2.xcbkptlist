@@ -378,8 +378,8 @@
             filePath = "RestaurantRoulette/SpinWheel/SpinnerWheel.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "93"
-            endingLineNumber = "93"
+            startingLineNumber = "128"
+            endingLineNumber = "128"
             landmarkName = "SpinnerWheel"
             landmarkType = "3">
          </BreakpointContent>
@@ -394,10 +394,10 @@
             filePath = "RestaurantRoulette/SpinWheel/SpinnerWheel.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
-            landmarkName = "-endTrackingWithTouch:withEvent:"
-            landmarkType = "7">
+            startingLineNumber = "146"
+            endingLineNumber = "146"
+            landmarkName = "SpinnerWheel"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
