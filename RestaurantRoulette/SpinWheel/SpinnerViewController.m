@@ -17,11 +17,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     //TODO: change the withWedges param to count of restaurants selected
-    SpinnerWheel *wheel = [[SpinnerWheel alloc]initWithFrame:CGRectMake(0,0,370,700) andDelegate:self withWedges:8];
-    
+    SpinnerWheel *wheel = [[SpinnerWheel alloc]initWithFrame:CGRectMake(0,0,370,700) andDelegate:self withWedges:7];
+    wheel.center = CGPointMake(260, 540);
     //add wheel to current view
     [self.view addSubview:wheel];
     
+}
+
+- (void) wheelValueChanged:(NSString *)newValue{
+    self.sectorLabel.text = newValue;
 }
 
 /*

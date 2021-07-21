@@ -6,10 +6,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SpinnerProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SpinnerViewController : UIViewController
+@interface SpinnerViewController : UIViewController<SpinnerProtocol>
+
+@property (weak, nonatomic) IBOutlet UILabel *sectorLabel;
 
 @end
 

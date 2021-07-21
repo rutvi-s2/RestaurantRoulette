@@ -22,10 +22,11 @@ static float deltaAngle;
 @implementation SpinnerWheel
 
 //basically create getter and setter for variables
-@synthesize delegate, container, numberOfWedges, startTransform, sectors;
+@synthesize delegate, container, numberOfWedges, startTransform, sectors, currentSector;
 
 - (id) initWithFrame:(CGRect)frame andDelegate:(nonnull id)del withWedges:(int)wedgesNumber{
     if((self = [super initWithFrame:frame])){
+        self.currentSector = 0;
         self.numberOfWedges = wedgesNumber;
         self.delegate = del;
         [self drawWheel];
@@ -43,7 +44,7 @@ static float deltaAngle;
     for(int i = 0; i < numberOfWedges; i++){
         //set position to center of the container view (0,0)
         UILabel *specificWedge = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 40)];
-        specificWedge.backgroundColor = [UIColor blueColor];
+        specificWedge.backgroundColor = [UIColor lightGrayColor];
         specificWedge.text = [NSString stringWithFormat:@"%i", i];
         specificWedge.layer.anchorPoint = CGPointMake(1.0f, 0.5f);
         //insert label to container view
@@ -62,7 +63,7 @@ static float deltaAngle;
     }else{
         [self buildSectorsEven];
     }
-    
+    [self.delegate wheelValueChanged:[NSString stringWithFormat:@"value is %i", currentSector]];
 }
 
 - (void) rotate{
@@ -102,6 +103,41 @@ static float deltaAngle;
     float angleDiff = deltaAngle - ang;
     container.transform = CGAffineTransformRotate(startTransform, -angleDiff);
     return YES;
+}
+
+- (void) endTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event{
+    CGFloat rad = atan2f(container.transform.b, container.transform.a);
+    CGFloat newValue = 0.0;
+    if (numberOfWedges % 2 == 1){
+        for (SpinnerSector *sect in sectors){
+            if(rad > sect.minVal && rad < sect.maxVal){
+                newValue = rad - sect.midVal;
+                currentSector = sect.sector;
+                break;
+            }
+        }
+        [UIView animateWithDuration:0.2 animations:^{
+            CGAffineTransform t = CGAffineTransformRotate(container.transform, -newValue);
+            container.transform = t;
+        }];
+    }else{
+        for (SpinnerSector *sect in sectors){
+            if(sect.minVal > 0 && sect.maxVal < 0){
+                if(sect.maxVal > rad || sect.minVal < rad){
+                    if(rad > 0){
+                        newValue = rad - M_PI;
+                    }else{
+                        newValue = M_PI + rad;
+                    }
+                    currentSector = sect.sector;
+                }
+            }else if(rad > sect.minVal && rad < sect.maxVal){
+                newValue = rad - sect.midVal;
+                currentSector = sect.sector;
+            }
+        }
+    }
+    [self.delegate wheelValueChanged:[NSString stringWithFormat:@"value is %i", currentSector]];
 }
 
 - (float) calculateDistanceFromCenter:(CGPoint)point{
