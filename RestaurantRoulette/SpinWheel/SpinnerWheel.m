@@ -69,42 +69,11 @@ static float deltaAngle;
 
 - (void) rotate{
     CGFloat radianToRotate = (2 * M_PI) / numberOfWedges;
-    [UIView animateWithDuration:5 animations:^{
+    [UIView animateWithDuration:(1 + arc4random_uniform(5)) animations:^{
         CGAffineTransform t = CGAffineTransformRotate(container.transform, radianToRotate);
         container.transform = t;
     }];
-    CGFloat rad = atan2f(container.transform.b, container.transform.a);
-    CGFloat newValue = 0.0;
-    if (numberOfWedges % 2 == 1){
-        for (SpinnerSector *sect in sectors){
-            if(rad > sect.minVal && rad < sect.maxVal){
-                newValue = rad - sect.midVal;
-                currentSector = sect.sector;
-                break;
-            }
-        }
-        [UIView animateWithDuration:5 animations:^{
-            CGAffineTransform t = CGAffineTransformRotate(container.transform, -newValue);
-            container.transform = t;
-        }];
-    }else{
-        for (SpinnerSector *sect in sectors){
-            if(sect.minVal > 0 && sect.maxVal < 0){
-                if(sect.maxVal > rad || sect.minVal < rad){
-                    if(rad > 0){
-                        newValue = rad - M_PI;
-                    }else{
-                        newValue = M_PI + rad;
-                    }
-                    currentSector = sect.sector;
-                }
-            }else if(rad > sect.minVal && rad < sect.maxVal){
-                newValue = rad - sect.midVal;
-                currentSector = sect.sector;
-            }
-        }
-    }
-    [self.delegate wheelValueChanged:[NSString stringWithFormat:@"value is %i", currentSector]];
+    [self rotateHelper];
 }
 
 - (BOOL) beginTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event{
@@ -125,59 +94,51 @@ static float deltaAngle;
     return YES;
 }
 
-//- (BOOL) continueTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event{
-//    CGPoint touchPosition = [touch locationInView:self];
-//    float dist = [self calculateDistanceFromCenter:touchPosition];
-//    if(dist < 40 || dist > 100){
-//        //ignore tap
-//        return NO;
-//    }
-//    float deltaX = touchPosition.x - container.center.x;
-//    float deltaY = touchPosition.y - container.center.y;
-//    float ang = atan2(deltaY, deltaX);
-//    float angleDiff = deltaAngle - ang;
-//    [UIView animateWithDuration:5 animations:^{
-//        container.transform = CGAffineTransformRotate(startTransform, -angleDiff);
-//    }];
-////    container.transform = CGAffineTransformRotate(startTransform, -angleDiff);
-//    return YES;
-//}
+- (BOOL) continueTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event{
+    CGPoint touchPosition = [touch locationInView:self];
+    float dist = [self calculateDistanceFromCenter:touchPosition];
+    if(dist < 40 || dist > 100){
+        //ignore tap
+        return NO;
+    }
+    [self rotate];
+    return YES;
+}
 
-//- (void) endTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event{
-//    CGFloat rad = atan2f(container.transform.b, container.transform.a);
-//    CGFloat newValue = 0.0;
-//    if (numberOfWedges % 2 == 1){
-//        for (SpinnerSector *sect in sectors){
-//            if(rad > sect.minVal && rad < sect.maxVal){
-//                newValue = rad - sect.midVal;
-//                currentSector = sect.sector;
-//                break;
-//            }
-//        }
-//        [UIView animateWithDuration:5 animations:^{
-//            CGAffineTransform t = CGAffineTransformRotate(container.transform, -newValue);
-//            container.transform = t;
-//        }];
-//    }else{
-//        for (SpinnerSector *sect in sectors){
-//            if(sect.minVal > 0 && sect.maxVal < 0){
-//                if(sect.maxVal > rad || sect.minVal < rad){
-//                    if(rad > 0){
-//                        newValue = rad - M_PI;
-//                    }else{
-//                        newValue = M_PI + rad;
-//                    }
-//                    currentSector = sect.sector;
-//                }
-//            }else if(rad > sect.minVal && rad < sect.maxVal){
-//                newValue = rad - sect.midVal;
-//                currentSector = sect.sector;
-//            }
-//        }
-//    }
-//    [self.delegate wheelValueChanged:[NSString stringWithFormat:@"value is %i", currentSector]];
-//}
-
+- (void) rotateHelper{
+    CGFloat rad = atan2f(container.transform.b, container.transform.a);
+    CGFloat newValue = 0.0;
+    if (numberOfWedges % 2 == 1){
+        for (SpinnerSector *sect in sectors){
+            if(rad > sect.minVal && rad < sect.maxVal){
+                newValue = rad - sect.midVal;
+                currentSector = sect.sector;
+                break;
+            }
+        }
+    }else{
+        for (SpinnerSector *sect in sectors){
+            if(sect.minVal > 0 && sect.maxVal < 0){
+                if(sect.maxVal > rad || sect.minVal < rad){
+                    if(rad > 0){
+                        newValue = rad - M_PI;
+                    }else{
+                        newValue = M_PI + rad;
+                    }
+                    currentSector = sect.sector;
+                }
+            }else if(rad > sect.minVal && rad < sect.maxVal){
+                newValue = rad - sect.midVal;
+                currentSector = sect.sector;
+            }
+        }
+    }
+    [UIView animateWithDuration:0.2 animations:^{
+        CGAffineTransform t = CGAffineTransformRotate(container.transform, -newValue);
+        container.transform = t;
+    }];
+    [self.delegate wheelValueChanged:[NSString stringWithFormat:@"value is %i", currentSector]];
+}
 - (float) calculateDistanceFromCenter:(CGPoint)point{
     CGPoint center = CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2);
     float deltaX = point.x - center.x;
