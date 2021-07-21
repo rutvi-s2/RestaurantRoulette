@@ -1,6 +1,5 @@
 ${PODS_ROOT}/Target Support Files/Pods-RestaurantRoulette/Pods-RestaurantRoulette-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework
 ${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework
-${BUILT_PRODUCTS_DIR}/FortuneWheel/FortuneWheel.framework
 ${BUILT_PRODUCTS_DIR}/Parse/Parse.framework
 ${BUILT_PRODUCTS_DIR}/YelpAPI/YelpAPI.framework

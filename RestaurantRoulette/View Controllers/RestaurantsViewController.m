@@ -66,12 +66,14 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    UITableViewCell *tappedCell = sender;
-    NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
-    YLPBusiness *business = self.search.businesses[indexPath.item];
-    
-    DetailsViewController *detailsViewController = [segue destinationViewController];
-    detailsViewController.business = business;
+    if([segue.identifier isEqualToString:@"restaurantDetails"]){
+        UITableViewCell *tappedCell = sender;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
+        YLPBusiness *business = self.search.businesses[indexPath.item];
+        
+        DetailsViewController *detailsViewController = [segue destinationViewController];
+        detailsViewController.business = business;
+    }
     
 }
 

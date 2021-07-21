@@ -28,6 +28,9 @@
 		496EBD0826A5461B008AFA5E /* SpinnerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 496EBD0726A5461B008AFA5E /* SpinnerViewController.m */; };
 		496EBD0C26A69186008AFA5E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 496EBD0B26A69186008AFA5E /* MapKit.framework */; };
 		496EBD0F26A691AA008AFA5E /* PhotoMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 496EBD0E26A691AA008AFA5E /* PhotoMapViewController.m */; };
+		496EBD1826A7C030008AFA5E /* SpinnerProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 496EBD1726A7C030008AFA5E /* SpinnerProtocol.m */; };
+		496EBD1C26A7C2F2008AFA5E /* SpinnerWheel.m in Sources */ = {isa = PBXBuildFile; fileRef = 496EBD1B26A7C2F2008AFA5E /* SpinnerWheel.m */; };
+		496EBD1E26A7C60C008AFA5E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 496EBD1D26A7C60C008AFA5E /* QuartzCore.framework */; };
 		85FA26B000B045D7D43A2262 /* Pods_RestaurantRoulette.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4EF7BD6007BE349F17C765D /* Pods_RestaurantRoulette.framework */; };
 		FC2CB2D18EE1220F1BD12E1B /* Pods_RestaurantRoulette_RestaurantRouletteUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0214CFAD7EF3BE1DE8A7B98E /* Pods_RestaurantRoulette_RestaurantRouletteUITests.framework */; };
 /* End PBXBuildFile section */
@@ -92,6 +95,11 @@
 		496EBD0B26A69186008AFA5E /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		496EBD0D26A691AA008AFA5E /* PhotoMapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoMapViewController.h; sourceTree = "<group>"; };
 		496EBD0E26A691AA008AFA5E /* PhotoMapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoMapViewController.m; sourceTree = "<group>"; };
+		496EBD1726A7C030008AFA5E /* SpinnerProtocol.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpinnerProtocol.m; sourceTree = "<group>"; };
+		496EBD1926A7C0BA008AFA5E /* SpinnerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpinnerProtocol.h; sourceTree = "<group>"; };
+		496EBD1A26A7C2F2008AFA5E /* SpinnerWheel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpinnerWheel.h; sourceTree = "<group>"; };
+		496EBD1B26A7C2F2008AFA5E /* SpinnerWheel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpinnerWheel.m; sourceTree = "<group>"; };
+		496EBD1D26A7C60C008AFA5E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		60E3426D90C0ED2956779B7F /* Pods-RestaurantRoulette-RestaurantRouletteUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestaurantRoulette-RestaurantRouletteUITests.debug.xcconfig"; path = "Target Support Files/Pods-RestaurantRoulette-RestaurantRouletteUITests/Pods-RestaurantRoulette-RestaurantRouletteUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8EF3CCC66174D19EB01DCF41 /* Pods-RestaurantRoulette.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestaurantRoulette.debug.xcconfig"; path = "Target Support Files/Pods-RestaurantRoulette/Pods-RestaurantRoulette.debug.xcconfig"; sourceTree = "<group>"; };
 		A4EF7BD6007BE349F17C765D /* Pods_RestaurantRoulette.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RestaurantRoulette.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,6 +113,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				496EBD1E26A7C60C008AFA5E /* QuartzCore.framework in Frameworks */,
 				496EBD0C26A69186008AFA5E /* MapKit.framework in Frameworks */,
 				85FA26B000B045D7D43A2262 /* Pods_RestaurantRoulette.framework in Frameworks */,
 			);
@@ -154,6 +163,7 @@
 		4950BF22269CA355004FA5CA /* RestaurantRoulette */ = {
 			isa = PBXGroup;
 			children = (
+				496EBD1626A7BF3A008AFA5E /* SpinWheel */,
 				4950BF6D269E8980004FA5CA /* YelpAPI */,
 				4950BF69269E8623004FA5CA /* Views */,
 				4950BF59269CBDED004FA5CA /* View Controllers */,
@@ -203,8 +213,6 @@
 				4950BF67269E1557004FA5CA /* RestaurantsViewController.m */,
 				496EBD0326A54265008AFA5E /* DetailsViewController.h */,
 				496EBD0426A54265008AFA5E /* DetailsViewController.m */,
-				496EBD0626A5461B008AFA5E /* SpinnerViewController.h */,
-				496EBD0726A5461B008AFA5E /* SpinnerViewController.m */,
 				496EBD0D26A691AA008AFA5E /* PhotoMapViewController.h */,
 				496EBD0E26A691AA008AFA5E /* PhotoMapViewController.m */,
 			);
@@ -231,9 +239,23 @@
 			path = YelpAPI;
 			sourceTree = "<group>";
 		};
+		496EBD1626A7BF3A008AFA5E /* SpinWheel */ = {
+			isa = PBXGroup;
+			children = (
+				496EBD0726A5461B008AFA5E /* SpinnerViewController.m */,
+				496EBD0626A5461B008AFA5E /* SpinnerViewController.h */,
+				496EBD1726A7C030008AFA5E /* SpinnerProtocol.m */,
+				496EBD1926A7C0BA008AFA5E /* SpinnerProtocol.h */,
+				496EBD1A26A7C2F2008AFA5E /* SpinnerWheel.h */,
+				496EBD1B26A7C2F2008AFA5E /* SpinnerWheel.m */,
+			);
+			path = SpinWheel;
+			sourceTree = "<group>";
+		};
 		653DB2C0BAC57AEC86ACE4F5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				496EBD1D26A7C60C008AFA5E /* QuartzCore.framework */,
 				496EBD0B26A69186008AFA5E /* MapKit.framework */,
 				A4EF7BD6007BE349F17C765D /* Pods_RestaurantRoulette.framework */,
 				0214CFAD7EF3BE1DE8A7B98E /* Pods_RestaurantRoulette_RestaurantRouletteUITests.framework */,
@@ -328,6 +350,7 @@
 				TargetAttributes = {
 					4950BF1F269CA355004FA5CA = {
 						CreatedOnToolsVersion = 12.5.1;
+						LastSwiftMigration = 1250;
 					};
 					4950BF3A269CA356004FA5CA = {
 						CreatedOnToolsVersion = 12.5.1;
@@ -531,6 +554,7 @@
 				4950BF62269DF9A8004FA5CA /* SelectViewController.m in Sources */,
 				4950BF68269E1557004FA5CA /* RestaurantsViewController.m in Sources */,
 				4950BF6F269E89C7004FA5CA /* APIManager.m in Sources */,
+				496EBD1826A7C030008AFA5E /* SpinnerProtocol.m in Sources */,
 				496EBD0826A5461B008AFA5E /* SpinnerViewController.m in Sources */,
 				496EBD0F26A691AA008AFA5E /* PhotoMapViewController.m in Sources */,
 				496EBD0526A54265008AFA5E /* DetailsViewController.m in Sources */,
@@ -540,6 +564,7 @@
 				4950BF36269CA356004FA5CA /* main.m in Sources */,
 				491B9C1B26A0EF9F00F5AACC /* CategoryCell.m in Sources */,
 				4950BF28269CA355004FA5CA /* SceneDelegate.m in Sources */,
+				496EBD1C26A7C2F2008AFA5E /* SpinnerWheel.m in Sources */,
 				4950BF65269DFA7A004FA5CA /* PreferencesViewController.m in Sources */,
 				4950BF5F269CBE2B004FA5CA /* SignupViewController.m in Sources */,
 			);
@@ -631,6 +656,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -690,6 +716,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -714,6 +741,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y8Z6A555QR;
 				INFOPLIST_FILE = RestaurantRoulette/Info.plist;
@@ -723,6 +751,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.rutvims.RestaurantRoulette;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "RestaurantRoulette/RestaurantRoulette-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -733,6 +764,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = Y8Z6A555QR;
 				INFOPLIST_FILE = RestaurantRoulette/Info.plist;
@@ -742,6 +774,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.rutvims.RestaurantRoulette;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "RestaurantRoulette/RestaurantRoulette-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

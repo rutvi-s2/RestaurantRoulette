@@ -9,7 +9,6 @@ target 'RestaurantRoulette' do
     pod 'Parse'
     pod 'YelpAPI'
     pod 'AFNetworking'
-    pod 'FortuneWheel'
     pod 'GoogleMaps', '5.1.0'
 
   target 'RestaurantRouletteTests' do
