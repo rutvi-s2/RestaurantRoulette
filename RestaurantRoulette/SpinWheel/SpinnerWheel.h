@@ -8,6 +8,7 @@
 #import <UIKit/UIKit.h>
 #import "SpinnerProtocol.h"
 #import "SpinnerSector.h"
+#import <YelpAPI/YLPBusiness.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -19,8 +20,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property CGAffineTransform startTransform;
 @property (nonatomic, strong) NSMutableArray *sectors;
 @property int currentSector;
+@property (strong, nonatomic) NSMutableArray <YLPBusiness *> *spinnerItems;
 
-- (id) initWithFrame:(CGRect)frame andDelegate:(id)del withWedges: (int)wedgesNumber;
+- (id) initWithFrame:(CGRect)frame andDelegate:(id)del withWedges: (int)wedgesNumber withItems: (NSMutableArray <YLPBusiness *> *)spinnerItems;
 - (void) rotate;
 
 @end

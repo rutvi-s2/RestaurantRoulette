@@ -22,15 +22,15 @@ static float deltaAngle;
 @implementation SpinnerWheel
 
 //basically create getter and setter for variables
-@synthesize delegate, container, numberOfWedges, startTransform, sectors, currentSector;
+@synthesize delegate, container, numberOfWedges, startTransform, sectors, currentSector, spinnerItems;
 
-- (id) initWithFrame:(CGRect)frame andDelegate:(nonnull id)del withWedges:(int)wedgesNumber{
+- (id) initWithFrame:(CGRect)frame andDelegate:(nonnull id)del withWedges:(int)wedgesNumber withItems:(nonnull NSMutableArray<YLPBusiness *> *)spinnerItems{
     if((self = [super initWithFrame:frame])){
         self.currentSector = 0;
         self.numberOfWedges = wedgesNumber;
         self.delegate = del;
+        self.spinnerItems = spinnerItems;
         [self drawWheel];
-//        [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(rotate) userInfo:nil repeats:YES];
         [self rotate];
     }
     return self;
@@ -40,13 +40,13 @@ static float deltaAngle;
     //create a view that holds everything
     container = [[UIView alloc] initWithFrame:self.frame];
     //2*pi radians in circle so divide total radians by # of wedges for angle size
-    CGFloat angleSize = 2 * (M_PI/numberOfWedges);
+    CGFloat *angleSize = 2 * (M_PI/numberOfWedges);
     //create label for each wedge and set anchor point to middle of wheel
     for(int i = 0; i < numberOfWedges; i++){
         //set position to center of the container view (0,0)
         UILabel *specificWedge = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 40)];
         specificWedge.backgroundColor = [UIColor lightGrayColor];
-        specificWedge.text = [NSString stringWithFormat:@"%i", i];
+        specificWedge.text = [spinnerItems objectAtIndex:i].name;
         specificWedge.layer.anchorPoint = CGPointMake(1.0f, 0.5f);
         //insert label to container view
         specificWedge.layer.position = CGPointMake(container.bounds.size.width/2.0, container.bounds.size.height/2.0);
@@ -64,12 +64,12 @@ static float deltaAngle;
     }else{
         [self buildSectorsEven];
     }
-    [self.delegate wheelValueChanged:[NSString stringWithFormat:@"value is %i", currentSector]];
+    [self.delegate wheelValueChanged:[NSString stringWithFormat:@"value is %@", [spinnerItems objectAtIndex:currentSector].name]];
 }
 
 - (void) rotate{
     CGFloat radianToRotate = (2 * M_PI) / numberOfWedges;
-    [UIView animateWithDuration:(1 + arc4random_uniform(5)) animations:^{
+    [UIView animateWithDuration:(2 + arc4random_uniform(3)) animations:^{
         CGAffineTransform t = CGAffineTransformRotate(container.transform, radianToRotate);
         container.transform = t;
     }];
@@ -137,7 +137,7 @@ static float deltaAngle;
         CGAffineTransform t = CGAffineTransformRotate(container.transform, -newValue);
         container.transform = t;
     }];
-    [self.delegate wheelValueChanged:[NSString stringWithFormat:@"value is %i", currentSector]];
+    [self.delegate wheelValueChanged:[NSString stringWithFormat:@"value is %@", [spinnerItems objectAtIndex:currentSector].name]];
 }
 - (float) calculateDistanceFromCenter:(CGPoint)point{
     CGPoint center = CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2);

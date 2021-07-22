@@ -6,6 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <YelpAPI/YLPBusiness.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -17,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *restaurantDistance;
 @property (weak, nonatomic) IBOutlet UILabel *restaurantRating;
 @property (weak, nonatomic) IBOutlet UIButton *checkboxButton;
+@property (strong, nonatomic) YLPBusiness *business;
 
 @end
 

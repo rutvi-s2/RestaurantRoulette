@@ -16,12 +16,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //TODO: change the withWedges param to count of restaurants selected
-    SpinnerWheel *wheel = [[SpinnerWheel alloc]initWithFrame:CGRectMake(0,0,370,700) andDelegate:self withWedges:7];
-    wheel.center = CGPointMake(260, 540);
+    CAShapeLayer *circleLayer = [CAShapeLayer layer];
+    [circleLayer setPath:[[UIBezierPath bezierPathWithOvalInRect:CGRectMake(self.view.bounds.size.width/2, self.view.bounds.size.height/2, 50, 50)] CGPath]];
+    
+    CAShapeLayer *outerCircleLayer = [CAShapeLayer layer];
+    [circleLayer setPath:[[UIBezierPath bezierPathWithOvalInRect:CGRectMake(self.view.bounds.size.width/2, self.view.bounds.size.height/2, 50, 50)] CGPath]];
+    
+    SpinnerWheel *wheel = [[SpinnerWheel alloc]initWithFrame:CGRectMake(0,0,370,700) andDelegate:self withWedges:(int)self.spinnerItems.count withItems:self.spinnerItems];
+    wheel.center = CGPointMake(self.view.bounds.size.width/2, self.view.bounds.size.height/2);
     //add wheel to current view
     [self.view addSubview:wheel];
-    
+    [[self.view layer] addSublayer:circleLayer];
 }
 
 - (void) wheelValueChanged:(NSString *)newValue{

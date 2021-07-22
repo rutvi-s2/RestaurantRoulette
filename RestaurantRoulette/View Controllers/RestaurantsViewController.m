@@ -15,6 +15,7 @@
 #import <YelpAPI/YLPBusiness.h>
 #import "UIImageView+AFNetworking.h"
 #import "DetailsViewController.h"
+#import "SpinnerViewController.h"
 
 @interface RestaurantsViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) YLPSearch *search;
@@ -47,14 +48,21 @@
         cell.restaurantName.text = @"";
     }
     else {
+        cell.business = [self.search.businesses objectAtIndex:indexPath.item];
+        if(![self.search.businesses objectAtIndex:indexPath.item].visited){
+            [cell.checkboxButton setBackgroundImage:[UIImage imageNamed:@"checkbox_empty"] forState:UIControlStateNormal];
+        }else{
+            [cell.checkboxButton setBackgroundImage:[UIImage imageNamed:@"checkbox_checked"] forState:UIControlStateNormal];
+        }
         cell.restaurantName.text = self.search.businesses[indexPath.item].name;
         [cell.restaurantImage setImageWithURL:self.search.businesses[indexPath.item].imageURL];
         self.categoriesNames = [NSMutableArray new];
         for(YLPCategory *category in self.search.businesses[indexPath.item].categories){
             [self.categoriesNames addObject:category.name];
         }
+        double milesConversion = 1609.34;
         cell.restaurantCategory.text = [self.categoriesNames componentsJoinedByString:@" / "];
-        cell.restaurantDistance.text = [[NSString stringWithFormat:@"%.2f", (self.search.businesses[indexPath.item].distance / 1609.34)] stringByAppendingString:@" miles"];
+        cell.restaurantDistance.text = [[NSString stringWithFormat:@"%.2f", (self.search.businesses[indexPath.item].distance / milesConversion)] stringByAppendingString:@" miles"];
         cell.restaurantPrice.text = self.search.businesses[indexPath.item].price;
         cell.restaurantRating.text = [[NSString stringWithFormat:@"%.1f", self.search.businesses[indexPath.item].rating] stringByAppendingString: @" / 5"];
         
@@ -73,6 +81,15 @@
         
         DetailsViewController *detailsViewController = [segue destinationViewController];
         detailsViewController.business = business;
+    }else{
+        NSMutableArray <YLPBusiness *> *spinnerItems = [NSMutableArray new];
+        for (YLPBusiness *business in self.search.businesses){
+            if (business.visited){
+                [spinnerItems addObject:business];
+            }
+        }
+        SpinnerViewController *spinner = [segue destinationViewController];
+        spinner.spinnerItems = spinnerItems;
     }
     
 }
