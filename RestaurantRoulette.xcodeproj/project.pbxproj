@@ -32,6 +32,9 @@
 		496EBD1C26A7C2F2008AFA5E /* SpinnerWheel.m in Sources */ = {isa = PBXBuildFile; fileRef = 496EBD1B26A7C2F2008AFA5E /* SpinnerWheel.m */; };
 		496EBD1E26A7C60C008AFA5E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 496EBD1D26A7C60C008AFA5E /* QuartzCore.framework */; };
 		496EBD2126A7DA39008AFA5E /* SpinnerSector.m in Sources */ = {isa = PBXBuildFile; fileRef = 496EBD2026A7DA39008AFA5E /* SpinnerSector.m */; };
+		496EBD2426AA6ECC008AFA5E /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 496EBD2326AA6ECC008AFA5E /* ProfileViewController.m */; };
+		496EBD2726AA72B7008AFA5E /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 496EBD2626AA72B7008AFA5E /* SettingsViewController.m */; };
+		496EBD2B26AA7789008AFA5E /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 496EBD2A26AA7789008AFA5E /* UserInfo.m */; };
 		85FA26B000B045D7D43A2262 /* Pods_RestaurantRoulette.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4EF7BD6007BE349F17C765D /* Pods_RestaurantRoulette.framework */; };
 		FC2CB2D18EE1220F1BD12E1B /* Pods_RestaurantRoulette_RestaurantRouletteUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0214CFAD7EF3BE1DE8A7B98E /* Pods_RestaurantRoulette_RestaurantRouletteUITests.framework */; };
 /* End PBXBuildFile section */
@@ -103,6 +106,12 @@
 		496EBD1D26A7C60C008AFA5E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		496EBD1F26A7DA39008AFA5E /* SpinnerSector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpinnerSector.h; sourceTree = "<group>"; };
 		496EBD2026A7DA39008AFA5E /* SpinnerSector.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpinnerSector.m; sourceTree = "<group>"; };
+		496EBD2226AA6ECC008AFA5E /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		496EBD2326AA6ECC008AFA5E /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		496EBD2526AA72B7008AFA5E /* SettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		496EBD2626AA72B7008AFA5E /* SettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		496EBD2926AA7789008AFA5E /* UserInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
+		496EBD2A26AA7789008AFA5E /* UserInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
 		60E3426D90C0ED2956779B7F /* Pods-RestaurantRoulette-RestaurantRouletteUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestaurantRoulette-RestaurantRouletteUITests.debug.xcconfig"; path = "Target Support Files/Pods-RestaurantRoulette-RestaurantRouletteUITests/Pods-RestaurantRoulette-RestaurantRouletteUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8EF3CCC66174D19EB01DCF41 /* Pods-RestaurantRoulette.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestaurantRoulette.debug.xcconfig"; path = "Target Support Files/Pods-RestaurantRoulette/Pods-RestaurantRoulette.debug.xcconfig"; sourceTree = "<group>"; };
 		A4EF7BD6007BE349F17C765D /* Pods_RestaurantRoulette.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RestaurantRoulette.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -166,6 +175,7 @@
 		4950BF22269CA355004FA5CA /* RestaurantRoulette */ = {
 			isa = PBXGroup;
 			children = (
+				496EBD2826AA776C008AFA5E /* Parse */,
 				496EBD1626A7BF3A008AFA5E /* SpinWheel */,
 				4950BF6D269E8980004FA5CA /* YelpAPI */,
 				4950BF69269E8623004FA5CA /* Views */,
@@ -218,6 +228,10 @@
 				496EBD0426A54265008AFA5E /* DetailsViewController.m */,
 				496EBD0D26A691AA008AFA5E /* PhotoMapViewController.h */,
 				496EBD0E26A691AA008AFA5E /* PhotoMapViewController.m */,
+				496EBD2226AA6ECC008AFA5E /* ProfileViewController.h */,
+				496EBD2326AA6ECC008AFA5E /* ProfileViewController.m */,
+				496EBD2526AA72B7008AFA5E /* SettingsViewController.h */,
+				496EBD2626AA72B7008AFA5E /* SettingsViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -255,6 +269,15 @@
 				496EBD2026A7DA39008AFA5E /* SpinnerSector.m */,
 			);
 			path = SpinWheel;
+			sourceTree = "<group>";
+		};
+		496EBD2826AA776C008AFA5E /* Parse */ = {
+			isa = PBXGroup;
+			children = (
+				496EBD2926AA7789008AFA5E /* UserInfo.h */,
+				496EBD2A26AA7789008AFA5E /* UserInfo.m */,
+			);
+			path = Parse;
 			sourceTree = "<group>";
 		};
 		653DB2C0BAC57AEC86ACE4F5 /* Frameworks */ = {
@@ -564,8 +587,11 @@
 				496EBD0F26A691AA008AFA5E /* PhotoMapViewController.m in Sources */,
 				496EBD0526A54265008AFA5E /* DetailsViewController.m in Sources */,
 				496EBD2126A7DA39008AFA5E /* SpinnerSector.m in Sources */,
+				496EBD2B26AA7789008AFA5E /* UserInfo.m in Sources */,
 				4950BF6C269E86D1004FA5CA /* RestaurantCell.m in Sources */,
 				4950BF5C269CBE05004FA5CA /* LoginViewController.m in Sources */,
+				496EBD2426AA6ECC008AFA5E /* ProfileViewController.m in Sources */,
+				496EBD2726AA72B7008AFA5E /* SettingsViewController.m in Sources */,
 				4950BF25269CA355004FA5CA /* AppDelegate.m in Sources */,
 				4950BF36269CA356004FA5CA /* main.m in Sources */,
 				491B9C1B26A0EF9F00F5AACC /* CategoryCell.m in Sources */,

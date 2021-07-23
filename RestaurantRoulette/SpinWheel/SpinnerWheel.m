@@ -40,13 +40,14 @@ static float deltaAngle;
     //create a view that holds everything
     container = [[UIView alloc] initWithFrame:self.frame];
     //2*pi radians in circle so divide total radians by # of wedges for angle size
-    CGFloat *angleSize = 2 * (M_PI/numberOfWedges);
+    CGFloat const angleSize = 2 * (M_PI/numberOfWedges);
     //create label for each wedge and set anchor point to middle of wheel
     for(int i = 0; i < numberOfWedges; i++){
         //set position to center of the container view (0,0)
-        UILabel *specificWedge = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 100, 40)];
+        UILabel *specificWedge = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 180, 60)];
         specificWedge.backgroundColor = [UIColor lightGrayColor];
         specificWedge.text = [spinnerItems objectAtIndex:i].name;
+        specificWedge.numberOfLines = 0; //will wrap text in new line
         specificWedge.layer.anchorPoint = CGPointMake(1.0f, 0.5f);
         //insert label to container view
         specificWedge.layer.position = CGPointMake(container.bounds.size.width/2.0, container.bounds.size.height/2.0);
@@ -65,6 +66,7 @@ static float deltaAngle;
         [self buildSectorsEven];
     }
     [self.delegate wheelValueChanged:[NSString stringWithFormat:@"value is %@", [spinnerItems objectAtIndex:currentSector].name]];
+    [self alertControllerCode:[spinnerItems objectAtIndex:currentSector].name];
 }
 
 - (void) rotate{
@@ -138,16 +140,17 @@ static float deltaAngle;
         container.transform = t;
     }];
     [self.delegate wheelValueChanged:[NSString stringWithFormat:@"value is %@", [spinnerItems objectAtIndex:currentSector].name]];
+    [self alertControllerCode:[spinnerItems objectAtIndex:currentSector].name];
 }
 - (float) calculateDistanceFromCenter:(CGPoint)point{
     CGPoint center = CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2);
-    float deltaX = point.x - center.x;
-    float deltaY = point.y - center.y;
+    float const deltaX = point.x - center.x;
+    float const deltaY = point.y - center.y;
     return sqrt ((deltaX * deltaX) + (deltaY * deltaY));
 }
 
 - (void) buildSectorsOdd{
-    CGFloat fanWidth = 2 * M_PI / numberOfWedges;
+    CGFloat const fanWidth = 2 * M_PI / numberOfWedges;
     CGFloat mid = 0;
     for (int i = 0; i < numberOfWedges; i++){
         SpinnerSector *sector = [[SpinnerSector alloc] init];
@@ -167,7 +170,7 @@ static float deltaAngle;
 }
 
 - (void) buildSectorsEven{
-    CGFloat fanWidth = 2 * M_PI / numberOfWedges;
+    CGFloat const fanWidth = 2 * M_PI / numberOfWedges;
     CGFloat mid = 0;
     for (int i = 0; i < numberOfWedges; i++){
         SpinnerSector *sector = [[SpinnerSector alloc] init];
@@ -185,6 +188,26 @@ static float deltaAngle;
         //add sector to array
         [sectors addObject:sector];
     }
+}
+
+- (void) alertControllerCode: (NSString *)restaurantName{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Chosen" message:[NSString stringWithFormat:@"You have chosen %@", restaurantName] preferredStyle:UIAlertControllerStyleAlert];
+        // create a cancel action
+        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) { // handle cancel response here. Doing nothing will dismiss the view.
+        }];
+        // add the cancel action to the alertController
+        [alert addAction:cancelAction];
+        // create an OK action
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) { // handle response here.
+            }];
+        // add the OK action to the alert controller
+        [alert addAction:okAction];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"SpinnerViewController"];
+//    id rootViewController = [UIApplication sharedApplication].delegate.window.rootViewController;
+        [self.window.rootViewController presentViewController:alert animated:YES completion:^{
+            // optional code for what happens after the alert controller has finished presenting
+        }];
 }
 /*
 // Only override drawRect: if you perform custom drawing.

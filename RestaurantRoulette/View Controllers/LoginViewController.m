@@ -19,7 +19,7 @@
     // Do any additional setup after loading the view.
 }
 - (IBAction)loginPress:(id)sender {
-    if([self.usernameText.text isEqual:@""] || [self.passwordText.text isEqual:@""]){
+    if([self.usernameText.text isEqual:@""] || [self.passwordText.text isEqual:@""] || [self.name.text isEqual:@""]){
         [self alertControllerCode];
     }else{
         NSString *username = self.usernameText.text;
@@ -40,7 +40,7 @@
 }
 
 -(void) alertControllerCode{
-       UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Warning" message:@"The password or username is empty" preferredStyle:UIAlertControllerStyleAlert];
+       UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Warning" message:@"The password or username or name is empty" preferredStyle:UIAlertControllerStyleAlert];
        // create a cancel action
        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) { // handle cancel response here. Doing nothing will dismiss the view.
        }];
