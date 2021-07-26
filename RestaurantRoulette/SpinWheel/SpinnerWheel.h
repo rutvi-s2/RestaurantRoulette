@@ -12,6 +12,12 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol SpinnerWheelDelegate
+
+- (void) alertBusiness:(YLPBusiness *)business;
+
+@end
+
 @interface SpinnerWheel : UIControl
 
 @property (weak) id <SpinnerProtocol> delegate;
@@ -21,6 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSMutableArray *sectors;
 @property int currentSector;
 @property (strong, nonatomic) NSMutableArray <YLPBusiness *> *spinnerItems;
+@property (nonatomic) BOOL rotateHelperDone;
 
 - (id) initWithFrame:(CGRect)frame andDelegate:(id)del withWedges: (int)wedgesNumber withItems: (NSMutableArray <YLPBusiness *> *)spinnerItems;
 - (void) rotate;

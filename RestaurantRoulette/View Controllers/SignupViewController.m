@@ -7,6 +7,7 @@
 
 #import "SignupViewController.h"
 #import <Parse/Parse.h>
+#import "UserInfo.h"
 
 @interface SignupViewController ()
 
@@ -35,6 +36,7 @@
                 NSLog(@"Error: %@", error.localizedDescription);
             } else {
                 NSLog(@"User registered successfully");
+                [UserInfo newUser:@"username" withCompletion:^(BOOL succeeded, NSError *error){}];
                 UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
                 SignupViewController *TabBarController = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
                 [self presentViewController:TabBarController animated:YES completion:^{

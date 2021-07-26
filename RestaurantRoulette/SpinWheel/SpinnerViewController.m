@@ -7,6 +7,8 @@
 
 #import "SpinnerViewController.h"
 #import "SpinnerWheel.h"
+#import <Parse/Parse.h>
+#import "DetailsViewController.h"
 
 @interface SpinnerViewController ()
 
@@ -26,8 +28,47 @@
     [[self.view layer] addSublayer:circleLayer];
 }
 
-- (void) wheelValueChanged:(NSString *)newValue{
-    self.sectorLabel.text = newValue;
+- (void) alertBusiness:(YLPBusiness *)business{
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Chosen" message:[NSString stringWithFormat:@"You have chosen %@", business.name] preferredStyle:UIAlertControllerStyleAlert];
+            // create a cancel action
+            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) { // handle cancel response here. Doing nothing will dismiss the view.
+            }];
+            // add the cancel action to the alertController
+            [alert addAction:cancelAction];
+            // create an OK action
+            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                DetailsViewController *DetailsViewController = [storyboard instantiateViewControllerWithIdentifier:@"DetailsViewController"];
+                DetailsViewController.business = business;
+                DetailsViewController.
+                [self presentViewController:DetailsViewController animated:YES completion:^{}];
+            }];
+            // add the OK action to the alert controller
+            [alert addAction:okAction];
+            [self presentViewController:alert animated:YES completion:^{
+                [self parseHelper:business];
+            }];
+}
+
+- (void) parseHelper : (YLPBusiness *)business{
+    PFQuery *query = [PFQuery queryWithClassName:@"UserInfo"];
+    [query includeKey: @"username"];
+    [query whereKey:@"username" equalTo:PFUser.currentUser.username];
+    query.limit = 20;
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *profiles, NSError *error){
+        if(profiles != nil){
+            self.profile = profiles.firstObject;
+            if(self.profile.currentBookingsArray == nil){
+                self.profile.currentBookingsArray= [NSMutableArray new];
+            }
+            [self.profile.currentBookingsArray addObject:business.identifier];
+            self.profile [@"currentBookingsArray"] = self.profile.currentBookingsArray;
+            [self.profile saveInBackground];
+        }else{
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
 }
 
 /*

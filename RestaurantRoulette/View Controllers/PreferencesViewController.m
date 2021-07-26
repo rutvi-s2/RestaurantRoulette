@@ -7,6 +7,7 @@
 
 #import "PreferencesViewController.h"
 #import "RestaurantsViewController.h"
+#import "LoginViewController.h"
 #import "APIManager.h"
 #import "CategoryCell.h"
 #import <YelpAPI/YLPClient+Search.h>
@@ -14,6 +15,7 @@
 #import <YelpAPI/YLPSearch.h>
 #import <YelpAPI/YLPBusiness.h>
 #import <YelpAPI/YLPCategory.h>
+#import <Parse/Parse.h>
 
 @interface PreferencesViewController () <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
 
@@ -43,6 +45,15 @@
                  self.ready = true;
              });
          }];
+}
+- (IBAction)logoutPress:(id)sender {
+    [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
+        // PFUser.current() will now be nil
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        LoginViewController *LoginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+        [self presentViewController:LoginViewController animated:YES completion:^{
+        }];
+    }];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{

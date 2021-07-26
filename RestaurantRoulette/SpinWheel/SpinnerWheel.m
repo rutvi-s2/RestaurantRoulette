@@ -22,16 +22,17 @@ static float deltaAngle;
 @implementation SpinnerWheel
 
 //basically create getter and setter for variables
-@synthesize delegate, container, numberOfWedges, startTransform, sectors, currentSector, spinnerItems;
+@synthesize delegate, container, numberOfWedges, startTransform, sectors, currentSector, spinnerItems, rotateHelperDone;
 
 - (id) initWithFrame:(CGRect)frame andDelegate:(nonnull id)del withWedges:(int)wedgesNumber withItems:(nonnull NSMutableArray<YLPBusiness *> *)spinnerItems{
     if((self = [super initWithFrame:frame])){
+        self.rotateHelperDone = false;
         self.currentSector = 0;
         self.numberOfWedges = wedgesNumber;
         self.delegate = del;
         self.spinnerItems = spinnerItems;
         [self drawWheel];
-        [self rotate];
+//        [self rotate];
     }
     return self;
 }
@@ -65,8 +66,6 @@ static float deltaAngle;
     }else{
         [self buildSectorsEven];
     }
-    [self.delegate wheelValueChanged:[NSString stringWithFormat:@"value is %@", [spinnerItems objectAtIndex:currentSector].name]];
-    [self alertControllerCode:[spinnerItems objectAtIndex:currentSector].name];
 }
 
 - (void) rotate{
@@ -74,22 +73,28 @@ static float deltaAngle;
     [UIView animateWithDuration:(2 + arc4random_uniform(3)) animations:^{
         CGAffineTransform t = CGAffineTransformRotate(container.transform, radianToRotate);
         container.transform = t;
+    }completion:^(BOOL success) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            if (!rotateHelperDone){
+                [self rotateHelper];
+                rotateHelperDone = true;
+            }
+        });
     }];
-    [self rotateHelper];
 }
 
 - (BOOL) beginTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event{
     //get position of user touch
     CGPoint touchPosition = [touch locationInView:self];
     float dist = [self calculateDistanceFromCenter:touchPosition];
-    if(dist < 40 || dist > 100){
+    if(dist < 40 || dist > 180){
         //ignore tap
         return NO;
     }
     //calculate distance of touch from center
     float deltaX = touchPosition.x - container.center.x;
     float deltaY = touchPosition.y - container.center.y;
-    //calculate arctangent - did this in robot lab in fri when needed to calculate how much to turn robot based on the camera's view
+    //calculate arctangent - similar to robot lab in fri when needed to calculate how much to turn robot based on the camera's view
     deltaAngle = atan2(deltaY, deltaX);
     //save transformation
     startTransform = container.transform;
@@ -99,7 +104,7 @@ static float deltaAngle;
 - (BOOL) continueTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event{
     CGPoint touchPosition = [touch locationInView:self];
     float dist = [self calculateDistanceFromCenter:touchPosition];
-    if(dist < 40 || dist > 100){
+    if(dist < 40 || dist > 180){
         //ignore tap
         return NO;
     }
@@ -138,10 +143,11 @@ static float deltaAngle;
     [UIView animateWithDuration:0.2 animations:^{
         CGAffineTransform t = CGAffineTransformRotate(container.transform, -newValue);
         container.transform = t;
+    }completion:^(BOOL success) {
+        [self->delegate alertBusiness:[self->spinnerItems objectAtIndex:self->currentSector]];
     }];
-    [self.delegate wheelValueChanged:[NSString stringWithFormat:@"value is %@", [spinnerItems objectAtIndex:currentSector].name]];
-    [self alertControllerCode:[spinnerItems objectAtIndex:currentSector].name];
 }
+
 - (float) calculateDistanceFromCenter:(CGPoint)point{
     CGPoint center = CGPointMake(self.bounds.size.width/2, self.bounds.size.height/2);
     float const deltaX = point.x - center.x;
@@ -190,25 +196,6 @@ static float deltaAngle;
     }
 }
 
-- (void) alertControllerCode: (NSString *)restaurantName{
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Chosen" message:[NSString stringWithFormat:@"You have chosen %@", restaurantName] preferredStyle:UIAlertControllerStyleAlert];
-        // create a cancel action
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) { // handle cancel response here. Doing nothing will dismiss the view.
-        }];
-        // add the cancel action to the alertController
-        [alert addAction:cancelAction];
-        // create an OK action
-        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) { // handle response here.
-            }];
-        // add the OK action to the alert controller
-        [alert addAction:okAction];
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"SpinnerViewController"];
-//    id rootViewController = [UIApplication sharedApplication].delegate.window.rootViewController;
-        [self.window.rootViewController presentViewController:alert animated:YES completion:^{
-            // optional code for what happens after the alert controller has finished presenting
-        }];
-}
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

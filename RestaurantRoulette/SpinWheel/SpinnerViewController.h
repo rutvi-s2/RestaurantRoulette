@@ -8,13 +8,14 @@
 #import <UIKit/UIKit.h>
 #import "SpinnerProtocol.h"
 #import <YelpAPI/YLPBusiness.h>
+#import "UserInfo.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SpinnerViewController : UIViewController<SpinnerProtocol>
 
-@property (weak, nonatomic) IBOutlet UILabel *sectorLabel;
 @property (strong, nonatomic) NSMutableArray <YLPBusiness *> *spinnerItems;
+@property (strong, nonatomic) UserInfo *profile;
 
 @end
 

@@ -6,8 +6,15 @@
 //
 
 #import "ProfileViewController.h"
+#import "PastBookingCell.h"
+#import "CurrentBookingCell.h"
+#import "UserInfo.h"
+#import <Parse/Parse.h>
+#import <YelpAPI/YLPClient+Business.h>
+#import "UIImageView+AFNetworking.h"
+#import "APIManager.h"
 
-@interface ProfileViewController ()
+@interface ProfileViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
 
 @end
 
@@ -15,9 +22,49 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.pastBookings.delegate = self;
+    self.pastBookings.dataSource = self;
+    self.currentBookings.delegate = self;
+    self.currentBookings.dataSource = self;
+    [self parseHelper];
 }
 
+- (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+//    PastBookingCell *pastCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PastBookingCell" forIndexPath:indexPath];
+    CurrentBookingCell *currentCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CurrentBookingCell" forIndexPath:indexPath];
+    if(self.profile != nil && self.profile.currentBookingsArray != nil){
+        NSString *businessID = self.profile.currentBookingsArray[indexPath.row];
+        [[APIManager shared] businessWithId:businessID completionHandler:^(YLPBusiness * _Nullable business, NSError * _Nullable error) {
+            currentCell.businessName.text = business.name;
+            [currentCell.businessImage setImageWithURL:business.imageURL];
+        }];
+    }
+    return currentCell;
+}
+
+- (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    if(self.profile != nil && self.profile.currentBookingsArray != nil){
+        return self.profile.currentBookingsArray.count;
+    }else{
+        return 0;
+    }
+}
+
+- (void) parseHelper{
+    PFQuery *query = [PFQuery queryWithClassName:@"UserInfo"];
+    [query includeKey: @"username"];
+    [query whereKey:@"username" equalTo:PFUser.currentUser.username];
+    query.limit = 20;
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *profiles, NSError *error){
+        if(profiles != nil){
+            self.profile = profiles.firstObject;
+            [self.currentBookings reloadData];
+        }else{
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
+}
 /*
 #pragma mark - Navigation
 

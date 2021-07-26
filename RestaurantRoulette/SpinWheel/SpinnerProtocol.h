@@ -6,9 +6,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <YelpAPI/YLPBusiness.h>
 
 @protocol SpinnerProtocol <NSObject>
 
--(void) wheelValueChanged:(NSString *) newValue;
+-(void) alertBusiness:(YLPBusiness *) business;
 
 @end

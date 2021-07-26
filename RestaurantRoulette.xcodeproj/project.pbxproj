@@ -35,6 +35,8 @@
 		496EBD2426AA6ECC008AFA5E /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 496EBD2326AA6ECC008AFA5E /* ProfileViewController.m */; };
 		496EBD2726AA72B7008AFA5E /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 496EBD2626AA72B7008AFA5E /* SettingsViewController.m */; };
 		496EBD2B26AA7789008AFA5E /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 496EBD2A26AA7789008AFA5E /* UserInfo.m */; };
+		496EBD2E26AE6CE0008AFA5E /* CurrentBookingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 496EBD2D26AE6CE0008AFA5E /* CurrentBookingCell.m */; };
+		496EBD3126AE6CEE008AFA5E /* PastBookingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 496EBD3026AE6CEE008AFA5E /* PastBookingCell.m */; };
 		85FA26B000B045D7D43A2262 /* Pods_RestaurantRoulette.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4EF7BD6007BE349F17C765D /* Pods_RestaurantRoulette.framework */; };
 		FC2CB2D18EE1220F1BD12E1B /* Pods_RestaurantRoulette_RestaurantRouletteUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0214CFAD7EF3BE1DE8A7B98E /* Pods_RestaurantRoulette_RestaurantRouletteUITests.framework */; };
 /* End PBXBuildFile section */
@@ -112,6 +114,10 @@
 		496EBD2626AA72B7008AFA5E /* SettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		496EBD2926AA7789008AFA5E /* UserInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserInfo.h; sourceTree = "<group>"; };
 		496EBD2A26AA7789008AFA5E /* UserInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserInfo.m; sourceTree = "<group>"; };
+		496EBD2C26AE6CE0008AFA5E /* CurrentBookingCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurrentBookingCell.h; sourceTree = "<group>"; };
+		496EBD2D26AE6CE0008AFA5E /* CurrentBookingCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CurrentBookingCell.m; sourceTree = "<group>"; };
+		496EBD2F26AE6CEE008AFA5E /* PastBookingCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PastBookingCell.h; sourceTree = "<group>"; };
+		496EBD3026AE6CEE008AFA5E /* PastBookingCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PastBookingCell.m; sourceTree = "<group>"; };
 		60E3426D90C0ED2956779B7F /* Pods-RestaurantRoulette-RestaurantRouletteUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestaurantRoulette-RestaurantRouletteUITests.debug.xcconfig"; path = "Target Support Files/Pods-RestaurantRoulette-RestaurantRouletteUITests/Pods-RestaurantRoulette-RestaurantRouletteUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8EF3CCC66174D19EB01DCF41 /* Pods-RestaurantRoulette.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestaurantRoulette.debug.xcconfig"; path = "Target Support Files/Pods-RestaurantRoulette/Pods-RestaurantRoulette.debug.xcconfig"; sourceTree = "<group>"; };
 		A4EF7BD6007BE349F17C765D /* Pods_RestaurantRoulette.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RestaurantRoulette.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -243,6 +249,10 @@
 				4950BF6B269E86D1004FA5CA /* RestaurantCell.m */,
 				491B9C1926A0EF9F00F5AACC /* CategoryCell.h */,
 				491B9C1A26A0EF9F00F5AACC /* CategoryCell.m */,
+				496EBD2C26AE6CE0008AFA5E /* CurrentBookingCell.h */,
+				496EBD2D26AE6CE0008AFA5E /* CurrentBookingCell.m */,
+				496EBD2F26AE6CEE008AFA5E /* PastBookingCell.h */,
+				496EBD3026AE6CEE008AFA5E /* PastBookingCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -599,6 +609,8 @@
 				496EBD1C26A7C2F2008AFA5E /* SpinnerWheel.m in Sources */,
 				4950BF65269DFA7A004FA5CA /* PreferencesViewController.m in Sources */,
 				4950BF5F269CBE2B004FA5CA /* SignupViewController.m in Sources */,
+				496EBD2E26AE6CE0008AFA5E /* CurrentBookingCell.m in Sources */,
+				496EBD3126AE6CEE008AFA5E /* PastBookingCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

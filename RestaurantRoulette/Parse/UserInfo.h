@@ -7,6 +7,7 @@
 
 #import <Parse/Parse.h>
 #import <Foundation/Foundation.h>
+#import <YelpAPI/YLPBusiness.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -16,8 +17,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSMutableArray *currentBookingsArray;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *username;
+@property (nonatomic, strong) PFFileObject *image;
+@property (nonatomic, strong) PFUser *userDetails;
+@property (nonatomic, strong) NSString *bio;
+
 
 + (void) newUser: (NSString * _Nullable )username withCompletion: (PFBooleanResultBlock  _Nullable)completion;
+- (void) updatePastArray: (YLPBusiness *) business;
 
 @end
 
