@@ -10,6 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SettingsViewController : UIViewController
+
 @property (weak, nonatomic) IBOutlet UIButton *editProfilePic;
 @property (weak, nonatomic) IBOutlet UITextField *nameChange;
 @property (weak, nonatomic) IBOutlet UITextField *bioChange;

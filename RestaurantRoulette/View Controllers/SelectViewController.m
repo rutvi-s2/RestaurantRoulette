@@ -25,7 +25,7 @@
     self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
     [self.locationManager startUpdatingLocation];
     [self.locationManager requestWhenInUseAuthorization];
-
+    
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
@@ -50,6 +50,5 @@
         preferencesController.zipcode = @"";
     }
 }
-
 
 @end

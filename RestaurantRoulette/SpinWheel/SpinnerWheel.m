@@ -31,7 +31,7 @@ static float deltaAngle;
         self.delegate = del;
         self.spinnerItems = spinnerItems;
         [self drawWheel];
-//        [self rotate];
+        //        [self rotate];
     }
     return self;
 }
@@ -75,28 +75,28 @@ static float deltaAngle;
 }
 
 - (void) rotate{
-        CGFloat radianToRotate = (2 * M_PI) / numberOfWedges;
-        [UIView animateWithDuration:(2 + arc4random_uniform(3)) animations:^{
-            CGAffineTransform t = CGAffineTransformRotate(self->container.transform, radianToRotate);
-            self->container.transform = t;
-        }completion:^(BOOL success) {
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    [self rotateHelper];
-            });
-        }];
+    CGFloat radianToRotate = (2 * M_PI) / numberOfWedges;
+    [UIView animateWithDuration:(2 + arc4random_uniform(3)) animations:^{
+        CGAffineTransform t = CGAffineTransformRotate(self->container.transform, radianToRotate);
+        self->container.transform = t;
+    }completion:^(BOOL success) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self rotateHelper];
+        });
+    }];
 }
 
 - (BOOL) beginTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event{
     //get position of user touch
     CGPoint touchPosition = [touch locationInView:self];
-    float dist = [self calculateDistanceFromCenter:touchPosition];
+    float const dist = [self calculateDistanceFromCenter:touchPosition];
     if(dist < 40 || dist > 180){
         //ignore tap
         return NO;
     }
     //calculate distance of touch from center
-    float deltaX = touchPosition.x - container.center.x;
-    float deltaY = touchPosition.y - container.center.y;
+    float const deltaX = touchPosition.x - container.center.x;
+    float const deltaY = touchPosition.y - container.center.y;
     //calculate arctangent - similar to robot lab in fri when needed to calculate how much to turn robot based on the camera's view
     deltaAngle = atan2(deltaY, deltaX);
     //save transformation
@@ -106,7 +106,7 @@ static float deltaAngle;
 
 - (BOOL) continueTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event{
     CGPoint touchPosition = [touch locationInView:self];
-    float dist = [self calculateDistanceFromCenter:touchPosition];
+    float const dist = [self calculateDistanceFromCenter:touchPosition];
     if(dist < 40 || dist > 180){
         //ignore tap
         return NO;
@@ -199,11 +199,11 @@ static float deltaAngle;
 }
 
 /*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
+ // Only override drawRect: if you perform custom drawing.
+ // An empty implementation adversely affects performance during animation.
+ - (void)drawRect:(CGRect)rect {
+ // Drawing code
+ }
+ */
 
 @end

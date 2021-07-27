@@ -29,24 +29,24 @@
 }
 
 - (void) alertBusiness:(YLPBusiness *)business{
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Chosen" message:[NSString stringWithFormat:@"You have chosen %@", business.name] preferredStyle:UIAlertControllerStyleAlert];
-            // create a cancel action
-            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Spin Again" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-            }];
-            // add the cancel action to the alertController
-            [alert addAction:cancelAction];
-            // create an OK action
-            UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                DetailsViewController *DetailsViewController = [storyboard instantiateViewControllerWithIdentifier:@"DetailsViewController"];
-                DetailsViewController.business = business;
-                [self presentViewController:DetailsViewController animated:YES completion:^{}];
-            }];
-            // add the OK action to the alert controller
-            [alert addAction:okAction];
-            [self presentViewController:alert animated:YES completion:^{
-                [self parseHelper:business];
-            }];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Chosen" message:[NSString stringWithFormat:@"You have chosen %@", business.name] preferredStyle:UIAlertControllerStyleAlert];
+    // create a cancel action
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Spin Again" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    }];
+    // add the cancel action to the alertController
+    [alert addAction:cancelAction];
+    // create an OK action
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        DetailsViewController *DetailsViewController = [storyboard instantiateViewControllerWithIdentifier:@"DetailsViewController"];
+        DetailsViewController.business = business;
+        [self presentViewController:DetailsViewController animated:YES completion:^{}];
+    }];
+    // add the OK action to the alert controller
+    [alert addAction:okAction];
+    [self presentViewController:alert animated:YES completion:^{
+        [self parseHelper:business];
+    }];
 }
 
 - (void) parseHelper : (YLPBusiness *)business{
@@ -71,13 +71,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

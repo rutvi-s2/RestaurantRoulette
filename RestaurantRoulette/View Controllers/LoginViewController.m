@@ -18,6 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
+
 - (IBAction)loginPress:(id)sender {
     if([self.usernameText.text isEqual:@""] || [self.passwordText.text isEqual:@""]){
         [self alertControllerCode];
@@ -40,33 +41,31 @@
 }
 
 -(void) alertControllerCode{
-       UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Warning" message:@"The password or username or name is empty" preferredStyle:UIAlertControllerStyleAlert];
-       // create a cancel action
-       UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) { // handle cancel response here. Doing nothing will dismiss the view.
-       }];
-       // add the cancel action to the alertController
-       [alert addAction:cancelAction];
-       // create an OK action
-       UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) { // handle response here.
-           }];
-       // add the OK action to the alert controller
-       [alert addAction:okAction];
-       
-       [self presentViewController:alert animated:YES completion:^{
-           // optional code for what happens after the alert controller has finished presenting
-       }];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Warning" message:@"The password or username or name is empty" preferredStyle:UIAlertControllerStyleAlert];
+    // create a cancel action
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) { // handle cancel response here. Doing nothing will dismiss the view.
+    }];
+    // add the cancel action to the alertController
+    [alert addAction:cancelAction];
+    // create an OK action
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) { // handle response here.
+    }];
+    // add the OK action to the alert controller
+    [alert addAction:okAction];
+    
+    [self presentViewController:alert animated:YES completion:^{
+        // optional code for what happens after the alert controller has finished presenting
+    }];
 }
 
 /*
-#pragma mark - Navigation
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
-- (IBAction)nameText:(id)sender {
-}
 @end

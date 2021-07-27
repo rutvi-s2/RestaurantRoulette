@@ -38,13 +38,13 @@
     self.searchBar.delegate = self;
     
     [[APIManager shared] categories:@"restaurants" completionHandler:^
-          (NSMutableArray<YLPCategory *> *cuisineCategory, NSError *error){
-             self.cuisineCategory = cuisineCategory;
-             self.cuisineCategoryFiltered = self.cuisineCategory;
-             dispatch_async(dispatch_get_main_queue(), ^{[self.tableView reloadData];
-                 self.ready = true;
-             });
-         }];
+     (NSMutableArray<YLPCategory *> *cuisineCategory, NSError *error){
+        self.cuisineCategory = cuisineCategory;
+        self.cuisineCategoryFiltered = self.cuisineCategory;
+        dispatch_async(dispatch_get_main_queue(), ^{[self.tableView reloadData];
+            self.ready = true;
+        });
+    }];
 }
 - (IBAction)logoutPress:(id)sender {
     [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {

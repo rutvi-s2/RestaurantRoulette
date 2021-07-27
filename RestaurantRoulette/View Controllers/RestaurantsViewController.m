@@ -18,6 +18,7 @@
 #import "SpinnerViewController.h"
 
 @interface RestaurantsViewController () <UITableViewDelegate, UITableViewDataSource>
+
 @property (strong, nonatomic) YLPSearch *search;
 @property (strong, nonatomic) NSMutableArray <NSString *> *categoriesNames;
 
@@ -29,8 +30,8 @@
     [super viewDidLoad];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-
-    int meterConversion = 1600;
+    
+    int const meterConversion = 1600;
     if([self.zipcode isEqualToString:@""]){
         YLPCoordinate *myCoordinate = [[YLPCoordinate alloc] initWithLatitude:[self.latitudeValue doubleValue] longitude:[self.longtitudeValue doubleValue]];
         [[APIManager shared] searchWithCoordinate:myCoordinate term:nil limit:20 offset:0 sort:YLPSortTypeBestMatched price:self.price radiusFilter:(self.radius * meterConversion) openAt:self.time categoryFilter:self.cuisineFilter completionHandler:^(YLPSearch * _Nullable search, NSError * _Nullable error) {
@@ -76,7 +77,7 @@
         for(YLPCategory *category in self.search.businesses[indexPath.item].categories){
             [self.categoriesNames addObject:category.name];
         }
-        double milesConversion = 1609.34;
+        double const milesConversion = 1609.34;
         cell.restaurantCategory.text = [self.categoriesNames componentsJoinedByString:@" / "];
         cell.restaurantDistance.text = [[NSString stringWithFormat:@"%.2f", (self.search.businesses[indexPath.item].distance / milesConversion)] stringByAppendingString:@" miles"];
         cell.restaurantPrice.text = self.search.businesses[indexPath.item].price;
@@ -99,13 +100,13 @@
 
 - (void) alertHelper : (NSString *)warning{
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Warning" message: warning preferredStyle:UIAlertControllerStyleAlert];
-        // create a cancel action
-        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-            [self dismissViewControllerAnimated:YES completion:^{}];
-        }];
-        // add the cancel action to the alertController
-        [alert addAction:okAction];
-        [self presentViewController:alert animated:YES completion:^{}];
+    // create a cancel action
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        [self dismissViewControllerAnimated:YES completion:^{}];
+    }];
+    // add the cancel action to the alertController
+    [alert addAction:okAction];
+    [self presentViewController:alert animated:YES completion:^{}];
 }
 
 #pragma mark - Navigation
