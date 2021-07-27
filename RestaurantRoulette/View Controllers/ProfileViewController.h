@@ -16,7 +16,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *joinDate;
 @property (weak, nonatomic) IBOutlet UICollectionView *pastBookings;
 @property (weak, nonatomic) IBOutlet UICollectionView *currentBookings;
-@property (weak, nonatomic) IBOutlet UILabel *bio;
 @property (strong, nonatomic) UserInfo *profile;
 
 @end

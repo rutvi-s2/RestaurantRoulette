@@ -19,7 +19,7 @@
     // Do any additional setup after loading the view.
 }
 - (IBAction)loginPress:(id)sender {
-    if([self.usernameText.text isEqual:@""] || [self.passwordText.text isEqual:@""] || [self.name.text isEqual:@""]){
+    if([self.usernameText.text isEqual:@""] || [self.passwordText.text isEqual:@""]){
         [self alertControllerCode];
     }else{
         NSString *username = self.usernameText.text;
@@ -67,4 +67,6 @@
 }
 */
 
+- (IBAction)nameText:(id)sender {
+}
 @end

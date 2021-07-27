@@ -13,7 +13,6 @@
 #import <YelpAPI/YLPSortType.h>
 #import <YelpAPI/YLPSearch.h>
 #import <YelpAPI/YLPCategory.h>
-#import <YelpAPI/YLPBusiness.h>
 #import "UIImageView+AFNetworking.h"
 #import "DetailsViewController.h"
 #import "SpinnerViewController.h"
@@ -34,15 +33,21 @@
     int meterConversion = 1600;
     if([self.zipcode isEqualToString:@""]){
         YLPCoordinate *myCoordinate = [[YLPCoordinate alloc] initWithLatitude:[self.latitudeValue doubleValue] longitude:[self.longtitudeValue doubleValue]];
-        [[APIManager shared] searchWithCoordinate:myCoordinate term:nil limit:20 offset:0 sort:YLPSortTypeBestMatched price:self.price radiusFilter:(self.radius * meterConversion) openAt:0 categoryFilter:self.cuisineFilter completionHandler:^(YLPSearch * _Nullable search, NSError * _Nullable error) {
+        [[APIManager shared] searchWithCoordinate:myCoordinate term:nil limit:20 offset:0 sort:YLPSortTypeBestMatched price:self.price radiusFilter:(self.radius * meterConversion) openAt:self.time categoryFilter:self.cuisineFilter completionHandler:^(YLPSearch * _Nullable search, NSError * _Nullable error) {
             self.search = search;
+            if(self.search.businesses.count == 0){
+                [self alertHelper:@"No restaurants available!"];
+            }
             dispatch_async(dispatch_get_main_queue(), ^{[self.tableView reloadData];
             });
         }];
     }else{
-        [[APIManager shared] searchWithLocation:self.zipcode term:nil limit:20 offset:0 sort:YLPSortTypeBestMatched price:self.price radiusFilter:(self.radius * meterConversion) openAt:0 categoryFilter: self.cuisineFilter completionHandler:^
+        [[APIManager shared] searchWithLocation:self.zipcode term:nil limit:20 offset:0 sort:YLPSortTypeBestMatched price:self.price radiusFilter:(self.radius * meterConversion) openAt:self.time categoryFilter: self.cuisineFilter completionHandler:^
          (YLPSearch *search, NSError *error){
             self.search = search;
+            if(self.search.businesses.count == 0){
+                [self alertHelper:@"No restaurants available!"];
+            }
             dispatch_async(dispatch_get_main_queue(), ^{[self.tableView reloadData];
             });
         }];
@@ -80,6 +85,28 @@
     }
     return cell;
 }
+- (IBAction)confirmButtonPress:(id)sender {
+    self.spinnerItems = [NSMutableArray new];
+    for (YLPBusiness *business in self.search.businesses){
+        if (business.visited){
+            [self.spinnerItems addObject:business];
+        }
+    }
+    if(self.spinnerItems.count == 0){
+        [self alertHelper:@"No restaurants chosen!"];
+    }
+}
+
+- (void) alertHelper : (NSString *)warning{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Warning" message: warning preferredStyle:UIAlertControllerStyleAlert];
+        // create a cancel action
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+            [self dismissViewControllerAnimated:YES completion:^{}];
+        }];
+        // add the cancel action to the alertController
+        [alert addAction:okAction];
+        [self presentViewController:alert animated:YES completion:^{}];
+}
 
 #pragma mark - Navigation
 
@@ -93,14 +120,8 @@
         DetailsViewController *detailsViewController = [segue destinationViewController];
         detailsViewController.business = business;
     }else{
-        NSMutableArray <YLPBusiness *> *spinnerItems = [NSMutableArray new];
-        for (YLPBusiness *business in self.search.businesses){
-            if (business.visited){
-                [spinnerItems addObject:business];
-            }
-        }
         SpinnerViewController *spinner = [segue destinationViewController];
-        spinner.spinnerItems = spinnerItems;
+        spinner.spinnerItems = self.spinnerItems;
     }
     
 }

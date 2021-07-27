@@ -20,7 +20,7 @@
     // Do any additional setup after loading the view.
 }
 - (IBAction)signupPress:(id)sender {
-    if([self.usernameText.text isEqual:@""] || [self.passwordText.text isEqual:@""]){
+    if([self.usernameText.text isEqual:@""] || [self.passwordText.text isEqual:@""] || [self.nameText.text isEqual:@""]){
         [self alertControllerCode];
     }else{
         // initialize a user object
@@ -36,7 +36,7 @@
                 NSLog(@"Error: %@", error.localizedDescription);
             } else {
                 NSLog(@"User registered successfully");
-                [UserInfo newUser:@"username" withCompletion:^(BOOL succeeded, NSError *error){}];
+                [UserInfo newUser:self.nameText.text withCompletion:^(BOOL succeeded, NSError *error){}];
                 UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
                 SignupViewController *TabBarController = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
                 [self presentViewController:TabBarController animated:YES completion:^{

@@ -99,6 +99,8 @@
     restaurantController.radius = (double) self.distanceSlider.value;
     NSArray *prices = [NSArray arrayWithObjects:@"1",@"2",@"3",@"4",nil];
     restaurantController.price = prices[self.priceControl.selectedSegmentIndex];
+    NSString *finalTime = [NSString stringWithFormat:@"%.0f", [self.timePicker.date timeIntervalSince1970]];
+    restaurantController.time = [finalTime integerValue];
     restaurantController.zipcode = self.zipcode;
     restaurantController.latitudeValue = self.latitudeValue;
     restaurantController.longtitudeValue = self.longtitudeValue;

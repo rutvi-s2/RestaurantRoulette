@@ -60,6 +60,8 @@
         if(profiles != nil){
             self.profile = profiles.firstObject;
             [self.currentBookings reloadData];
+            self.name.text = self.profile.name;
+            self.joinDate.text = [@"Joined on " stringByAppendingString:self.profile.joinDate];
         }else{
             NSLog(@"%@", error.localizedDescription);
         }
