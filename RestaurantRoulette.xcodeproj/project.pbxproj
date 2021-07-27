@@ -118,6 +118,7 @@
 		496EBD2D26AE6CE0008AFA5E /* CurrentBookingCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CurrentBookingCell.m; sourceTree = "<group>"; };
 		496EBD2F26AE6CEE008AFA5E /* PastBookingCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PastBookingCell.h; sourceTree = "<group>"; };
 		496EBD3026AE6CEE008AFA5E /* PastBookingCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PastBookingCell.m; sourceTree = "<group>"; };
+		496EBD3526AF4AF6008AFA5E /* ReserveAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReserveAPI.h; sourceTree = "<group>"; };
 		60E3426D90C0ED2956779B7F /* Pods-RestaurantRoulette-RestaurantRouletteUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestaurantRoulette-RestaurantRouletteUITests.debug.xcconfig"; path = "Target Support Files/Pods-RestaurantRoulette-RestaurantRouletteUITests/Pods-RestaurantRoulette-RestaurantRouletteUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8EF3CCC66174D19EB01DCF41 /* Pods-RestaurantRoulette.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestaurantRoulette.debug.xcconfig"; path = "Target Support Files/Pods-RestaurantRoulette/Pods-RestaurantRoulette.debug.xcconfig"; sourceTree = "<group>"; };
 		A4EF7BD6007BE349F17C765D /* Pods_RestaurantRoulette.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RestaurantRoulette.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -181,6 +182,7 @@
 		4950BF22269CA355004FA5CA /* RestaurantRoulette */ = {
 			isa = PBXGroup;
 			children = (
+				496EBD3226AF4991008AFA5E /* OpenTable */,
 				496EBD2826AA776C008AFA5E /* Parse */,
 				496EBD1626A7BF3A008AFA5E /* SpinWheel */,
 				4950BF6D269E8980004FA5CA /* YelpAPI */,
@@ -288,6 +290,14 @@
 				496EBD2A26AA7789008AFA5E /* UserInfo.m */,
 			);
 			path = Parse;
+			sourceTree = "<group>";
+		};
+		496EBD3226AF4991008AFA5E /* OpenTable */ = {
+			isa = PBXGroup;
+			children = (
+				496EBD3526AF4AF6008AFA5E /* ReserveAPI.h */,
+			);
+			path = OpenTable;
 			sourceTree = "<group>";
 		};
 		653DB2C0BAC57AEC86ACE4F5 /* Frameworks */ = {

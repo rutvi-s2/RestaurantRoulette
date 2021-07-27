@@ -43,6 +43,10 @@ typedef void(^YLPCategoryCompletionHandler)(NSMutableArray<YLPCategory *> *_Null
                        limit:(NSUInteger)limit
                       offset:(NSUInteger)offset
                         sort:(YLPSortType)sort
+                       price:(NSString *)price
+                radiusFilter:(double)radiusFilter
+                      openAt:(NSUInteger)openAt
+                  categoryFilter: (NSMutableArray <NSString *>*) categoryFilter
            completionHandler:(YLPSearchCompletionHandler)completionHandler;
 
 - (void)searchWithCoordinate:(YLPCoordinate *)coordinate

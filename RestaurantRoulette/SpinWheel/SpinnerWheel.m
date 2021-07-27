@@ -22,11 +22,10 @@ static float deltaAngle;
 @implementation SpinnerWheel
 
 //basically create getter and setter for variables
-@synthesize delegate, container, numberOfWedges, startTransform, sectors, currentSector, spinnerItems, rotateHelperDone;
+@synthesize delegate, container, numberOfWedges, startTransform, sectors, currentSector, spinnerItems;
 
 - (id) initWithFrame:(CGRect)frame andDelegate:(nonnull id)del withWedges:(int)wedgesNumber withItems:(nonnull NSMutableArray<YLPBusiness *> *)spinnerItems{
     if((self = [super initWithFrame:frame])){
-        self.rotateHelperDone = false;
         self.currentSector = 0;
         self.numberOfWedges = wedgesNumber;
         self.delegate = del;
@@ -45,8 +44,14 @@ static float deltaAngle;
     //create label for each wedge and set anchor point to middle of wheel
     for(int i = 0; i < numberOfWedges; i++){
         //set position to center of the container view (0,0)
+        UILabel *wedgeOutline = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 180, 60)];
+        wedgeOutline.backgroundColor = [UIColor lightGrayColor];
+        wedgeOutline.layer.anchorPoint = CGPointMake(1.0f, 0.5f);
+        wedgeOutline.layer.position = CGPointMake(container.bounds.size.width/2.0, container.bounds.size.height/2.0);
+        wedgeOutline.transform = CGAffineTransformMakeRotation(angleSize * i);
+        wedgeOutline.tag = i;
+        
         UILabel *specificWedge = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 180, 60)];
-        specificWedge.backgroundColor = [UIColor lightGrayColor];
         specificWedge.text = [spinnerItems objectAtIndex:i].name;
         specificWedge.numberOfLines = 0; //will wrap text in new line
         specificWedge.layer.anchorPoint = CGPointMake(1.0f, 0.5f);
@@ -56,6 +61,7 @@ static float deltaAngle;
         specificWedge.transform = CGAffineTransformMakeRotation(angleSize * i);
         specificWedge.tag = i;
         
+        [container addSubview:wedgeOutline];
         [container addSubview:specificWedge];
     }
     container.userInteractionEnabled = NO;
@@ -69,18 +75,15 @@ static float deltaAngle;
 }
 
 - (void) rotate{
-    CGFloat radianToRotate = (2 * M_PI) / numberOfWedges;
-    [UIView animateWithDuration:(2 + arc4random_uniform(3)) animations:^{
-        CGAffineTransform t = CGAffineTransformRotate(container.transform, radianToRotate);
-        container.transform = t;
-    }completion:^(BOOL success) {
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            if (!rotateHelperDone){
-                [self rotateHelper];
-                rotateHelperDone = true;
-            }
-        });
-    }];
+        CGFloat radianToRotate = (2 * M_PI) / numberOfWedges;
+        [UIView animateWithDuration:(2 + arc4random_uniform(3)) animations:^{
+            CGAffineTransform t = CGAffineTransformRotate(self->container.transform, radianToRotate);
+            self->container.transform = t;
+        }completion:^(BOOL success) {
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [self rotateHelper];
+            });
+        }];
 }
 
 - (BOOL) beginTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)event{
@@ -141,8 +144,8 @@ static float deltaAngle;
         }
     }
     [UIView animateWithDuration:0.2 animations:^{
-        CGAffineTransform t = CGAffineTransformRotate(container.transform, -newValue);
-        container.transform = t;
+        CGAffineTransform t = CGAffineTransformRotate(self->container.transform, -newValue);
+        self->container.transform = t;
     }completion:^(BOOL success) {
         [self->delegate alertBusiness:[self->spinnerItems objectAtIndex:self->currentSector]];
     }];
@@ -190,7 +193,6 @@ static float deltaAngle;
             sector.minVal = fabsf(sector.maxVal);
         }
         mid -= fanWidth;
-        NSLog(@"cl is %@", sector);
         //add sector to array
         [sectors addObject:sector];
     }

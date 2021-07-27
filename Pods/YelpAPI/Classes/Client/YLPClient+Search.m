@@ -50,12 +50,20 @@
                         term:(NSString *)term limit:(NSUInteger)limit
                       offset:(NSUInteger)offset
                         sort:(YLPSortType)sort
+                       price:(NSString *)price
+                radiusFilter:(double)radiusFilter
+                      openAt:(NSUInteger)openAt
+              categoryFilter:(NSMutableArray<NSString *>*)categoryFilter
            completionHandler:(YLPSearchCompletionHandler)completionHandler {
     YLPQuery *query = [[YLPQuery alloc] initWithCoordinate:coordinate];
     query.term = term;
     query.limit = limit;
     query.offset = offset;
     query.sort = sort;
+    query.price = price;
+    query.radiusFilter = radiusFilter;
+    query.openAt = openAt;
+    query.categoryFilter = categoryFilter;
     [self searchWithQuery:query completionHandler:completionHandler];
 }
 

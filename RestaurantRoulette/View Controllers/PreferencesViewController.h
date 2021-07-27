@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UISegmentedControl *priceControl;
 @property (weak, nonatomic) IBOutlet UIDatePicker *timePicker;
 @property (strong, nonatomic) NSString *zipcode;
+@property (strong, nonatomic) NSString *latitudeValue;
+@property (strong, nonatomic) NSString *longtitudeValue;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 

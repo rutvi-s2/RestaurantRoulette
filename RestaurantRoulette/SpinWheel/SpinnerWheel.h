@@ -27,7 +27,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSMutableArray *sectors;
 @property int currentSector;
 @property (strong, nonatomic) NSMutableArray <YLPBusiness *> *spinnerItems;
-@property (nonatomic) BOOL rotateHelperDone;
 
 - (id) initWithFrame:(CGRect)frame andDelegate:(id)del withWedges: (int)wedgesNumber withItems: (NSMutableArray <YLPBusiness *> *)spinnerItems;
 - (void) rotate;

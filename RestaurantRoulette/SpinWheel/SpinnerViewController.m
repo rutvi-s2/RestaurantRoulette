@@ -31,7 +31,7 @@
 - (void) alertBusiness:(YLPBusiness *)business{
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Chosen" message:[NSString stringWithFormat:@"You have chosen %@", business.name] preferredStyle:UIAlertControllerStyleAlert];
             // create a cancel action
-            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) { // handle cancel response here. Doing nothing will dismiss the view.
+            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Spin Again" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
             }];
             // add the cancel action to the alertController
             [alert addAction:cancelAction];
@@ -40,7 +40,6 @@
                 UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
                 DetailsViewController *DetailsViewController = [storyboard instantiateViewControllerWithIdentifier:@"DetailsViewController"];
                 DetailsViewController.business = business;
-                DetailsViewController.
                 [self presentViewController:DetailsViewController animated:YES completion:^{}];
             }];
             // add the OK action to the alert controller

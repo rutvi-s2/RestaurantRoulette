@@ -184,7 +184,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="oyq-8x-faG" kind="show" id="CqQ-pe-FbN"/>
+                                    <action selector="coordinateButton:" destination="jsd-PW-z6a" eventType="touchUpInside" id="r36-H9-HaX"/>
+                                    <segue destination="oyq-8x-faG" kind="show" identifier="CoordinateButton" id="CqQ-pe-FbN"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f68-1O-L4D">
@@ -199,7 +200,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="oyq-8x-faG" kind="show" id="3Vx-so-9Fg"/>
+                                    <segue destination="oyq-8x-faG" kind="show" identifier="SearchButton" id="3Vx-so-9Fg"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Search By Zipcode" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XBY-0z-aiz">
@@ -1080,7 +1081,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="CqQ-pe-FbN"/>
+        <segue reference="3Vx-so-9Fg"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="checkbox_empty" width="322" height="312"/>

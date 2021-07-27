@@ -100,6 +100,8 @@
     NSArray *prices = [NSArray arrayWithObjects:@"1",@"2",@"3",@"4",nil];
     restaurantController.price = prices[self.priceControl.selectedSegmentIndex];
     restaurantController.zipcode = self.zipcode;
+    restaurantController.latitudeValue = self.latitudeValue;
+    restaurantController.longtitudeValue = self.longtitudeValue;
     restaurantController.cuisineFilter = [NSMutableArray new];
     for(YLPCategory *category in self.cuisineCategory){
         if (category.visited && ![restaurantController.cuisineFilter containsObject:category.alias]){
