@@ -24,22 +24,40 @@
     [super viewDidLoad];
     self.pastBookings.delegate = self;
     self.pastBookings.dataSource = self;
+    
     self.currentBookings.delegate = self;
     self.currentBookings.dataSource = self;
+
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    [self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
+//    [self.view insertSubview:self.refreshControl atIndex: 0];
+    
     [self parseHelper];
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    //    PastBookingCell *pastCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PastBookingCell" forIndexPath:indexPath];
     CurrentBookingCell *currentCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CurrentBookingCell" forIndexPath:indexPath];
+    PastBookingCell *pastCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PastBookingCell" forIndexPath:indexPath];
+    __block UICollectionViewCell *cell = currentCell;
     if(self.profile != nil && self.profile.currentBookingsArray != nil){
         NSString *businessID = self.profile.currentBookingsArray[indexPath.row];
         [[APIManager shared] businessWithId:businessID completionHandler:^(YLPBusiness * _Nullable business, NSError * _Nullable error) {
-            currentCell.businessName.text = business.name;
-            [currentCell.businessImage setImageWithURL:business.imageURL];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                NSDate *now = [NSDate date];
+                if([self.profile.timeOfBooking[indexPath.row] intValue] > [[NSString stringWithFormat:@"%.0f", [now timeIntervalSince1970]] intValue]){
+                    currentCell.businessName.text = business.name;
+                    [currentCell.businessName sizeToFit];
+                    [currentCell.businessImage setImageWithURL:business.imageURL];
+                }else{
+                    pastCell.businessName.text = business.name;
+                    [pastCell.businessName sizeToFit];
+                    [pastCell.businessImage setImageWithURL:business.imageURL];
+                    cell = pastCell;
+                }
+            });
         }];
     }
-    return currentCell;
+    return cell;
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -66,6 +84,13 @@
             NSLog(@"%@", error.localizedDescription);
         }
     }];
+}
+
+- (void) refresh{
+    [self.currentBookings reloadData];
+    [self.pastBookings reloadData];
+    [self parseHelper];
+    [self.refreshControl endRefreshing];
 }
 /*
  #pragma mark - Navigation

@@ -14,10 +14,10 @@
 @dynamic name;
 @dynamic image;
 @dynamic bio;
-@dynamic pastBookingsArray;
 @dynamic currentBookingsArray;
 @dynamic userDetails;
 @dynamic joinDate;
+@dynamic timeOfBooking;
 
 
 + (nonnull NSString *)parseClassName {
@@ -37,10 +37,5 @@
     
     [newUser saveInBackgroundWithBlock: completion];
 }
-
-- (void) updatePastArray:(YLPBusiness *)business{
-    
-}
-
 
 @end

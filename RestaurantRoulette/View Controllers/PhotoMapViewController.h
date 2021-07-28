@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong, nonatomic) YLPBusiness *business;
 @property (weak, nonatomic) IBOutlet UIImageView *mapFrame;
+@property (weak, nonatomic) IBOutlet UILabel *hoursLabel;
 
 @end
 

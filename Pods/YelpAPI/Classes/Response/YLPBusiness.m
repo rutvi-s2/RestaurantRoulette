@@ -35,6 +35,8 @@
         _categories = [self.class categoriesFromJSONArray:businessDict[@"categories"]];
         YLPCoordinate *coordinate = [self.class coordinateFromJSONDictionary:businessDict[@"coordinates"]];
         _location = [[YLPLocation alloc] initWithDictionary:businessDict[@"location"] coordinate:coordinate];
+        
+        _open = [businessDict[@"hours"] firstObject][@"open"];
     }
     return self;
 }

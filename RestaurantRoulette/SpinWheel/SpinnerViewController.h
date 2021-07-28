@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface SpinnerViewController : UIViewController<SpinnerProtocol>
 
 @property (strong, nonatomic) NSMutableArray <YLPBusiness *> *spinnerItems;
+@property (strong, nonatomic) NSString *timeTracker;
 @property (strong, nonatomic) UserInfo *profile;
 
 @end

@@ -33,13 +33,14 @@
     
     int const meterConversion = 1600;
     if([self.zipcode isEqualToString:@""]){
-        YLPCoordinate *myCoordinate = [[YLPCoordinate alloc] initWithLatitude:[self.latitudeValue doubleValue] longitude:[self.longtitudeValue doubleValue]];
+        YLPCoordinate *const myCoordinate = [[YLPCoordinate alloc] initWithLatitude:[self.latitudeValue doubleValue] longitude:[self.longtitudeValue doubleValue]];
         [[APIManager shared] searchWithCoordinate:myCoordinate term:nil limit:20 offset:0 sort:YLPSortTypeBestMatched price:self.price radiusFilter:(self.radius * meterConversion) openAt:self.time categoryFilter:self.cuisineFilter completionHandler:^(YLPSearch * _Nullable search, NSError * _Nullable error) {
             self.search = search;
             if(self.search.businesses.count == 0){
                 [self alertHelper:@"No restaurants available!"];
             }
-            dispatch_async(dispatch_get_main_queue(), ^{[self.tableView reloadData];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView reloadData];
             });
         }];
     }else{
@@ -49,7 +50,8 @@
             if(self.search.businesses.count == 0){
                 [self alertHelper:@"No restaurants available!"];
             }
-            dispatch_async(dispatch_get_main_queue(), ^{[self.tableView reloadData];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView reloadData];
             });
         }];
     }
@@ -123,6 +125,7 @@
     }else{
         SpinnerViewController *spinner = [segue destinationViewController];
         spinner.spinnerItems = self.spinnerItems;
+        spinner.timeTracker = self.timeTracker;
     }
     
 }

@@ -63,6 +63,13 @@
             }
             [self.profile.currentBookingsArray addObject:business.identifier];
             self.profile [@"currentBookingsArray"] = self.profile.currentBookingsArray;
+            
+            if(self.profile.timeOfBooking == nil){
+                self.profile.timeOfBooking= [NSMutableArray new];
+            }
+            [self.profile.timeOfBooking addObject:self.timeTracker];
+            self.profile [@"timeOfBooking"] = self.profile.timeOfBooking;
+            
             [self.profile saveInBackground];
         }else{
             NSLog(@"%@", error.localizedDescription);

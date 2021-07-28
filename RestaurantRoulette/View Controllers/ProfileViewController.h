@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UICollectionView *pastBookings;
 @property (weak, nonatomic) IBOutlet UICollectionView *currentBookings;
 @property (strong, nonatomic) UserInfo *profile;
+@property (nonatomic, strong) UIRefreshControl *refreshControl;
 
 @end
 

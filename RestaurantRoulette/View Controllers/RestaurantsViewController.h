@@ -22,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) NSString *longtitudeValue;
 @property (strong, nonatomic) NSMutableArray <NSString*> *cuisineFilter;
 @property (strong, nonatomic) NSMutableArray <YLPBusiness *> *spinnerItems;
+@property (strong, nonatomic) NSString *timeTracker;
 
 @end
 
