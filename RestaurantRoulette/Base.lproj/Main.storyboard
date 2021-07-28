@@ -586,7 +586,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="k6f-c8-goc">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RestaurantPhoto" id="k6f-c8-goc" customClass="RestaurantPhoto">
                                         <rect key="frame" x="0.0" y="0.0" width="124" height="122"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="lhR-UE-7fW">
@@ -600,9 +600,55 @@
                                             </subviews>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="124" height="122"/>
+                                        <connections>
+                                            <outlet property="restaurantPhoto" destination="BLN-hy-BX3" id="Hrb-WI-9ji"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="htj-Qz-30k">
+                                <rect key="frame" x="0.0" y="554" width="390" height="290"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReviewCell" rowHeight="114" id="gst-Gf-DVD" customClass="ReviewCell">
+                                        <rect key="frame" x="0.0" y="24.333333969116211" width="390" height="114"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gst-Gf-DVD" id="Ezj-y2-wxw">
+                                            <rect key="frame" x="0.0" y="0.0" width="390" height="114"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="user" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p6P-09-aD3">
+                                                    <rect key="frame" x="9" y="11" width="36" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="time created" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ohp-jU-WJV">
+                                                    <rect key="frame" x="285" y="11" width="95" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="excerpt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Zw-eP-mlK">
+                                                    <rect key="frame" x="9" y="40" width="371" height="63"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="excerpt" destination="6Zw-eP-mlK" id="2Gc-3c-ixI"/>
+                                            <outlet property="timeCreated" destination="Ohp-jU-WJV" id="LFQ-5g-fyc"/>
+                                            <outlet property="user" destination="p6P-09-aD3" id="GbO-L7-Hv3"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="V4Y-4p-CP5"/>
                         <color key="backgroundColor" red="0.81718168769999999" green="0.91053570260000005" blue="0.95854668330000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -613,6 +659,8 @@
                         <outlet property="restaurantImage" destination="H3z-Eo-xes" id="QFm-T4-RfM"/>
                         <outlet property="restaurantName" destination="cwL-bS-wlp" id="Yzt-PS-eIE"/>
                         <outlet property="restaurantNumber" destination="AxG-tx-UBR" id="0gr-7i-ICh"/>
+                        <outlet property="restaurantPhotos" destination="A0E-dz-jNk" id="gvO-Jk-Wuc"/>
+                        <outlet property="restaurantReviews" destination="htj-Qz-30k" id="QCk-W6-037"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xTF-vY-mpr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

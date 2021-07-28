@@ -37,6 +37,7 @@
         _location = [[YLPLocation alloc] initWithDictionary:businessDict[@"location"] coordinate:coordinate];
         
         _open = [businessDict[@"hours"] firstObject][@"open"];
+        _photos = businessDict[@"photos"];
     }
     return self;
 }

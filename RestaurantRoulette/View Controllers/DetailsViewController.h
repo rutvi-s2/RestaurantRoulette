@@ -7,6 +7,7 @@
 
 #import <UIKit/UIKit.h>
 #import <YelpAPI/YLPBusiness.h>
+#import <YLPReview.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -16,6 +17,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UILabel *restaurantName;
 @property (weak, nonatomic) IBOutlet UILabel *restaurantNumber;
 @property (weak, nonatomic) IBOutlet UILabel *restaurantAddress;
+@property (weak, nonatomic) IBOutlet UICollectionView *restaurantPhotos;
+@property (weak, nonatomic) IBOutlet UITableView *restaurantReviews;
+@property (strong, nonatomic) NSArray <YLPReview *> *reviews;
+@property (strong, nonatomic) NSArray <NSString *> *photoURLs;
 
 @property (strong, nonatomic) YLPBusiness *business;
 

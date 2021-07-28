@@ -37,6 +37,8 @@
 		496EBD2B26AA7789008AFA5E /* UserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 496EBD2A26AA7789008AFA5E /* UserInfo.m */; };
 		496EBD2E26AE6CE0008AFA5E /* CurrentBookingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 496EBD2D26AE6CE0008AFA5E /* CurrentBookingCell.m */; };
 		496EBD3126AE6CEE008AFA5E /* PastBookingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 496EBD3026AE6CEE008AFA5E /* PastBookingCell.m */; };
+		49A179AF26B1DBA300DB18A1 /* RestaurantPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A179AE26B1DBA300DB18A1 /* RestaurantPhoto.m */; };
+		49A179B226B1DBBB00DB18A1 /* ReviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A179B126B1DBBB00DB18A1 /* ReviewCell.m */; };
 		85FA26B000B045D7D43A2262 /* Pods_RestaurantRoulette.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4EF7BD6007BE349F17C765D /* Pods_RestaurantRoulette.framework */; };
 		FC2CB2D18EE1220F1BD12E1B /* Pods_RestaurantRoulette_RestaurantRouletteUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0214CFAD7EF3BE1DE8A7B98E /* Pods_RestaurantRoulette_RestaurantRouletteUITests.framework */; };
 /* End PBXBuildFile section */
@@ -118,6 +120,10 @@
 		496EBD2D26AE6CE0008AFA5E /* CurrentBookingCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CurrentBookingCell.m; sourceTree = "<group>"; };
 		496EBD2F26AE6CEE008AFA5E /* PastBookingCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PastBookingCell.h; sourceTree = "<group>"; };
 		496EBD3026AE6CEE008AFA5E /* PastBookingCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PastBookingCell.m; sourceTree = "<group>"; };
+		49A179AD26B1DBA300DB18A1 /* RestaurantPhoto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RestaurantPhoto.h; sourceTree = "<group>"; };
+		49A179AE26B1DBA300DB18A1 /* RestaurantPhoto.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RestaurantPhoto.m; sourceTree = "<group>"; };
+		49A179B026B1DBBB00DB18A1 /* ReviewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ReviewCell.h; sourceTree = "<group>"; };
+		49A179B126B1DBBB00DB18A1 /* ReviewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReviewCell.m; sourceTree = "<group>"; };
 		60E3426D90C0ED2956779B7F /* Pods-RestaurantRoulette-RestaurantRouletteUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestaurantRoulette-RestaurantRouletteUITests.debug.xcconfig"; path = "Target Support Files/Pods-RestaurantRoulette-RestaurantRouletteUITests/Pods-RestaurantRoulette-RestaurantRouletteUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8EF3CCC66174D19EB01DCF41 /* Pods-RestaurantRoulette.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestaurantRoulette.debug.xcconfig"; path = "Target Support Files/Pods-RestaurantRoulette/Pods-RestaurantRoulette.debug.xcconfig"; sourceTree = "<group>"; };
 		A4EF7BD6007BE349F17C765D /* Pods_RestaurantRoulette.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RestaurantRoulette.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -253,6 +259,10 @@
 				496EBD2D26AE6CE0008AFA5E /* CurrentBookingCell.m */,
 				496EBD2F26AE6CEE008AFA5E /* PastBookingCell.h */,
 				496EBD3026AE6CEE008AFA5E /* PastBookingCell.m */,
+				49A179AD26B1DBA300DB18A1 /* RestaurantPhoto.h */,
+				49A179AE26B1DBA300DB18A1 /* RestaurantPhoto.m */,
+				49A179B026B1DBBB00DB18A1 /* ReviewCell.h */,
+				49A179B126B1DBBB00DB18A1 /* ReviewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -590,6 +600,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4950BF62269DF9A8004FA5CA /* SelectViewController.m in Sources */,
+				49A179AF26B1DBA300DB18A1 /* RestaurantPhoto.m in Sources */,
 				4950BF68269E1557004FA5CA /* RestaurantsViewController.m in Sources */,
 				4950BF6F269E89C7004FA5CA /* APIManager.m in Sources */,
 				496EBD1826A7C030008AFA5E /* SpinnerProtocol.m in Sources */,
@@ -605,6 +616,7 @@
 				4950BF25269CA355004FA5CA /* AppDelegate.m in Sources */,
 				4950BF36269CA356004FA5CA /* main.m in Sources */,
 				491B9C1B26A0EF9F00F5AACC /* CategoryCell.m in Sources */,
+				49A179B226B1DBBB00DB18A1 /* ReviewCell.m in Sources */,
 				4950BF28269CA355004FA5CA /* SceneDelegate.m in Sources */,
 				496EBD1C26A7C2F2008AFA5E /* SpinnerWheel.m in Sources */,
 				4950BF65269DFA7A004FA5CA /* PreferencesViewController.m in Sources */,

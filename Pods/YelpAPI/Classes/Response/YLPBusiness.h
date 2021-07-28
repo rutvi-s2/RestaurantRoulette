@@ -30,6 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly, copy) NSString *price;
 @property (nonatomic, readonly, copy) NSArray <NSDictionary *> *open;
 @property (nonatomic, readonly) double distance;
+@property (nonatomic, readonly, copy) NSArray <NSString *> *photos;
 
 @property (nonatomic, readonly, copy) NSArray<YLPCategory *> *categories;
 
