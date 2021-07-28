@@ -682,8 +682,8 @@
             filePath = "RestaurantRoulette/View Controllers/PhotoMapViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
             landmarkName = "-viewDidLoad"
             landmarkType = "7">
             <Locations>
@@ -730,14 +730,14 @@
             filePath = "RestaurantRoulette/View Controllers/PhotoMapViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
             landmarkName = "-viewDidLoad"
             landmarkType = "7">
             <Locations>
                <Location
                   uuid = "6F6C9608-D4A7-4A17-8889-4A489766D1F9 - 8ca6d241af9c8a03"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "__37-[PhotoMapViewController viewDidLoad]_block_invoke_2"
@@ -752,7 +752,7 @@
                </Location>
                <Location
                   uuid = "6F6C9608-D4A7-4A17-8889-4A489766D1F9 - 8ca6d241af9c8a03"
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "__37-[PhotoMapViewController viewDidLoad]_block_invoke_2"
@@ -772,14 +772,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "0B59C64F-6CB0-4671-98B4-8B0D8077ED0A"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RestaurantRoulette/View Controllers/PhotoMapViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
             landmarkName = "-viewDidLoad"
             landmarkType = "7">
          </BreakpointContent>
@@ -788,7 +788,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "3EBBDA95-04BC-4AB8-BA1F-F7D64594AB27"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RestaurantRoulette/View Controllers/ProfileViewController.m"

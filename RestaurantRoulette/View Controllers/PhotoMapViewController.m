@@ -35,8 +35,16 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             self.business = business;
             NSString *allTime = @"";
+            NSString *previousDay = @"";
             for(NSDictionary *day in self.business.open){
-                allTime = [allTime stringByAppendingString:[NSString stringWithFormat:@"%@ - %@ to %@ \n", [self dayHelper:[day[@"day"] intValue]], [self timeFormatHelper:day[@"start"]], [self timeFormatHelper:day[@"end"]]]];
+                NSString *currentDay = [self dayHelper:[day[@"day"] intValue]];
+                if([previousDay isEqualToString:currentDay]){
+                    previousDay = currentDay;
+                    currentDay = @"";
+                }else{
+                    previousDay = currentDay;
+                }
+                allTime = [allTime stringByAppendingString:[NSString stringWithFormat:@"%@ - %@ to %@ \n", currentDay , [self timeFormatHelper:day[@"start"]], [self timeFormatHelper:day[@"end"]]]];
             }
             self.hoursLabel.text = allTime;
         });
@@ -45,11 +53,10 @@
 
 - (NSString *) timeFormatHelper: (NSString *)timeString{
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateFormat:@"hhmm"];
+    [dateFormatter setDateFormat:@"HHmm"];
     NSDate *date = [dateFormatter dateFromString:timeString];
     [dateFormatter setDateFormat:@"hh:mm a"];
     NSString* dateString = [dateFormatter stringFromDate:date];
-    NSLog(@"%@", dateString);
     return dateString;
 }
 
