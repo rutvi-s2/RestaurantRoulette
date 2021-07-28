@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UserInfo : PFObject <PFSubclassing>
 
+@property (nonatomic, strong) NSMutableArray *pastBookingsArray;
 @property (nonatomic, strong) NSMutableArray *currentBookingsArray;
 @property (nonatomic, strong) NSMutableArray *timeOfBooking;
 @property (nonatomic, strong) NSString *name;

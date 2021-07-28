@@ -14,6 +14,7 @@
 @dynamic name;
 @dynamic image;
 @dynamic bio;
+@dynamic pastBookingsArray;
 @dynamic currentBookingsArray;
 @dynamic userDetails;
 @dynamic joinDate;

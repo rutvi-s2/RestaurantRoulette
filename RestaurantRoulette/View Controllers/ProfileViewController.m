@@ -22,11 +22,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.pastBookings.delegate = self;
-    self.pastBookings.dataSource = self;
     
     self.currentBookings.delegate = self;
     self.currentBookings.dataSource = self;
+    
+    self.pastBookings.delegate = self;
+    self.pastBookings.dataSource = self;
 
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
@@ -36,28 +37,33 @@
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    CurrentBookingCell *currentCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CurrentBookingCell" forIndexPath:indexPath];
-    PastBookingCell *pastCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PastBookingCell" forIndexPath:indexPath];
-    __block UICollectionViewCell *cell = currentCell;
-    if(self.profile != nil && self.profile.currentBookingsArray != nil){
-        NSString *businessID = self.profile.currentBookingsArray[indexPath.row];
-        [[APIManager shared] businessWithId:businessID completionHandler:^(YLPBusiness * _Nullable business, NSError * _Nullable error) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                NSDate *now = [NSDate date];
-                if([self.profile.timeOfBooking[indexPath.row] intValue] > [[NSString stringWithFormat:@"%.0f", [now timeIntervalSince1970]] intValue]){
+    if(collectionView == self.currentBookings){
+        CurrentBookingCell *currentCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CurrentBookingCell" forIndexPath:indexPath];
+        if(self.profile != nil && self.profile.currentBookingsArray != nil){
+            NSString *businessID = self.profile.currentBookingsArray[indexPath.row];
+            [[APIManager shared] businessWithId:businessID completionHandler:^(YLPBusiness * _Nullable business, NSError * _Nullable error) {
+                dispatch_async(dispatch_get_main_queue(), ^{
                     currentCell.businessName.text = business.name;
                     [currentCell.businessName sizeToFit];
                     [currentCell.businessImage setImageWithURL:business.imageURL];
-                }else{
+                });
+            }];
+        }
+        return currentCell;
+    }else{
+        PastBookingCell *pastCell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PastBookingCell" forIndexPath:indexPath];
+        if(self.profile != nil && self.profile.pastBookingsArray != nil){
+            NSString *businessID = self.profile.pastBookingsArray[indexPath.row];
+            [[APIManager shared] businessWithId:businessID completionHandler:^(YLPBusiness * _Nullable business, NSError * _Nullable error) {
+                dispatch_async(dispatch_get_main_queue(), ^{
                     pastCell.businessName.text = business.name;
                     [pastCell.businessName sizeToFit];
                     [pastCell.businessImage setImageWithURL:business.imageURL];
-                    cell = pastCell;
-                }
-            });
-        }];
+                });
+            }];
+        }
+        return pastCell;
     }
-    return cell;
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -77,7 +83,9 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray *profiles, NSError *error){
         if(profiles != nil){
             self.profile = profiles.firstObject;
+            [self getCurrentandPastBookings];
             [self.currentBookings reloadData];
+            [self.pastBookings reloadData];
             self.name.text = self.profile.name;
             self.joinDate.text = [@"Joined on " stringByAppendingString:self.profile.joinDate];
         }else{
@@ -91,6 +99,22 @@
     [self.pastBookings reloadData];
     [self parseHelper];
     [self.refreshControl endRefreshing];
+}
+
+- (void) getCurrentandPastBookings{
+    NSDate *now = [NSDate date];
+    for(int i = 0; i < self.profile.currentBookingsArray.count; i++){
+        if([self.profile.timeOfBooking[i] intValue] < [[NSString stringWithFormat:@"%.0f", [now timeIntervalSince1970]] intValue]){
+            if(self.profile.pastBookingsArray == nil){
+                self.profile.pastBookingsArray= [NSMutableArray new];
+            }
+            [self.profile.pastBookingsArray addObject:[self.profile.currentBookingsArray objectAtIndex:i]];
+            self.profile [@"pastBookingsArray"] = self.profile.pastBookingsArray;
+            [self.profile.currentBookingsArray removeObjectAtIndex:i];
+            [self.profile.timeOfBooking removeObjectAtIndex:i];
+            i--;
+        }
+    }
 }
 /*
  #pragma mark - Navigation
