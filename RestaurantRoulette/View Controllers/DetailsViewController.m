@@ -15,6 +15,7 @@
 #import <YelpAPI/YLPBusinessReviews.h>
 #import <YelpAPI/YLPClient+Business.h>
 #import <YelpAPI/YLPUser.h>
+#import "RatingBar.h"
 
 @interface DetailsViewController ()<UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -49,6 +50,9 @@
             [self.restaurantReviews reloadData];
         });
     }];
+//    RatingBar *bar = [[RatingBar alloc] initWithFrame:CGRectMake(16, 217, 180, 30)];
+//    [self.view addSubview:bar];
+//    bar.starNumber = 4.5;
     
 }
 

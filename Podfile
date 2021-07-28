@@ -10,6 +10,7 @@ target 'RestaurantRoulette' do
     pod 'YelpAPI'
     pod 'AFNetworking'
     pod 'GoogleMaps', '5.1.0'
+    pod 'RatingBar'
 
   target 'RestaurantRouletteTests' do
     inherit! :search_paths
