@@ -1,0 +1,93 @@
+{
+  "buildCommand" : "prepareForIndexing",
+  "configuredTargets" : [
+    {
+      "guid" : "fa96c8deb4a75384d020255a1677095453a735b3dbcb86fa532787dbbe741ba1"
+    },
+    {
+      "guid" : "fa96c8deb4a75384d020255a16770954af33af1eda52f2126c7c964282e0b5e1"
+    },
+    {
+      "guid" : "fa96c8deb4a75384d020255a1677095418352c54edac2258b91768852065ce5e"
+    },
+    {
+      "guid" : "fa96c8deb4a75384d020255a16770954adc75cf4cce99966ba0d3d4d2014359f"
+    },
+    {
+      "guid" : "fa96c8deb4a75384d020255a167709540ef2582d4dd734043cc85e7d244336ec"
+    },
+    {
+      "guid" : "fa96c8deb4a75384d020255a16770954bdfd1b1dcf2c8e829e4740891136c909"
+    },
+    {
+      "guid" : "fa96c8deb4a75384d020255a16770954238258cf80241419d868b9e58c0393a7"
+    },
+    {
+      "guid" : "fa96c8deb4a75384d020255a16770954d4f9731d76b11eeca6951c90d2277e73"
+    },
+    {
+      "guid" : "fa96c8deb4a75384d020255a16770954ba1f9ae49f524425ac2d50f6fe51a8c2"
+    },
+    {
+      "guid" : "fa96c8deb4a75384d020255a1677095445a818545685fffafc6eab546e6098a1"
+    },
+    {
+      "guid" : "33a3fd57ca5815cac90b314eefd774b372bd1b3f73c805ccbbf6b1b374e48c2b"
+    },
+    {
+      "guid" : "33a3fd57ca5815cac90b314eefd774b3d32e79989cfb63403b52f2091cd7a0d4"
+    },
+    {
+      "guid" : "33a3fd57ca5815cac90b314eefd774b3df4aba637bcad57f0f3119ed666f7bd3"
+    }
+  ],
+  "continueBuildingAfterErrors" : true,
+  "enableIndexBuildArena" : false,
+  "hideShellScriptEnvironment" : false,
+  "parameters" : {
+    "action" : "build",
+    "activeArchitecture" : "x86_64",
+    "activeRunDestination" : {
+      "disableOnlyActiveArch" : false,
+      "platform" : "iphonesimulator",
+      "sdk" : "iphonesimulator14.5",
+      "sdkVariant" : "iphonesimulator",
+      "supportedArchitectures" : [
+        "x86_64"
+      ],
+      "targetArchitecture" : "x86_64"
+    },
+    "arenaInfo" : {
+      "buildIntermediatesPath" : "/Users/rutvims/Desktop/Week 1/RestaurantRoulette/RestaurantRoulette/Views/RestaurantRoulette-geonjyyeythfmdgisefivqnabaoj/Build/Intermediates.noindex",
+      "buildProductsPath" : "/Users/rutvims/Desktop/Week 1/RestaurantRoulette/RestaurantRoulette/Views/RestaurantRoulette-geonjyyeythfmdgisefivqnabaoj/Build/Products",
+      "derivedDataPath" : "/Users/rutvims/Desktop/Week 1/RestaurantRoulette/RestaurantRoulette/Views",
+      "indexDataStoreFolderPath" : "/Users/rutvims/Desktop/Week 1/RestaurantRoulette/RestaurantRoulette/Views/RestaurantRoulette-geonjyyeythfmdgisefivqnabaoj/Index/DataStore",
+      "indexEnableDataStore" : true,
+      "indexPCHPath" : "/Users/rutvims/Desktop/Week 1/RestaurantRoulette/RestaurantRoulette/Views/RestaurantRoulette-geonjyyeythfmdgisefivqnabaoj/Index/PrecompiledHeaders",
+      "pchPath" : "/Users/rutvims/Desktop/Week 1/RestaurantRoulette/RestaurantRoulette/Views/RestaurantRoulette-geonjyyeythfmdgisefivqnabaoj/Build/Intermediates.noindex/PrecompiledHeaders"
+    },
+    "configurationName" : "Debug",
+    "overrides" : {
+      "synthesized" : {
+        "table" : {
+          "ASSETCATALOG_FILTER_FOR_DEVICE_MODEL" : "iPhone13,3",
+          "ASSETCATALOG_FILTER_FOR_DEVICE_OS_VERSION" : "14.5",
+          "BUILD_ACTIVE_RESOURCES_ONLY" : "YES",
+          "ENABLE_PREVIEWS" : "NO",
+          "TARGET_DEVICE_IDENTIFIER" : "6CB9A72D-19C6-407F-932B-34D497F1DC0F",
+          "TARGET_DEVICE_MODEL" : "iPhone13,3",
+          "TARGET_DEVICE_OS_VERSION" : "14.5",
+          "TARGET_DEVICE_PLATFORM_NAME" : "iphonesimulator"
+        }
+      }
+    }
+  },
+  "qos" : "default",
+  "schemeCommand" : "launch",
+  "shouldCollectMetrics" : false,
+  "showNonLoggedProgress" : true,
+  "useDryRun" : true,
+  "useImplicitDependencies" : true,
+  "useLegacyBuildLocations" : false,
+  "useParallelTargets" : true
+}

@@ -46,11 +46,11 @@
         for(int i = 0;i<5;i++){
             UIImageView *img = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, width*ZOOM, width*ZOOM)];
             img.center = CGPointMake((i+1.5)*width, frame.size.height/2);
-            img.image = [UIImage imageNamed:@"bt_star_a"];
+            img.image = [UIImage systemImageNamed:@"star"];
             [self.bottomView addSubview:img];
             UIImageView *img2 = [[UIImageView alloc] initWithFrame:img.frame];
             img2.center = img.center;
-            img2.image = [UIImage imageNamed:@"bt_star_b"];
+            img2.image = [UIImage systemImageNamed:@"star.fill"];
             [self.topView addSubview:img2];
         }
         self.enable = YES;
@@ -75,29 +75,29 @@
     }
 }
 -(void)tap:(UITapGestureRecognizer *)gesture{
-    if(self.enable){
-        CGPoint point = [gesture locationInView:self];
-        NSInteger count = (int)(point.x/self.starWidth)+1;
-        self.topView.frame = CGRectMake(0, 0, self.starWidth*count, self.bounds.size.height);
-        if(count>5){
-            _starNumber = 5;
-        }else{
-            _starNumber = count-1;
-        }
-    }
-    if([delegate respondsToSelector:@selector(setRating:isHuman:)]){
-        [delegate setRating:_starNumber isHuman:YES];
-    }
+//    if(self.enable){
+//        CGPoint point = [gesture locationInView:self];
+//        NSInteger count = (int)(point.x/self.starWidth)+1;
+//        self.topView.frame = CGRectMake(0, 0, self.starWidth*count, self.bounds.size.height);
+//        if(count>5){
+//            _starNumber = 5;
+//        }else{
+//            _starNumber = count-1;
+//        }
+//    }
+//    if([delegate respondsToSelector:@selector(setRating:isHuman:)]){
+//        [delegate setRating:_starNumber isHuman:YES];
+//    }
 }
 -(void)pan:(UIPanGestureRecognizer *)gesture{
-    if(self.enable){
-        CGPoint point = [gesture locationInView:self];
-        NSInteger count = (int)(point.x/self.starWidth);
-        if(count>=0 && count<=5 && _starNumber!=count){
-            self.topView.frame = CGRectMake(0, 0, self.starWidth*(count+1), self.bounds.size.height);
-            _starNumber = count;
-        }
-    }
+//    if(self.enable){
+//        CGPoint point = [gesture locationInView:self];
+//        NSInteger count = (int)(point.x/self.starWidth);
+//        if(count>=0 && count<=5 && _starNumber!=count){
+//            self.topView.frame = CGRectMake(0, 0, self.starWidth*(count+1), self.bounds.size.height);
+//            _starNumber = count;
+//        }
+//    }
 }
 /*
 // Only override drawRect: if you perform custom drawing.

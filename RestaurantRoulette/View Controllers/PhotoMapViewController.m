@@ -22,6 +22,7 @@
                                                             longitude:self.business.location.coordinate.longitude
                                                                  zoom:16];
     GMSMapView *mapView = [GMSMapView mapWithFrame:self.mapFrame.frame camera:camera];
+    
     mapView.myLocationEnabled = YES;
     [self.view addSubview:mapView];
     

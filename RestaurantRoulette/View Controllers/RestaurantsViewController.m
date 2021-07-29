@@ -119,9 +119,9 @@
         UITableViewCell *tappedCell = sender;
         NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
         YLPBusiness *business = self.search.businesses[indexPath.item];
-        
         DetailsViewController *detailsViewController = [segue destinationViewController];
         detailsViewController.business = business;
+        detailsViewController.finalView = false;
     }else{
         SpinnerViewController *spinner = [segue destinationViewController];
         spinner.spinnerItems = self.spinnerItems;

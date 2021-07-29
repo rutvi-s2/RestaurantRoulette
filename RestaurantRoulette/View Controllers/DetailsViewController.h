@@ -21,6 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UITableView *restaurantReviews;
 @property (strong, nonatomic) NSArray <YLPReview *> *reviews;
 @property (strong, nonatomic) NSArray <NSString *> *photoURLs;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *DoneBarButton;
+@property (nonatomic) BOOL finalView;
 
 @property (strong, nonatomic) YLPBusiness *business;
 

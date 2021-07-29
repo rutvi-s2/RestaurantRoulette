@@ -6,6 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UserInfo.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -16,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UITextField *bioChange;
 @property (weak, nonatomic) IBOutlet UISwitch *notifications;
 @property (weak, nonatomic) IBOutlet UIImageView *profilePic;
+@property (strong,nonatomic) UserInfo *profile;
 
 @end
 

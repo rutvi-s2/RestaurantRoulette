@@ -9,4 +9,8 @@
 
 @implementation CurrentBookingCell
 
+- (IBAction)infoButtonPressed:(id)sender {
+    [self.delegate alertNewBusiness:self.business index:self.index];
+}
+
 @end

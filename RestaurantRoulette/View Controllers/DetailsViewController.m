@@ -26,6 +26,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    if(self.finalView){
+        self.DoneBarButton.tintColor = [UIColor blueColor];
+        self.DoneBarButton.enabled = YES;
+    }else{
+        self.DoneBarButton.tintColor = [UIColor clearColor];
+        self.DoneBarButton.enabled = NO;
+    }
+    
     self.restaurantPhotos.delegate = self;
     self.restaurantPhotos.dataSource = self;
     self.restaurantReviews.delegate = self;
@@ -40,6 +48,7 @@
     }];
     
     self.restaurantName.text = self.business.name;
+    [self.restaurantName sizeToFit];
     [self.restaurantImage setImageWithURL:self.business.imageURL];
     self.restaurantNumber.text = self.business.phone;
     self.restaurantAddress.text = [NSString stringWithFormat:@"%@, %@ %@, %@",self.business.location.address.firstObject,self.business.location.city, self.business.location.stateCode, self.business.location.postalCode];
@@ -50,9 +59,9 @@
             [self.restaurantReviews reloadData];
         });
     }];
-//    RatingBar *bar = [[RatingBar alloc] initWithFrame:CGRectMake(16, 217, 180, 30)];
-//    [self.view addSubview:bar];
-//    bar.starNumber = 4.5;
+    RatingBar *bar = [[RatingBar alloc] initWithFrame:CGRectMake(134, 514, 180, 30)];
+    [self.view addSubview:bar];
+    [bar setStarNumber:self.business.rating];
     
 }
 
@@ -85,14 +94,21 @@
     }
     return cell;
 }
+- (IBAction)DonePress:(id)sender {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UITabBarController *tabBarController = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
+    [self presentViewController:tabBarController animated:YES completion:^{}];
+}
 
 
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    PhotoMapViewController *mapViewController = [segue destinationViewController];
-    mapViewController.business = self.business;
+    if([segue.identifier isEqualToString:@"mapSegue"]){
+        PhotoMapViewController *mapViewController = [segue destinationViewController];
+        mapViewController.business = self.business;
+    }
 }
 
 

@@ -38,9 +38,11 @@
     // create an OK action
     UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        DetailsViewController *DetailsViewController = [storyboard instantiateViewControllerWithIdentifier:@"DetailsViewController"];
-        DetailsViewController.business = business;
-        [self presentViewController:DetailsViewController animated:YES completion:^{}];
+        UINavigationController  *navigationController = [storyboard instantiateViewControllerWithIdentifier:@"DetailsViewNavigationController"];
+        DetailsViewController *detailsViewController = (DetailsViewController *)navigationController.topViewController;
+        detailsViewController.business = business;
+        detailsViewController.finalView = true;
+        [self presentViewController:navigationController animated:YES completion:^{}];
     }];
     // add the OK action to the alert controller
     [alert addAction:okAction];

@@ -1,0 +1,49 @@
+Target dependency graph (13 targets)
+AFNetworking in Pods
+Bolts in Pods
+GoogleMaps in Pods
+Parse-Parse in Pods
+Parse in Pods, depends on:
+Bolts in Pods (explicit)
+Parse-Parse in Pods (explicit)
+RatingBar in Pods
+YelpAPI in Pods
+Pods-RestaurantRoulette in Pods, depends on:
+AFNetworking in Pods (explicit)
+Bolts in Pods (explicit)
+GoogleMaps in Pods (explicit)
+Parse in Pods (explicit)
+RatingBar in Pods (explicit)
+YelpAPI in Pods (explicit)
+Pods-RestaurantRoulette-RestaurantRouletteUITests in Pods, depends on:
+AFNetworking in Pods (explicit)
+Bolts in Pods (explicit)
+GoogleMaps in Pods (explicit)
+Parse in Pods (explicit)
+RatingBar in Pods (explicit)
+YelpAPI in Pods (explicit)
+Pods-RestaurantRouletteTests in Pods, depends on:
+Pods-RestaurantRoulette in Pods (explicit)
+RestaurantRoulette in RestaurantRoulette, depends on:
+Pods-RestaurantRoulette in Pods (implicit dependency via file 'Pods_RestaurantRoulette.framework' in build phase 'Link Binary'
+AFNetworking in Pods (implicit dependency via options '-framework AFNetworking' in build setting 'OTHER_LDFLAGS'
+Bolts in Pods (implicit dependency via options '-framework Bolts' in build setting 'OTHER_LDFLAGS'
+Parse in Pods (implicit dependency via options '-framework Parse' in build setting 'OTHER_LDFLAGS'
+RatingBar in Pods (implicit dependency via options '-framework RatingBar' in build setting 'OTHER_LDFLAGS'
+YelpAPI in Pods (implicit dependency via options '-framework YelpAPI' in build setting 'OTHER_LDFLAGS'
+RestaurantRouletteTests in RestaurantRoulette, depends on:
+RestaurantRoulette in RestaurantRoulette (explicit)
+Pods-RestaurantRouletteTests in Pods (implicit dependency via file 'Pods_RestaurantRouletteTests.framework' in build phase 'Link Binary'
+AFNetworking in Pods (implicit dependency via options '-framework AFNetworking' in build setting 'OTHER_LDFLAGS'
+Bolts in Pods (implicit dependency via options '-framework Bolts' in build setting 'OTHER_LDFLAGS'
+Parse in Pods (implicit dependency via options '-framework Parse' in build setting 'OTHER_LDFLAGS'
+RatingBar in Pods (implicit dependency via options '-framework RatingBar' in build setting 'OTHER_LDFLAGS'
+YelpAPI in Pods (implicit dependency via options '-framework YelpAPI' in build setting 'OTHER_LDFLAGS'
+RestaurantRouletteUITests in RestaurantRoulette, depends on:
+RestaurantRoulette in RestaurantRoulette (explicit)
+Pods-RestaurantRoulette-RestaurantRouletteUITests in Pods (implicit dependency via file 'Pods_RestaurantRoulette_RestaurantRouletteUITests.framework' in build phase 'Link Binary'
+AFNetworking in Pods (implicit dependency via options '-framework AFNetworking' in build setting 'OTHER_LDFLAGS'
+Bolts in Pods (implicit dependency via options '-framework Bolts' in build setting 'OTHER_LDFLAGS'
+Parse in Pods (implicit dependency via options '-framework Parse' in build setting 'OTHER_LDFLAGS'
+RatingBar in Pods (implicit dependency via options '-framework RatingBar' in build setting 'OTHER_LDFLAGS'
+YelpAPI in Pods (implicit dependency via options '-framework YelpAPI' in build setting 'OTHER_LDFLAGS'

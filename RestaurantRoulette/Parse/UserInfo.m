@@ -19,6 +19,7 @@
 @dynamic userDetails;
 @dynamic joinDate;
 @dynamic timeOfBooking;
+@dynamic timeOfPastBooking;
 
 
 + (nonnull NSString *)parseClassName {
@@ -37,6 +38,22 @@
     newUser.joinDate = [formatter stringFromDate:[PFUser currentUser].createdAt];
     
     [newUser saveInBackgroundWithBlock: completion];
+}
+
+- (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image {
+ 
+    // check if image is not nil
+    if (!image) {
+        return nil;
+    }
+    
+    NSData *imageData = UIImagePNGRepresentation(image);
+    // get image data and check if that is not nil
+    if (!imageData) {
+        return nil;
+    }
+    
+    return [PFFileObject fileObjectWithName:@"image.png" data:imageData];
 }
 
 @end

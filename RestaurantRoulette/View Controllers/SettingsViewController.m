@@ -6,6 +6,7 @@
 //
 
 #import "SettingsViewController.h"
+#import "ProfileViewController.h"
 
 @interface SettingsViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
@@ -15,6 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.nameChange setPlaceholder:self.profile.name];
     // Do any additional setup after loading the view.
 }
 
@@ -43,6 +45,10 @@
 }
 
 - (IBAction)saveChanges:(id)sender {
+    if(![self.nameChange.text isEqualToString:@""]){
+        self.profile.name = self.nameChange.text;
+    }
+    [self.profile getPFFileFromImage:self.profilePic.image];
 }
 
 /*
@@ -50,9 +56,8 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+
 }
-*/
+ */
 
 @end

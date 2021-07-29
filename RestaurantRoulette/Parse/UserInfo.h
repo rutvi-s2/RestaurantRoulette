@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSMutableArray *pastBookingsArray;
 @property (nonatomic, strong) NSMutableArray *currentBookingsArray;
 @property (nonatomic, strong) NSMutableArray *timeOfBooking;
+@property (nonatomic, strong) NSMutableArray *timeOfPastBooking;
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *username;
 @property (nonatomic, strong) PFFileObject *image;
@@ -25,6 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 + (void) newUser: (NSString * _Nullable )name withCompletion: (PFBooleanResultBlock  _Nullable)completion;
+- (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image;
 
 @end
 
