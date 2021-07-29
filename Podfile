@@ -11,6 +11,7 @@ target 'RestaurantRoulette' do
     pod 'AFNetworking'
     pod 'GoogleMaps', '5.1.0'
     pod 'RatingBar'
+    pod 'MDCSwipeToChoose'
 
   target 'RestaurantRouletteTests' do
     inherit! :search_paths

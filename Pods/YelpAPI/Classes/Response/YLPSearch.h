@@ -14,9 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface YLPSearch : NSObject
 
-@property (nonatomic, readonly) NSArray<YLPBusiness *> *businesses;
+@property (nonatomic) NSArray<YLPBusiness *> *businesses;
 //@property (nonatomic, readonly) NSArray<NSString *> *category;
-@property (nonatomic, readonly) NSUInteger total;
+@property (nonatomic) NSUInteger total;
 
 @end
 

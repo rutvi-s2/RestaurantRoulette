@@ -36,6 +36,15 @@ typedef void(^YLPCategoryCompletionHandler)(NSMutableArray<YLPCategory *> *_Null
          completionHandler:(YLPSearchCompletionHandler)completionHandler;
 
 - (void)searchWithLocation:(NSString *)location
+                      term:(nullable NSString *)term
+                     limit:(NSUInteger)limit
+                    offset:(NSUInteger)offset
+                      sort:(YLPSortType)sort
+              radiusFilter:(double)radiusFilter
+                   openNow:(BOOL)openNow
+         completionHandler:(YLPSearchCompletionHandler)completionHandler;
+
+- (void)searchWithLocation:(NSString *)location
          completionHandler:(YLPSearchCompletionHandler)completionHandler;
 
 - (void)searchWithCoordinate:(YLPCoordinate *)coordinate

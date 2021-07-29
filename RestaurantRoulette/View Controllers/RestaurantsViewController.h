@@ -7,6 +7,7 @@
 
 #import <UIKit/UIKit.h>
 #import <YelpAPI/YLPBusiness.h>
+#import <YelpAPI/YLPSearch.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -23,6 +24,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) NSMutableArray <NSString*> *cuisineFilter;
 @property (strong, nonatomic) NSMutableArray <YLPBusiness *> *spinnerItems;
 @property (strong, nonatomic) NSString *timeTracker;
+@property (nonatomic) BOOL card;
+@property (strong, nonatomic) YLPSearch *search;
+@property (strong, nonatomic) NSMutableArray <NSString *> *categoriesNames;
+@property (strong, nonatomic) YLPSearch *cardSearch;
 
 @end
 

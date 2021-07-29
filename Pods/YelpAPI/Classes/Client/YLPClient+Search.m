@@ -46,6 +46,24 @@
     [self searchWithQuery:query completionHandler:completionHandler];
 }
 
+- (void)searchWithLocation:(NSString *)location
+                      term:(nullable NSString *)term
+                     limit:(NSUInteger)limit
+                    offset:(NSUInteger)offset
+                      sort:(YLPSortType)sort
+              radiusFilter:(double)radiusFilter
+                   openNow:(BOOL)openNow
+         completionHandler:(YLPSearchCompletionHandler)completionHandler{
+    YLPQuery *query = [[YLPQuery alloc] initWithLocation:location];
+    query.term = term;
+    query.limit = limit;
+    query.offset = offset;
+    query.sort = sort;
+    query.radiusFilter = radiusFilter;
+    query.openNow = openNow;
+    [self searchWithQuery:query completionHandler:completionHandler];
+}
+
 - (void)searchWithCoordinate:(YLPCoordinate *)coordinate
                         term:(NSString *)term limit:(NSUInteger)limit
                       offset:(NSUInteger)offset

@@ -19,9 +19,6 @@
 
 @interface RestaurantsViewController () <UITableViewDelegate, UITableViewDataSource>
 
-@property (strong, nonatomic) YLPSearch *search;
-@property (strong, nonatomic) NSMutableArray <NSString *> *categoriesNames;
-
 @end
 
 @implementation RestaurantsViewController
@@ -31,29 +28,33 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
-    int const meterConversion = 1600;
-    if([self.zipcode isEqualToString:@""]){
-        YLPCoordinate *const myCoordinate = [[YLPCoordinate alloc] initWithLatitude:[self.latitudeValue doubleValue] longitude:[self.longtitudeValue doubleValue]];
-        [[APIManager shared] searchWithCoordinate:myCoordinate term:nil limit:20 offset:0 sort:YLPSortTypeBestMatched price:self.price radiusFilter:(self.radius * meterConversion) openAt:self.time categoryFilter:self.cuisineFilter completionHandler:^(YLPSearch * _Nullable search, NSError * _Nullable error) {
-            self.search = search;
-            if(self.search.businesses.count == 0){
-                [self alertHelper:@"No restaurants available!"];
-            }
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.tableView reloadData];
-            });
-        }];
+    if (!self.card){
+        int const meterConversion = 1600;
+        if([self.zipcode isEqualToString:@""]){
+            YLPCoordinate *const myCoordinate = [[YLPCoordinate alloc] initWithLatitude:[self.latitudeValue doubleValue] longitude:[self.longtitudeValue doubleValue]];
+            [[APIManager shared] searchWithCoordinate:myCoordinate term:nil limit:20 offset:0 sort:YLPSortTypeBestMatched price:self.price radiusFilter:(self.radius * meterConversion) openAt:self.time categoryFilter:self.cuisineFilter completionHandler:^(YLPSearch * _Nullable search, NSError * _Nullable error) {
+                self.search = search;
+                if(self.search.businesses.count == 0){
+                    [self alertHelper:@"No restaurants available!"];
+                }
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.tableView reloadData];
+                });
+            }];
+        }else{
+            [[APIManager shared] searchWithLocation:self.zipcode term:nil limit:20 offset:0 sort:YLPSortTypeBestMatched price:self.price radiusFilter:(self.radius * meterConversion) openAt:self.time categoryFilter: self.cuisineFilter completionHandler:^
+             (YLPSearch *search, NSError *error){
+                self.search = search;
+                if(self.search.businesses.count == 0){
+                    [self alertHelper:@"No restaurants available!"];
+                }
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self.tableView reloadData];
+                });
+            }];
+        }
     }else{
-        [[APIManager shared] searchWithLocation:self.zipcode term:nil limit:20 offset:0 sort:YLPSortTypeBestMatched price:self.price radiusFilter:(self.radius * meterConversion) openAt:self.time categoryFilter: self.cuisineFilter completionHandler:^
-         (YLPSearch *search, NSError *error){
-            self.search = search;
-            if(self.search.businesses.count == 0){
-                [self alertHelper:@"No restaurants available!"];
-            }
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.tableView reloadData];
-            });
-        }];
+        self.search = self.cardSearch;
     }
 }
 

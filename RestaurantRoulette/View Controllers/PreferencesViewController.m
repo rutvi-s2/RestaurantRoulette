@@ -96,6 +96,7 @@
     // Pass the selected object to the new view controller.
     UINavigationController  *navigationController = [segue destinationViewController];
     RestaurantsViewController  *restaurantController = (RestaurantsViewController*)navigationController.topViewController;
+    restaurantController.card = false;
     restaurantController.radius = (double) self.distanceSlider.value;
     NSArray *prices = [NSArray arrayWithObjects:@"1",@"2",@"3",@"4",nil];
     restaurantController.price = prices[self.priceControl.selectedSegmentIndex];
