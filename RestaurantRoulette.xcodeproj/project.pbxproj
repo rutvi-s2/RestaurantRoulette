@@ -24,6 +24,7 @@
 		4950BF68269E1557004FA5CA /* RestaurantsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4950BF67269E1557004FA5CA /* RestaurantsViewController.m */; };
 		4950BF6C269E86D1004FA5CA /* RestaurantCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4950BF6B269E86D1004FA5CA /* RestaurantCell.m */; };
 		4950BF6F269E89C7004FA5CA /* APIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4950BF6E269E89C7004FA5CA /* APIManager.m */; };
+		4951B09326B269A000F79659 /* CardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4951B09226B269A000F79659 /* CardViewController.m */; };
 		496EBD0526A54265008AFA5E /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 496EBD0426A54265008AFA5E /* DetailsViewController.m */; };
 		496EBD0826A5461B008AFA5E /* SpinnerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 496EBD0726A5461B008AFA5E /* SpinnerViewController.m */; };
 		496EBD0C26A69186008AFA5E /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 496EBD0B26A69186008AFA5E /* MapKit.framework */; };
@@ -96,6 +97,8 @@
 		4950BF6B269E86D1004FA5CA /* RestaurantCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RestaurantCell.m; sourceTree = "<group>"; };
 		4950BF6E269E89C7004FA5CA /* APIManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APIManager.m; sourceTree = "<group>"; };
 		4950BF70269E89E2004FA5CA /* APIManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIManager.h; sourceTree = "<group>"; };
+		4951B09126B269A000F79659 /* CardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardViewController.h; sourceTree = "<group>"; };
+		4951B09226B269A000F79659 /* CardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardViewController.m; sourceTree = "<group>"; };
 		496EBD0326A54265008AFA5E /* DetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
 		496EBD0426A54265008AFA5E /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		496EBD0626A5461B008AFA5E /* SpinnerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SpinnerViewController.h; sourceTree = "<group>"; };
@@ -244,6 +247,8 @@
 				496EBD2326AA6ECC008AFA5E /* ProfileViewController.m */,
 				496EBD2526AA72B7008AFA5E /* SettingsViewController.h */,
 				496EBD2626AA72B7008AFA5E /* SettingsViewController.m */,
+				4951B09126B269A000F79659 /* CardViewController.h */,
+				4951B09226B269A000F79659 /* CardViewController.m */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -614,6 +619,7 @@
 				496EBD2426AA6ECC008AFA5E /* ProfileViewController.m in Sources */,
 				496EBD2726AA72B7008AFA5E /* SettingsViewController.m in Sources */,
 				4950BF25269CA355004FA5CA /* AppDelegate.m in Sources */,
+				4951B09326B269A000F79659 /* CardViewController.m in Sources */,
 				4950BF36269CA356004FA5CA /* main.m in Sources */,
 				491B9C1B26A0EF9F00F5AACC /* CategoryCell.m in Sources */,
 				49A179B226B1DBBB00DB18A1 /* ReviewCell.m in Sources */,

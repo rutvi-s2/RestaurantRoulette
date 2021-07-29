@@ -34,7 +34,7 @@
     newUser.name = name;
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"yyyy-MM-dd"];
+    [formatter setDateFormat:@"MM-dd-yyyy"];
     newUser.joinDate = [formatter stringFromDate:[PFUser currentUser].createdAt];
     
     [newUser saveInBackgroundWithBlock: completion];

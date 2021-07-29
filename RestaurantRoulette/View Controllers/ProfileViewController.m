@@ -143,47 +143,61 @@
 }
 
 - (void)alertBusiness:(YLPBusiness *)business index:(NSInteger)index{
-        NSString *timeOfBooking = self.profile.timeOfPastBooking[index];
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle: business.name message:[NSString stringWithFormat:@"This restaurant was booked on %@", timeOfBooking] preferredStyle:UIAlertControllerStyleAlert];
-        // create a cancel action
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        }];
-        // add the cancel action to the alertController
-        [alert addAction:cancelAction];
-        // create an OK action
-        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"View Details" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-            UINavigationController  *navigationController = [storyboard instantiateViewControllerWithIdentifier:@"DetailsViewNavigationController"];
-            DetailsViewController *detailsViewController = (DetailsViewController *)navigationController.topViewController;
-            detailsViewController.business = business;
-            detailsViewController.finalView = true;
-            [self presentViewController:navigationController animated:YES completion:^{}];
-        }];
-        // add the OK action to the alert controller
-        [alert addAction:okAction];
-        [self presentViewController:alert animated:YES completion:^{}];
+    NSString *timeOfBooking = self.profile.timeOfPastBooking[index];
+    double unixTimeStamp = [timeOfBooking doubleValue];
+    NSTimeInterval _interval = unixTimeStamp;
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:_interval];
+    NSDateFormatter *formatter= [[NSDateFormatter alloc] init];
+    [formatter setLocale:[NSLocale currentLocale]];
+    [formatter setDateFormat:@"MM-dd-yyyy"];
+    NSString *dateString = [formatter stringFromDate:date];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle: business.name message:[NSString stringWithFormat:@"This restaurant was booked on %@", dateString] preferredStyle:UIAlertControllerStyleAlert];
+    // create a cancel action
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    }];
+    // add the cancel action to the alertController
+    [alert addAction:cancelAction];
+    // create an OK action
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"View Details" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UINavigationController  *navigationController = [storyboard instantiateViewControllerWithIdentifier:@"DetailsViewNavigationController"];
+        DetailsViewController *detailsViewController = (DetailsViewController *)navigationController.topViewController;
+        detailsViewController.business = business;
+        detailsViewController.finalView = true;
+        [self presentViewController:navigationController animated:YES completion:^{}];
+    }];
+    // add the OK action to the alert controller
+    [alert addAction:okAction];
+    [self presentViewController:alert animated:YES completion:^{}];
 }
 
 - (void)alertNewBusiness:(YLPBusiness *)business index:(NSInteger)index{
-        NSString *timeOfBooking = self.profile.timeOfBooking[index];
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle: business.name message:[NSString stringWithFormat:@"This restaurant was booked on %@", timeOfBooking] preferredStyle:UIAlertControllerStyleAlert];
-        // create a cancel action
-        UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
-        }];
-        // add the cancel action to the alertController
-        [alert addAction:cancelAction];
-        // create an OK action
-        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"View Details" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-            UINavigationController  *navigationController = [storyboard instantiateViewControllerWithIdentifier:@"DetailsViewNavigationController"];
-            DetailsViewController *detailsViewController = (DetailsViewController *)navigationController.topViewController;
-            detailsViewController.business = business;
-            detailsViewController.finalView = true;
-            [self presentViewController:navigationController animated:YES completion:^{}];
-        }];
-        // add the OK action to the alert controller
-        [alert addAction:okAction];
-        [self presentViewController:alert animated:YES completion:^{}];
+    NSString *timeOfBooking = self.profile.timeOfBooking[index];
+    double unixTimeStamp = [timeOfBooking doubleValue];
+    NSTimeInterval _interval = unixTimeStamp;
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:_interval];
+    NSDateFormatter *formatter= [[NSDateFormatter alloc] init];
+    [formatter setLocale:[NSLocale currentLocale]];
+    [formatter setDateFormat:@"MM-dd-yyyy"];
+    NSString *dateString = [formatter stringFromDate:date];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle: business.name message:[NSString stringWithFormat:@"This restaurant was booked on %@", dateString] preferredStyle:UIAlertControllerStyleAlert];
+    // create a cancel action
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    }];
+    // add the cancel action to the alertController
+    [alert addAction:cancelAction];
+    // create an OK action
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"View Details" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UINavigationController  *navigationController = [storyboard instantiateViewControllerWithIdentifier:@"DetailsViewNavigationController"];
+        DetailsViewController *detailsViewController = (DetailsViewController *)navigationController.topViewController;
+        detailsViewController.business = business;
+        detailsViewController.finalView = true;
+        [self presentViewController:navigationController animated:YES completion:^{}];
+    }];
+    // add the OK action to the alert controller
+    [alert addAction:okAction];
+    [self presentViewController:alert animated:YES completion:^{}];
 }
 
 #pragma mark - Navigation

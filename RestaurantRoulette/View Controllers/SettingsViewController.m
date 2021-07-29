@@ -49,6 +49,7 @@
         self.profile.name = self.nameChange.text;
     }
     [self.profile getPFFileFromImage:self.profilePic.image];
+    [self dismissViewControllerAnimated:YES completion:^{}];
 }
 
 /*

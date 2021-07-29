@@ -865,10 +865,10 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t7r-kD-J2v">
-                                                    <rect key="frame" x="124" y="130" width="20" height="20.666666666666671"/>
+                                                    <rect key="frame" x="129" y="130" width="21" height="20.666666666666671"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="22" id="2i5-XP-xhd"/>
-                                                        <constraint firstAttribute="width" constant="20" id="lgl-RQ-WXt"/>
+                                                        <constraint firstAttribute="width" constant="21" id="lgl-RQ-WXt"/>
                                                     </constraints>
                                                     <state key="normal" backgroundImage="info.circle" catalog="system"/>
                                                     <connections>
@@ -878,11 +878,11 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Hy9-LY-fyP" firstAttribute="leading" secondItem="s5C-Vt-8cC" secondAttribute="leading" id="2tu-84-qAg"/>
-                                                <constraint firstAttribute="trailing" secondItem="t7r-kD-J2v" secondAttribute="trailing" constant="8" id="4hy-9u-HvI"/>
+                                                <constraint firstAttribute="trailing" secondItem="t7r-kD-J2v" secondAttribute="trailing" constant="2" id="4hy-9u-HvI"/>
                                                 <constraint firstItem="iuc-YC-cx4" firstAttribute="top" secondItem="s5C-Vt-8cC" secondAttribute="top" constant="101" id="Jm6-io-ufL"/>
                                                 <constraint firstItem="t7r-kD-J2v" firstAttribute="top" relation="lessThanOrEqual" secondItem="iuc-YC-cx4" secondAttribute="bottom" constant="7" id="Kt0-A4-iZd"/>
                                                 <constraint firstAttribute="trailing" secondItem="iuc-YC-cx4" secondAttribute="trailing" id="aWT-zI-Zvv"/>
-                                                <constraint firstItem="t7r-kD-J2v" firstAttribute="leading" secondItem="s5C-Vt-8cC" secondAttribute="leading" constant="124" id="eCh-4U-yuC"/>
+                                                <constraint firstItem="t7r-kD-J2v" firstAttribute="leading" relation="lessThanOrEqual" secondItem="s5C-Vt-8cC" secondAttribute="leading" constant="129" id="eCh-4U-yuC"/>
                                                 <constraint firstItem="iuc-YC-cx4" firstAttribute="leading" secondItem="s5C-Vt-8cC" secondAttribute="leading" id="euh-ga-JVZ"/>
                                                 <constraint firstAttribute="bottom" secondItem="t7r-kD-J2v" secondAttribute="bottom" constant="4" id="nwG-aM-VwT"/>
                                                 <constraint firstItem="Hy9-LY-fyP" firstAttribute="top" secondItem="s5C-Vt-8cC" secondAttribute="top" id="sFj-FB-PNQ"/>
@@ -947,9 +947,9 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bEu-Wh-fMX">
-                                                    <rect key="frame" x="124" y="130" width="20" height="20.666666666666671"/>
+                                                    <rect key="frame" x="129" y="130" width="21" height="20.666666666666671"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="40" id="4KE-dQ-eRJ"/>
+                                                        <constraint firstAttribute="width" constant="21" id="4KE-dQ-eRJ"/>
                                                         <constraint firstAttribute="height" constant="22" id="MTf-Yt-3GG"/>
                                                     </constraints>
                                                     <state key="normal" backgroundImage="info.circle" catalog="system"/>
@@ -963,9 +963,9 @@
                                                 <constraint firstItem="zyA-sM-bfq" firstAttribute="leading" secondItem="mxK-lW-vR5" secondAttribute="leading" id="3kG-wJ-J94"/>
                                                 <constraint firstItem="bEu-Wh-fMX" firstAttribute="top" relation="lessThanOrEqual" secondItem="flK-x4-DeI" secondAttribute="bottom" constant="7" id="VlM-aa-KGP"/>
                                                 <constraint firstItem="flK-x4-DeI" firstAttribute="leading" secondItem="mxK-lW-vR5" secondAttribute="leading" id="aWf-j7-8v8"/>
-                                                <constraint firstAttribute="trailing" secondItem="bEu-Wh-fMX" secondAttribute="trailing" constant="8" id="eaJ-Mf-35q"/>
+                                                <constraint firstAttribute="trailing" secondItem="bEu-Wh-fMX" secondAttribute="trailing" constant="2" id="eaJ-Mf-35q"/>
                                                 <constraint firstItem="zyA-sM-bfq" firstAttribute="top" secondItem="mxK-lW-vR5" secondAttribute="top" id="fhs-zw-JOo"/>
-                                                <constraint firstItem="bEu-Wh-fMX" firstAttribute="leading" secondItem="mxK-lW-vR5" secondAttribute="leading" constant="124" id="mab-a4-XEq"/>
+                                                <constraint firstItem="bEu-Wh-fMX" firstAttribute="leading" relation="lessThanOrEqual" secondItem="mxK-lW-vR5" secondAttribute="leading" constant="129" id="mab-a4-XEq"/>
                                                 <constraint firstAttribute="trailing" secondItem="flK-x4-DeI" secondAttribute="trailing" id="n0f-28-JXl"/>
                                                 <constraint firstItem="flK-x4-DeI" firstAttribute="top" secondItem="zyA-sM-bfq" secondAttribute="bottom" constant="1" id="xwj-Ha-LTp"/>
                                             </constraints>
@@ -1145,10 +1145,10 @@
             </objects>
             <point key="canvasLocation" x="6852.3076923076924" y="1178.6729857819905"/>
         </scene>
-        <!--View Controller-->
+        <!--Card View Controller-->
         <scene sceneID="dx5-3X-Ryr">
             <objects>
-                <viewController id="Ird-vF-tZc" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CardViewController" id="Ird-vF-tZc" customClass="CardViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IHU-R7-BEm">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1219,11 +1219,11 @@
             </objects>
             <point key="canvasLocation" x="5923.0769230769229" y="1178.6729857819905"/>
         </scene>
-        <!--Item-->
+        <!--Explore-->
         <scene sceneID="kP8-C0-wU9">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="V1z-e1-Xzm" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="qf4-FT-HyZ"/>
+                    <tabBarItem key="tabBarItem" title="Explore" id="qf4-FT-HyZ"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="deo-vR-UUD">
                         <rect key="frame" x="0.0" y="44" width="390" height="44"/>
