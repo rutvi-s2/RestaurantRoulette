@@ -60,12 +60,12 @@
     // You can customize MDCSwipeToChooseView using MDCSwipeToChooseViewOptions.
     MDCSwipeToChooseViewOptions *options = [MDCSwipeToChooseViewOptions new];
     options.delegate = self;
-    options.likedText = @"Keep";
+    options.likedText = @"YUM";
     options.likedColor = [UIColor blueColor];
-    options.nopeText = @"Delete";
+    options.nopeText = @"NAH";
     options.onPan = ^(MDCPanState *state){};
 
-    MDCSwipeToChooseView *view = [[MDCSwipeToChooseView alloc] initWithFrame:CGRectMake(50, 150, 300, 400) options:options];
+    MDCSwipeToChooseView *view = [[MDCSwipeToChooseView alloc] initWithFrame:CGRectMake(50, 200, 300, 400) options:options];
     [view.imageView setImageWithURL:url];
     [self.view addSubview:view];
 }
