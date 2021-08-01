@@ -91,15 +91,12 @@ static float deltaAngle;
     CGPoint touchPosition = [touch locationInView:self];
     float const dist = [self calculateDistanceFromCenter:touchPosition];
     if(dist < 40 || dist > 180){
-        //ignore tap
         return NO;
     }
     //calculate distance of touch from center
     float const deltaX = touchPosition.x - container.center.x;
     float const deltaY = touchPosition.y - container.center.y;
-    //calculate arctangent - similar to robot lab in fri when needed to calculate how much to turn robot based on the camera's view
     deltaAngle = atan2(deltaY, deltaX);
-    //save transformation
     startTransform = container.transform;
     return YES;
 }
@@ -108,7 +105,6 @@ static float deltaAngle;
     CGPoint touchPosition = [touch locationInView:self];
     float const dist = [self calculateDistanceFromCenter:touchPosition];
     if(dist < 40 || dist > 180){
-        //ignore tap
         return NO;
     }
     [self rotate];

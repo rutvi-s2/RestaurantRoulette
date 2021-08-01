@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, getter=isClosed, readonly) BOOL closed;
 @property (nonatomic) BOOL visited;
+@property (nonatomic) BOOL liked;
 
 @property (nonatomic, readonly, nullable, copy) NSURL *imageURL;
 @property (nonatomic, readonly, copy) NSURL *URL;
