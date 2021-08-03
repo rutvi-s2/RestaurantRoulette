@@ -25,10 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.goButton.hidden = NO;
     self.location.hidden = NO;
-    self.enterLocationLabel.hidden = NO;
-    self.continueButton.hidden = YES;
     self.keepBusinesses = [NSMutableArray new];
     self.keepBusinessesTracker = [NSMutableArray new];
 }
@@ -36,10 +33,10 @@
 - (IBAction)goPressed:(id)sender {
     self.goButton.hidden = YES;
     self.location.hidden = YES;
-    self.enterLocationLabel.hidden = YES;
     
-    int meter_conversion = 1600;
-    [[APIManager shared] searchWithLocation:self.location.text term:@"restaurants" limit:20 offset:0 sort:YLPSortTypeHighestRated radiusFilter: ((5 + arc4random_uniform(20)))*meter_conversion openNow:true completionHandler:^
+    int const meter_conversion = 1600;
+    NSArray const *queries = [NSArray arrayWithObjects:@"5",@"10",@"15",@"20",nil];
+    [[APIManager shared] searchWithLocation:self.location.text term:@"restaurants" limit:[queries[self.queryControl.selectedSegmentIndex] integerValue] offset:0 sort:YLPSortTypeHighestRated radiusFilter: ((5 + arc4random_uniform(20)))*meter_conversion openNow:true completionHandler:^
      (YLPSearch *search, NSError *error){
         self.search = search;
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -55,6 +52,32 @@
         });
     }];
 }
+- (IBAction)updateTextPosition:(id)sender {
+    
+}
+
+-(void)hideLabels{
+    [UIView animateWithDuration:0.5 animations:^{
+        CGRect locationFrame = self.location.frame;
+        locationFrame.origin.y += 200;
+        
+        self.goButton.hidden = YES;
+        self.continueButton.hidden = YES;
+        self.queryControl.hidden = YES;
+    }];
+}
+-(void)showLabels{
+    [UIView animateWithDuration:0.5 animations:^{
+        CGRect locationFrame = self.location.frame;
+        locationFrame.origin.y -= 200;
+        
+        self.location.frame = locationFrame;
+        self.continueButton.hidden = NO;
+        self.goButton.hidden = NO;
+        self.queryControl.hidden = NO;
+    }];
+}
+
 
 - (void) cardSwiper: (NSURL *) url{
     // You can customize MDCSwipeToChooseView using MDCSwipeToChooseViewOptions.

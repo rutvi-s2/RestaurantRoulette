@@ -15,11 +15,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UITextField *location;
 @property (strong, nonatomic) YLPSearch* search;
 @property (weak, nonatomic) IBOutlet UIButton *goButton;
-@property (weak, nonatomic) IBOutlet UILabel *enterLocationLabel;
 @property (strong, nonatomic) NSMutableArray <YLPBusiness *> *keepBusinesses;
 @property (strong, nonatomic) NSMutableArray <YLPBusiness *> *keepBusinessesTracker;
 @property (strong, nonatomic) YLPBusiness *currentBusiness;
 @property (weak, nonatomic) IBOutlet UIButton *continueButton;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *queryControl;
 
 @end
 
