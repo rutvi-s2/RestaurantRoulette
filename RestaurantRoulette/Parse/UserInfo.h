@@ -23,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) PFUser *userDetails;
 @property (nonatomic, strong) NSString *bio;
 @property (nonatomic, strong) NSString *joinDate;
+@property (nonatomic, strong) NSMutableArray *likesArray;
 
 
 + (void) newUser: (NSString * _Nullable )name withCompletion: (PFBooleanResultBlock  _Nullable)completion;

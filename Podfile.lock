@@ -25,6 +25,8 @@ PODS:
     - Parse/Core (= 1.19.2)
   - Parse/Core (1.19.2):
     - Bolts/Tasks (= 1.9.1)
+  - Parse/UI (1.19.2):
+    - Parse/Core
   - RatingBar (0.0.2)
   - YelpAPI (3.0.0)
 
@@ -33,6 +35,7 @@ DEPENDENCIES:
   - GoogleMaps (= 5.1.0)
   - MDCSwipeToChoose
   - Parse
+  - Parse/UI
   - RatingBar
   - YelpAPI
 
@@ -55,6 +58,6 @@ SPEC CHECKSUMS:
   RatingBar: de58108078acfd63ccc2853d9a7efbfef42b521e
   YelpAPI: 9ae0ee45b998d306c1aff9b2d966dc23121f191e
 
-PODFILE CHECKSUM: 82f3e8b7bd654015587b0e83a51e37389029ab45
+PODFILE CHECKSUM: 1e2cda7a24e5ac283fb09f8a7bfcce81514bd5a2
 
 COCOAPODS: 1.10.1

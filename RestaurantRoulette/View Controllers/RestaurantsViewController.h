@@ -7,6 +7,7 @@
 
 #import <UIKit/UIKit.h>
 #import <YelpAPI/YLPBusiness.h>
+#import "UserInfo.h"
 #import <YelpAPI/YLPSearch.h>
 
 NS_ASSUME_NONNULL_BEGIN
@@ -28,6 +29,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) YLPSearch *search;
 @property (strong, nonatomic) NSMutableArray <NSString *> *categoriesNames;
 @property (strong, nonatomic) YLPSearch *cardSearch;
+@property (nonatomic) BOOL nonfavoriteTab;
+@property (strong, nonatomic) UserInfo *profile;
+@property (strong, nonatomic) NSArray<YLPBusiness *> *businesses;
 
 @end
 

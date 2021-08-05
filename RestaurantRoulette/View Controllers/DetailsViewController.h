@@ -8,6 +8,7 @@
 #import <UIKit/UIKit.h>
 #import <YelpAPI/YLPBusiness.h>
 #import <YLPReview.h>
+#import "UserInfo.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -23,6 +24,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) NSArray <NSString *> *photoURLs;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *DoneBarButton;
 @property (nonatomic) BOOL finalView;
+@property (weak, nonatomic) IBOutlet UIButton *likeButton;
+@property (strong, nonatomic) UserInfo *profile;
 
 @property (strong, nonatomic) YLPBusiness *business;
 

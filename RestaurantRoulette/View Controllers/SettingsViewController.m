@@ -48,7 +48,7 @@
     if(![self.nameChange.text isEqualToString:@""]){
         self.profile.name = self.nameChange.text;
     }
-    [self.profile getPFFileFromImage:self.profilePic.image];
+    self.profile.image = [self.profile getPFFileFromImage:self.profilePic.image];
     [self dismissViewControllerAnimated:YES completion:^{}];
 }
 

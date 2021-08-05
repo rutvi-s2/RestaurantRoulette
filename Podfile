@@ -7,6 +7,7 @@ target 'RestaurantRoulette' do
 
   # Pods for RestaurantRoulette
     pod 'Parse'
+    pod 'Parse/UI'
     pod 'YelpAPI'
     pod 'AFNetworking'
     pod 'GoogleMaps', '5.1.0'

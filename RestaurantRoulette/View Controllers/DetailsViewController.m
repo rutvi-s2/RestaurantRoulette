@@ -16,6 +16,7 @@
 #import <YelpAPI/YLPClient+Business.h>
 #import <YelpAPI/YLPUser.h>
 #import "RatingBar.h"
+#import <Parse/Parse.h>
 
 @interface DetailsViewController ()<UITableViewDelegate, UITableViewDataSource, UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -27,7 +28,8 @@
     [super viewDidLoad];
     
     if(self.finalView){
-        self.DoneBarButton.tintColor = [UIColor blueColor];
+        UIColor *myBlueColor = [UIColor colorWithRed:18/255.f green:118/255.f blue:255/255.f alpha:1.0];
+        self.DoneBarButton.tintColor = myBlueColor;
         self.DoneBarButton.enabled = YES;
     }else{
         self.DoneBarButton.tintColor = [UIColor clearColor];
@@ -94,12 +96,66 @@
     }
     return cell;
 }
+
 - (IBAction)DonePress:(id)sender {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     UITabBarController *tabBarController = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
     [self presentViewController:tabBarController animated:YES completion:^{}];
 }
 
+- (IBAction)likePressed:(id)sender {
+    if([[self.likeButton currentBackgroundImage] isEqual: [UIImage systemImageNamed:@"heart"]]){
+        [self.likeButton setBackgroundImage:[UIImage systemImageNamed:@"heart.fill"] forState:UIControlStateNormal];
+        [self.likeButton setTintColor:[UIColor blueColor]];
+        [self parseHelper:self.business];
+    }else{
+        [self.likeButton setBackgroundImage:[UIImage systemImageNamed:@"heart"] forState:UIControlStateNormal];
+        [self parseHelperRemove:self.business];
+    }
+}
+
+- (void) parseHelper : (YLPBusiness *)business{
+    PFQuery *query = [PFQuery queryWithClassName:@"UserInfo"];
+    [query includeKey: @"username"];
+    [query whereKey:@"username" equalTo:PFUser.currentUser.username];
+    query.limit = 20;
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *profiles, NSError *error){
+        if(profiles != nil){
+            self.profile = profiles.firstObject;
+            if(self.profile.likesArray == nil){
+                self.profile.likesArray= [NSMutableArray new];
+            }
+            [self.profile.likesArray addObject:business.identifier];
+            self.profile [@"likesArray"] = self.profile.likesArray;
+            
+            [self.profile saveInBackground];
+        }else{
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
+}
+
+- (void) parseHelperRemove : (YLPBusiness *)business{
+    PFQuery *query = [PFQuery queryWithClassName:@"UserInfo"];
+    [query includeKey: @"username"];
+    [query whereKey:@"username" equalTo:PFUser.currentUser.username];
+    query.limit = 20;
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *profiles, NSError *error){
+        if(profiles != nil){
+            self.profile = profiles.firstObject;
+            if(self.profile.likesArray != nil && self.profile.likesArray.count != 0){
+                [self.profile.likesArray removeObject:business.identifier];
+                self.profile [@"likesArray"] = self.profile.likesArray;
+                
+                [self.profile saveInBackground];
+            }
+        }else{
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
+}
 
 #pragma mark - Navigation
 

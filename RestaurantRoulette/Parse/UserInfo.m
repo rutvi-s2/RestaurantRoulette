@@ -20,6 +20,7 @@
 @dynamic joinDate;
 @dynamic timeOfBooking;
 @dynamic timeOfPastBooking;
+@dynamic likesArray;
 
 
 + (nonnull NSString *)parseClassName {

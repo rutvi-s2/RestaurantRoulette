@@ -16,6 +16,7 @@
 #import <YelpAPI/YLPBusiness.h>
 #import "UIImageView+AFNetworking.h"
 #import "RestaurantsViewController.h"
+#import "LoginViewController.h"
 
 @interface CardViewController () <MDCSwipeToChooseDelegate>
 
@@ -25,14 +26,24 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.location.hidden = NO;
+    [self hideLabels];
     self.keepBusinesses = [NSMutableArray new];
     self.keepBusinessesTracker = [NSMutableArray new];
+}
+- (IBAction)logoutPress:(id)sender {
+    [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
+        // PFUser.current() will now be nil
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        LoginViewController *LoginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+        [self presentViewController:LoginViewController animated:YES completion:^{
+        }];
+    }];
 }
 
 - (IBAction)goPressed:(id)sender {
     self.goButton.hidden = YES;
     self.location.hidden = YES;
+    self.queryControl.hidden = YES;
     
     int const meter_conversion = 1600;
     NSArray const *queries = [NSArray arrayWithObjects:@"5",@"10",@"15",@"20",nil];
@@ -41,6 +52,7 @@
         self.search = search;
         dispatch_async(dispatch_get_main_queue(), ^{
             if(self.search.businesses.count == 0){
+                self.continueButton.hidden = NO;
                 [self alertHelper:@"No restaurants available!"];
             }else{
                 for(YLPBusiness *business in self.search.businesses){
@@ -52,18 +64,24 @@
         });
     }];
 }
+
 - (IBAction)updateTextPosition:(id)sender {
-    
+    if(self.location.text.length == 0){
+        [self hideLabels];
+    }else if (self.goButton.isHidden){
+        [self showLabels];
+    }
 }
 
 -(void)hideLabels{
     [UIView animateWithDuration:0.5 animations:^{
         CGRect locationFrame = self.location.frame;
         locationFrame.origin.y += 200;
+        self.location.frame = locationFrame;
         
         self.goButton.hidden = YES;
-        self.continueButton.hidden = YES;
         self.queryControl.hidden = YES;
+        self.continueButton.hidden = YES;
     }];
 }
 -(void)showLabels{
@@ -72,7 +90,6 @@
         locationFrame.origin.y -= 200;
         
         self.location.frame = locationFrame;
-        self.continueButton.hidden = NO;
         self.goButton.hidden = NO;
         self.queryControl.hidden = NO;
     }];
@@ -124,6 +141,7 @@
     self.search.total = self.keepBusinesses.count;
     UINavigationController  *navigationController = [segue destinationViewController];
     RestaurantsViewController  *restaurantController = (RestaurantsViewController*)navigationController.topViewController;
+    restaurantController.nonfavoriteTab = true;
     restaurantController.card = true;
     restaurantController.cardSearch = self.search;
     NSDate *date = [NSDate date];

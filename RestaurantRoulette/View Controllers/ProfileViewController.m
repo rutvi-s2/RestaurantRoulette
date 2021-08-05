@@ -104,6 +104,8 @@
             [self.pastBookings reloadData];
             self.name.text = self.profile.name;
             self.joinDate.text = [@"Joined on " stringByAppendingString:self.profile.joinDate];
+            self.profilePic.file = self.profile.image;
+            [self.profilePic loadInBackground];
         }else{
             NSLog(@"%@", error.localizedDescription);
         }

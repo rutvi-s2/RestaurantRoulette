@@ -234,7 +234,7 @@
                                 <rect key="frame" x="26" y="369" width="200" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.01546697319" green="0.51001262660000002" blue="0.48627561330000002" alpha="0.073012396199813742" colorSpace="custom" customColorSpace="displayP3"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" red="0.01546697319" green="0.51001262660000002" blue="0.48627561330000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                             </textField>
@@ -424,13 +424,7 @@
                         <viewLayoutGuide key="safeArea" id="CIs-rQ-rZe"/>
                         <color key="backgroundColor" red="0.95065194369999995" green="0.69026213879999998" blue="0.29007869959999999" alpha="0.1321083726" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Preferences" id="10B-Bi-EeE">
-                        <barButtonItem key="rightBarButtonItem" title="Logout" id="7GB-jv-iw9">
-                            <connections>
-                                <action selector="logoutPress:" destination="zMc-gr-RtS" id="NGQ-0c-Y5Q"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Preferences" id="10B-Bi-EeE"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="distanceSlider" destination="6CM-oG-jbk" id="nGZ-Nk-4KP"/>
@@ -452,6 +446,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="preferences_page" id="dRy-9z-Fgx">
+                                <rect key="frame" x="0.0" y="8" width="390" height="836"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.92556697129999999" green="0.94121491909999999" blue="0.93725520370000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" red="0.59650671479999995" green="0.66270446780000003" blue="0.66274654870000005" alpha="0.1810841339" colorSpace="custom" customColorSpace="displayP3"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pJB-Ur-G3J">
                                 <rect key="frame" x="94" y="777" width="203" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -470,15 +470,11 @@
                                     <segue destination="90N-5S-r0k" kind="show" id="uGS-Ri-KLn"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" image="preferences_page" id="dRy-9z-Fgx">
-                                <rect key="frame" x="0.0" y="8" width="390" height="836"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.92556697129999999" green="0.94121491909999999" blue="0.93725520370000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <color key="tintColor" red="0.59650671479999995" green="0.66270446780000003" blue="0.66274654870000005" alpha="0.1810841339" colorSpace="custom" customColorSpace="displayP3"/>
-                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="187" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aFM-zK-8FH">
                                 <rect key="frame" x="0.0" y="88" width="390" height="681"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="RestaurantCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RestaurantCell" rowHeight="187" id="wsE-Od-dMC" customClass="RestaurantCell">
                                         <rect key="frame" x="0.0" y="24.333333969116211" width="390" height="187"/>
@@ -791,6 +787,9 @@
                                 <state key="normal" backgroundImage="heart" catalog="system">
                                     <color key="titleColor" red="0.01546697319" green="0.51001262660000002" blue="0.48627561330000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <action selector="likePressed:" destination="vDU-II-nLl" eventType="touchUpInside" id="gYJ-RI-L0t"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MKc-pX-x7u">
                                 <rect key="frame" x="55" y="178" width="34" height="29.999999999999986"/>
@@ -842,6 +841,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="V1f-jE-HgW">
                         <barButtonItem key="rightBarButtonItem" title="Done" id="YfN-Tx-IRL">
+                            <color key="tintColor" red="0.070588235294117646" green="0.4644605517" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <action selector="DonePress:" destination="vDU-II-nLl" id="2up-bL-LKc"/>
                             </connections>
@@ -849,6 +849,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="DoneBarButton" destination="YfN-Tx-IRL" id="5Iu-Xn-r40"/>
+                        <outlet property="likeButton" destination="BMe-Dp-pUp" id="XLh-xh-Rne"/>
                         <outlet property="restaurantAddress" destination="idL-vV-yfe" id="ePf-9T-Tja"/>
                         <outlet property="restaurantImage" destination="H3z-Eo-xes" id="QFm-T4-RfM"/>
                         <outlet property="restaurantName" destination="cwL-bS-wlp" id="Yzt-PS-eIE"/>
@@ -929,7 +930,7 @@
                                 <color key="textColor" red="0.01546697319" green="0.51001262660000002" blue="0.48627561330000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hGE-JD-1mn">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hGE-JD-1mn" customClass="PFImageView">
                                 <rect key="frame" x="155" y="103" width="80" height="89"/>
                                 <color key="backgroundColor" red="0.811615749" green="0.90433391669999996" blue="0.95201788799999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -1093,8 +1094,8 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CURRENT BOOKINGS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Tm-AI-lbu">
-                                <rect key="frame" x="21" y="535" width="200" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FUTURE BOOKINGS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Tm-AI-lbu">
+                                <rect key="frame" x="21" y="535.66666666666663" width="200" height="24"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="LKN-Ra-m5N"/>
                                     <constraint firstAttribute="height" constant="24" id="TzF-Ym-4yh"/>
@@ -1141,7 +1142,7 @@
                         <outlet property="joinDate" destination="ufI-AQ-cgc" id="3uy-wW-TqO"/>
                         <outlet property="name" destination="vOb-UY-7JJ" id="ge7-GP-y7F"/>
                         <outlet property="pastBookings" destination="pTr-Gp-VvL" id="WFD-GQ-9Vw"/>
-                        <outlet property="profilePic" destination="hGE-JD-1mn" id="JIu-35-ULN"/>
+                        <outlet property="profilePic" destination="hGE-JD-1mn" id="H0W-Rk-5Fh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hwn-ti-6jR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1293,7 +1294,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="updateTextPosition:" destination="Ird-vF-tZc" eventType="editingChanged" id="dvk-ZV-LjR"/>
+                                    <action selector="updateTextPosition:" destination="Ird-vF-tZc" eventType="editingChanged" id="nHx-iG-svb"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="41j-Wp-ARE">
@@ -1334,7 +1335,13 @@
                         <viewLayoutGuide key="safeArea" id="b2X-8f-V9q"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="RdY-LH-gFT"/>
+                    <navigationItem key="navigationItem" id="RdY-LH-gFT">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="4jC-82-dLM">
+                            <connections>
+                                <action selector="logoutPress:" destination="Ird-vF-tZc" id="NLd-xl-z0t"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="continueButton" destination="sUo-PA-7vM" id="c8U-3P-6Ai"/>
                         <outlet property="goButton" destination="41j-Wp-ARE" id="jqT-cI-ZCt"/>
