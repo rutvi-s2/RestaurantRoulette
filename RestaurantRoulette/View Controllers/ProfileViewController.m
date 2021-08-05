@@ -15,6 +15,7 @@
 #import "APIManager.h"
 #import "SettingsViewController.h"
 #import "DetailsViewController.h"
+#import "SVProgressHUD.h"
 
 @interface ProfileViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, PastBookingDelegate, CurrentBookingDelegate>
 
@@ -30,10 +31,6 @@
     
     self.pastBookings.delegate = self;
     self.pastBookings.dataSource = self;
-    
-    self.refreshControl = [[UIRefreshControl alloc] init];
-    [self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
-    //    [self.view insertSubview:self.refreshControl atIndex: 0];
     
     [self parseHelper];
 }
@@ -99,10 +96,13 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray *profiles, NSError *error){
         if(profiles != nil){
             self.profile = profiles.firstObject;
+//            [SVProgressHUD show];
             [self getCurrentandPastBookings];
+//            [SVProgressHUD dismiss];
             [self.currentBookings reloadData];
             [self.pastBookings reloadData];
             self.name.text = self.profile.name;
+            NSLog(@"%@", self.profile[@"name"]);
             self.joinDate.text = [@"Joined on " stringByAppendingString:self.profile.joinDate];
             self.profilePic.file = self.profile.image;
             [self.profilePic loadInBackground];
@@ -110,13 +110,6 @@
             NSLog(@"%@", error.localizedDescription);
         }
     }];
-}
-
-- (void) refresh{
-    [self.currentBookings reloadData];
-    [self.pastBookings reloadData];
-    [self parseHelper];
-    [self.refreshControl endRefreshing];
 }
 
 - (void) getCurrentandPastBookings{

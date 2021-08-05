@@ -32,6 +32,17 @@
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Chosen" message:[NSString stringWithFormat:@"You have chosen %@", business.name] preferredStyle:UIAlertControllerStyleAlert];
     // create a cancel action
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Spin Again" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        [self.view.subviews setValue:@YES forKeyPath:@"hidden"];
+        self.background.hidden = NO;
+        self.yellowArrow.hidden = NO;
+        CAShapeLayer *circleLayer = [CAShapeLayer layer];
+        [circleLayer setPath:[[UIBezierPath bezierPathWithOvalInRect:CGRectMake(self.view.bounds.size.width/2 - 15, self.view.bounds.size.height/2 - 15, 30, 30)] CGPath]];
+        
+        SpinnerWheel *wheel = [[SpinnerWheel alloc]initWithFrame:CGRectMake(0,0,370,700) andDelegate:self withWedges:(int)self.spinnerItems.count withItems:self.spinnerItems];
+        wheel.center = CGPointMake(self.view.bounds.size.width/2, self.view.bounds.size.height/2);
+        //add wheel to current view
+        [self.view addSubview:wheel];
+        [[self.view layer] addSublayer:circleLayer];
     }];
     // add the cancel action to the alertController
     [alert addAction:cancelAction];
@@ -42,12 +53,12 @@
         DetailsViewController *detailsViewController = (DetailsViewController *)navigationController.topViewController;
         detailsViewController.business = business;
         detailsViewController.finalView = true;
+        [self parseHelper:business];
         [self presentViewController:navigationController animated:YES completion:^{}];
     }];
     // add the OK action to the alert controller
     [alert addAction:okAction];
     [self presentViewController:alert animated:YES completion:^{
-        [self parseHelper:business];
     }];
 }
 

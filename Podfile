@@ -13,6 +13,7 @@ target 'RestaurantRoulette' do
     pod 'GoogleMaps', '5.1.0'
     pod 'RatingBar'
     pod 'MDCSwipeToChoose'
+    pod 'SVProgressHUD'
 
   target 'RestaurantRouletteTests' do
     inherit! :search_paths

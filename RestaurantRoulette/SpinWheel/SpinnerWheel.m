@@ -139,7 +139,7 @@ static float deltaAngle;
             }
         }
     }
-    [UIView animateWithDuration:0.2 animations:^{
+    [UIView animateWithDuration:0.1 animations:^{
         CGAffineTransform t = CGAffineTransformRotate(self->container.transform, -newValue);
         self->container.transform = t;
     }completion:^(BOOL success) {

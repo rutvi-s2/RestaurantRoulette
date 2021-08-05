@@ -29,7 +29,7 @@
                                 <rect key="frame" x="20" y="325" width="354" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.59650671479999995" green="0.66270446780000003" blue="0.66274654870000005" alpha="0.18108413393134312" colorSpace="custom" customColorSpace="displayP3"/>
-                                <color key="textColor" red="0.98336857560000002" green="1" blue="0.79996949429999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" red="0.01546697319" green="0.51001262660000002" blue="0.48627561330000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
@@ -42,6 +42,7 @@
                                 <rect key="frame" x="20" y="367" width="354" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.59650671479999995" green="0.66270446780000003" blue="0.66274654870000005" alpha="0.1810841339" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" red="0.01546697319" green="0.51001262660000002" blue="0.48627561330000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
@@ -125,6 +126,7 @@
                                 <rect key="frame" x="20" y="333" width="354" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.59650671479999995" green="0.66270446780000003" blue="0.66274654870000005" alpha="0.1810841339" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" red="0.01546697319" green="0.51001262660000002" blue="0.48627561330000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
@@ -137,6 +139,7 @@
                                 <rect key="frame" x="20" y="375" width="354" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.59650671479999995" green="0.66270446780000003" blue="0.66274654870000005" alpha="0.1810841339" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" red="0.01546697319" green="0.51001262660000002" blue="0.48627561330000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
@@ -166,6 +169,7 @@
                                 <rect key="frame" x="58" y="291" width="316" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.59650671479999995" green="0.66270446780000003" blue="0.66274654870000005" alpha="0.1810841339" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" red="0.01546697319" green="0.51001262660000002" blue="0.48627561330000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
@@ -930,7 +934,7 @@
                                 <color key="textColor" red="0.01546697319" green="0.51001262660000002" blue="0.48627561330000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hGE-JD-1mn" customClass="PFImageView">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hGE-JD-1mn" customClass="PFImageView">
                                 <rect key="frame" x="155" y="103" width="80" height="89"/>
                                 <color key="backgroundColor" red="0.811615749" green="0.90433391669999996" blue="0.95201788799999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -1216,24 +1220,11 @@
                                     <action selector="saveChanges:" destination="LRJ-tY-iLL" eventType="touchUpInside" id="DFr-qK-hLB"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enable Notifications?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1VT-sd-idb">
-                                <rect key="frame" x="16" y="404" width="199" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <color key="textColor" red="0.20311951640000001" green="0.50213479999999999" blue="0.48235392570000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bmm-KK-LfP">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bmm-KK-LfP" customClass="PFImageView">
                                 <rect key="frame" x="155" y="137" width="80" height="89"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.811615749" green="0.90433391669999996" blue="0.95201788799999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </imageView>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1fA-LZ-8ZR">
-                                <rect key="frame" x="212" y="407" width="49" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="onTintColor" red="0.84856478800000001" green="0.61672802370000002" blue="0.25953984369999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <color key="thumbTintColor" red="0.79535622819999996" green="0.88607842160000005" blue="0.90306461220000001" alpha="0.95932370619999996" colorSpace="custom" customColorSpace="displayP3"/>
-                            </switch>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="gY4-16-2vu"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1243,8 +1234,7 @@
                         <outlet property="bioChange" destination="I0J-ZQ-IjT" id="o9Q-7H-dYO"/>
                         <outlet property="editProfilePic" destination="ETd-V1-MdQ" id="AII-BB-vs3"/>
                         <outlet property="nameChange" destination="hkU-P7-4fJ" id="xL9-lk-nub"/>
-                        <outlet property="notifications" destination="1fA-LZ-8ZR" id="QES-hB-JUz"/>
-                        <outlet property="profilePic" destination="bmm-KK-LfP" id="JpA-Z7-zwM"/>
+                        <outlet property="profilePic" destination="bmm-KK-LfP" id="dbO-Ga-tdV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3IW-MQ-HPi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1281,8 +1271,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" fixedFrame="YES" image="preferences_page" translatesAutoresizingMaskIntoConstraints="NO" id="PHc-tQ-PdO">
-                                <rect key="frame" x="0.0" y="12" width="390" height="832"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.5" contentMode="scaleAspectFill" fixedFrame="YES" image="preferences_page" translatesAutoresizingMaskIntoConstraints="NO" id="5gk-dY-U2H">
+                                <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.92556697129999999" green="0.94121491909999999" blue="0.93725520370000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="tintColor" red="0.59650671479999995" green="0.66270446780000003" blue="0.66274654870000005" alpha="0.1810841339" colorSpace="custom" customColorSpace="displayP3"/>
@@ -1372,10 +1362,10 @@
             </objects>
             <point key="canvasLocation" x="1816.9230769230769" y="1178.6729857819905"/>
         </scene>
-        <!--User-->
+        <!--ProfileViewNavigationController-->
         <scene sceneID="nGZ-TG-bev">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="Oro-tI-RtW" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="ProfileViewNavigationController" title="ProfileViewNavigationController" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="Oro-tI-RtW" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="User" id="NEk-Pd-f42"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="2iw-he-hkj"/>
@@ -1474,6 +1464,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="hBU-AT-2HW"/>
+                    <connections>
+                        <outlet property="background" destination="fMU-jy-l56" id="ah4-Pg-Rhl"/>
+                        <outlet property="yellowArrow" destination="rks-a9-F1h" id="h13-Hx-lXF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SM9-Yf-TPs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

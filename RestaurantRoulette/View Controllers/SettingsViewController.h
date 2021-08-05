@@ -7,6 +7,9 @@
 
 #import <UIKit/UIKit.h>
 #import "UserInfo.h"
+#import <Parse/Parse.h>
+
+@import Parse;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -15,8 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIButton *editProfilePic;
 @property (weak, nonatomic) IBOutlet UITextField *nameChange;
 @property (weak, nonatomic) IBOutlet UITextField *bioChange;
-@property (weak, nonatomic) IBOutlet UISwitch *notifications;
-@property (weak, nonatomic) IBOutlet UIImageView *profilePic;
+@property (weak, nonatomic) IBOutlet PFImageView *profilePic;
 @property (strong,nonatomic) UserInfo *profile;
 
 @end

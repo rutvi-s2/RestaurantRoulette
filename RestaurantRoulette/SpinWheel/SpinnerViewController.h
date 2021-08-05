@@ -17,6 +17,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) NSMutableArray <YLPBusiness *> *spinnerItems;
 @property (strong, nonatomic) NSString *timeTracker;
 @property (strong, nonatomic) UserInfo *profile;
+@property (weak, nonatomic) IBOutlet UIImageView *background;
+@property (weak, nonatomic) IBOutlet UIImageView *yellowArrow;
 
 @end
 

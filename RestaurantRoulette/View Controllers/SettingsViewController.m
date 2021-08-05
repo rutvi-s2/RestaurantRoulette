@@ -7,6 +7,8 @@
 
 #import "SettingsViewController.h"
 #import "ProfileViewController.h"
+#import "UIImageView+AFNetworking.h"
+#import <Parse/Parse.h>
 
 @interface SettingsViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
@@ -17,6 +19,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.nameChange setPlaceholder:self.profile.name];
+    self.profilePic.file = self.profile.image;
+    [self.profilePic loadInBackground];
     // Do any additional setup after loading the view.
 }
 
@@ -47,9 +51,16 @@
 - (IBAction)saveChanges:(id)sender {
     if(![self.nameChange.text isEqualToString:@""]){
         self.profile.name = self.nameChange.text;
+        self.profile[@"name"] = self.profile.name;
+        NSLog(@"%@", self.profile[@"name"]);
+        [self.profile saveInBackground];
     }
     self.profile.image = [self.profile getPFFileFromImage:self.profilePic.image];
-    [self dismissViewControllerAnimated:YES completion:^{}];
+    self.profile[@"image"] = self.profile.image;
+    [self.profile saveInBackground];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ProfileViewController *TabBarController = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
+    [self presentViewController:TabBarController animated:YES completion:^{}];
 }
 
 /*

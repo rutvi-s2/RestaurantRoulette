@@ -26,8 +26,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSMutableArray *likesArray;
 
 
-+ (void) newUser: (NSString * _Nullable )name withCompletion: (PFBooleanResultBlock  _Nullable)completion;
++ (void) newUser: (UIImage * _Nullable)image name: (NSString * _Nullable)name withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 - (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image;
++ (PFFileObject *)getPFFileFromImageHelper: (UIImage * _Nullable)image;
 
 @end
 

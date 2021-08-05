@@ -37,7 +37,7 @@
                 NSLog(@"Error: %@", error.localizedDescription);
             } else {
                 NSLog(@"User registered successfully");
-                [UserInfo newUser:self.nameText.text withCompletion:^(BOOL succeeded, NSError *error){}];
+                [UserInfo newUser:[UIImage imageNamed:@"checkbox_empty"] name:self.nameText.text withCompletion:^(BOOL succeeded, NSError *error){}];
                 UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
                 SignupViewController *TabBarController = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
                 [self presentViewController:TabBarController animated:YES completion:^{
